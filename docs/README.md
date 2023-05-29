@@ -5,7 +5,7 @@ Copy the [sylvester.h](https://github.com/xcatalyst/Sylvester/blob/master/sylves
 have couple of options. Sylvester supports SSE4 and AVX. If you want to enable them in your
 project decleare their flags before including the library like so:
 ```cpp
-#define SYL_ENABLE_SSE4 // Or SYL_ENABLE_AVX for AVX support 
+#define SYL_ENABLE_SSE4 // Or SYL_ENABLE_AVX for AVX support
 #include "sylvester.h"
 ```
 There is also ```SYL_DEBUG``` flag which changes the implementations of some of the(not much)
@@ -57,14 +57,13 @@ There are 3 types of vectors supported on Sylvester. 4D, 3D and 2D vectors which
 accessed with ```svec2``` ```svec3``` and ```svec4```.
 
 ```cpp
-VEC3V(float a, float b, float c); // Takes values
-VEC3A(float* a);                  // Takes array
-VEC3VV(vec2 Vector, float c);     // Takes Vector and Values
+S_VEC3F(float a, float b, float c); // Takes floats
+S_VEC3A(float* a);                  // Takes array
 ```
 I am not going to be typing out every possible vector function out there. Because the only thing that
 changes are prefixes.
 
-Comparing between two types can be done with functions. Not that these operators have orders and 
+Comparing between two types can be done with functions. Not that these operators have orders and
 they all have the same operation order.
 ```cpp
 s_vec2_mul_scalar(Vector * Scalar);
@@ -77,9 +76,9 @@ matricies as well. You cannot multiply ```s_mat4_mul_vec4(Vector, Matrix)```, th
 would be ```s_mat4_mul_vec4(Matrix, Vector)```. The parameters are in the same order as in the function names.
 
 ### Matrix Operations
- 
+
 [List of matrix functions](https://github.com/xcatalyst/Sylvester/blob/master/docs/matrix_c.md)
- 
+
 Sylvester matrix is decleared as smat4. Currently there is only 4x4 matrix in Sylvester. I might
 add 3x3 later but currently priority is given to make the library more robust then to add
 new features. mat4 accepts multiple ways to acceces parameters.
@@ -91,7 +90,7 @@ mat4 : { float m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, 
         { __m128 v[4] }    // If defined SYL_ENABLE_SSE4
         { __m256 v2[2] }   // If defined SYL_ENABLE_AVX
 ```
- 
+
 mat4 can be zeroed out with intrinsics with the function ```s_mat4_zero(mat4 *Matrix)```. This function also zeros out vectors but I only implemented
 it so it wouldn't be only for a single type. There is no need to use ```s_vector_type_zero(vector_type Vector)``` for vectors. The compiler should be able to optimize it with sse loads. You can define a matrix with the following functions:
 ```cpp
@@ -140,7 +139,7 @@ to a function and not have to define it because using it doesn't make sense out 
 passing it to a function.
 
 The following applies all operatos except divide and subtract.
-Comparing between two types can be done with operators. Not that these operators have orders and 
+Comparing between two types can be done with operators. Not that these operators have orders and
 they all have the same operation order.
 ```cpp
 Vector * Scalar;
@@ -163,13 +162,13 @@ To make the vector structure more flexible, Sylvester accepts multiple ways to a
  vec3 : {float x, y, z}, {float s, t, p}, {float r, g, b}, { e[3] }
  vec4 : {float x, y, z, w}, {float s, t, p, q}, {float r, g, b, a}, { e[4] }, { __m128 v /* If defined SYL_ENABLE_SSE4 */ }
  ```
- 
+
  ----
- 
+
  ### Matrix Operations
- 
+
 [List of matrix functions for CPP](https://github.com/xcatalyst/Sylvester/blob/master/docs/matrix_cpp.md)
- 
+
 Sylvester matrix is decleared as mat4. Currently there is only 4x4 matrix in Sylvester. I might
 add 3x3 later but currently priority is given to make the library more robust then to add
 new features. mat4 accepts multiple ways to acceces parameters.
@@ -181,7 +180,7 @@ mat4 : { float m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, 
         { __m128 v[4] }    // If defined SYL_ENABLE_SSE4
         { __m256 v2[2] }   // If defined SYL_ENABLE_AVX
 ```
- 
+
 mat4 can be zeroed out with intrinsics with the function ```Zero(mat4 &Matrix)```. This function also zerous out vectors but I only implemented
 it so it wouldn't be only for a single type. There is no need to use ```Zero(vector_type Vector)``` for vectors. The compiler should be able to
 optimize it with sse loads. The ```MAT4()``` function accepts multiple ways to define a matrix:

@@ -75,7 +75,7 @@
 
 
 /* NOTE(xcatalyst): Doing it the other way fucks up emacs indentation*/
-#ifndef _SYL_CPP_EXTER_STARTB
+#ifndef _SYL_CPP_EXTER_START
 #define _SYL_CPP_EXTER_START extern "C" {
 #endif
 
@@ -594,7 +594,7 @@ SYL_INLINE svec2 s_vec2p_add(svec2* Vec1, svec2 Vec2)
     return(*Vec1);
 #else
     Vec1->x = Vec1->x + Vec2.x;
-    Vec1->y = Vec1->y + Vec2.y;	// 
+    Vec1->y = Vec1->y + Vec2.y;	//
     return(*Vec1);
 #endif
 }
@@ -2051,7 +2051,7 @@ SYL_INLINE svec4 s_vec4_mul(svec4 Vec1, svec4 Vec2)
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
     __m128 r = _mm_mul_ps(Vec1.v, _mm_load_ps(Vec2.e));
     return *(svec4*)&r;
-#else    
+#else
     svec4 Result = { { (Vec1.x - Vec2.x), (Vec1.y - Vec2.y), (Vec1.z - Vec2.z), (Vec1.w - Vec2.w) } };
     return(Result);
 #endif
@@ -2855,11 +2855,11 @@ SYL_STATIC smat4 s_mat4_perspective_projection_rh(float Fov, float AspectRatio, 
 #else
     //float Cotan = 1.0f / tanf(Fov / 2.0f);
 
-    //mat4 Result = { 
+    //mat4 Result = {
     //	Cotan / AspectRatio, 0.0f, 0.0f, 0.0f,
     //	0.0f, Cotan, 0.0f, 0.0f,
     //	0.0f, 0.0f, (FarClipPlane + NearClipPlane) / (NearClipPlane - FarClipPlane), -1.0f,
-    //	0.0f, 0.0f, (2.0f * FarClipPlane * NearClipPlane) / (NearClipPlane - FarClipPlane), 0.0f 
+    //	0.0f, 0.0f, (2.0f * FarClipPlane * NearClipPlane) / (NearClipPlane - FarClipPlane), 0.0f
     //};
 
     //return(Result);
