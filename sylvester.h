@@ -155,10 +155,6 @@ static smat4 _S_ZERO4X4 = { {
 
 static svec2 _SVEC2_ZERO = { { 0.0f, 0.0f } };
 
-/* TODO(xcatalyst): Gives warning on GCC, unused variable */
-static svec3 _SVEC3_ZERO = { { 0.0f, 0.0f, 0.0f } };
-static svec4 _SVEC4_ZERO = { { 0.0f, 0.0f, 0.0f, 0.0f } };
-
 #if defined(SYL_ENABLE_SSE4)
 static __m128 _S_XMM_ZERO = { 0.0f, 0.0f, 0.0f, 0.0f };
 static __m128 _S_IDENT4x4R0 = { 1.0f, 0.0f, 0.0f, 0.0f };
@@ -1021,7 +1017,9 @@ SYL_INLINE svec3 S_VEC3A(float* a)
 
 SYL_INLINE void s_vec3_zero(svec3* Vector)
 {
-    *Vector = _SVEC3_ZERO;
+	Vector->x = 0;
+	Vector->y = 0;
+	Vector->z = 0;
 }
 
 SYL_INLINE bool s_vec3_equal(svec3 Vec1, svec3 Vec2)
@@ -1719,9 +1717,12 @@ SYL_INLINE svec4 S_VEC4VF(svec3 Vector, float Value)
 SYL_INLINE void s_vector4_zero(svec4* Vector)
 {
 #if defined(SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-    _mm_store_ps(Vector->e, _S_XMM_ZERO);
+	_mm_store_ps(Vector->e, _S_XMM_ZERO);
 #else
-    * Vector = _SVEC4_ZERO;
+	Vector->x = 0;
+	Vector->y = 0;
+	Vector->z = 0;
+	Vector->w = 0;
 #endif
 }
 
@@ -2454,7 +2455,7 @@ SYL_INLINE void s_mat4_zero(smat4* Matrix)
     _mm_store_ps(Matrix->e + 8, _S_XMM_ZERO);
     _mm_store_ps(Matrix->e + 12, _S_XMM_ZERO);
 #else
-    * Matrix = _S_ZERO4X4;
+    memset(Matrix, 0, sizeof(float) * 16);
 #endif
 }
 
@@ -2692,38 +2693,40 @@ SYL_STATIC smat4 s_mat4_inverse_noscale(smat4 Matrix)
 }
 
 /* Inverse of a matrix*/
-SYL_STATIC smat4 Inverse(smat4 Matrix)
-{
-#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-    __m128 a0 = _SYL_VEC_SHUFFLE_0101(Matrix.v[0], Matrix.v[1]); // 00, 01, 10, 11
-    __m128 a1 = _SYL_VEC_SHUFFLE_2323(Matrix.v[0], Matrix.v[1]); // 02, 03, 12, 13
-
-    smat4 Result;
-    Result.v[0] = _SYL_VEC_SHUFFLE(a0, Matrix.v[2], 0, 2, 0, 3); // 00, 10, 20, 23(=0)
-    Result.v[1] = _SYL_VEC_SHUFFLE(a0, Matrix.v[2], 1, 3, 1, 3); // 01, 11, 21, 23(=0)
-    Result.v[2] = _SYL_VEC_SHUFFLE(a1, Matrix.v[2], 0, 2, 2, 3); // 02, 12, 22, 23(=0)
-
-    __m128 SizeSquared = _mm_mul_ps(Result.v[0], Result.v[0]);
-    SizeSquared = _mm_add_ps(SizeSquared, _mm_mul_ps(Result.v[1], Result.v[1]));
-    SizeSquared = _mm_add_ps(SizeSquared, _mm_mul_ps(Result.v[2], Result.v[2]));
-
-    __m128 Sqr = _mm_blendv_ps(_mm_div_ps(_S_XMM_ZERO, SizeSquared), _S_XMM_ZERO, _mm_cmplt_ps(SizeSquared, _mm_set1_ps(_SYL_SMALL_NUMBER)));
-
-    Result.v[0] = _mm_mul_ps(Result.v[0], Sqr);
-    Result.v[1] = _mm_mul_ps(Result.v[1], Sqr);
-    Result.v[2] = _mm_mul_ps(Result.v[2], Sqr);
-
-    Result.v[3] = _mm_mul_ps(Result.v[0], _SYL_VEC_SWIZZLE1(Matrix.v[3], 0));
-    Result.v[3] = _mm_add_ps(Result.v[3], _mm_mul_ps(Result.v[1], _SYL_VEC_SWIZZLE1(Matrix.v[3], 1)));
-    Result.v[3] = _mm_add_ps(Result.v[3], _mm_mul_ps(Result.v[2], _SYL_VEC_SWIZZLE1(Matrix.v[3], 2)));
-    Result.v[3] = _mm_sub_ps(_mm_setr_ps(0.f, 0.f, 0.f, 1.f), Result.v[3]);
-
-    return(Result);
-#else
-    /* TODO(xcatalyst): This is temporary to prevent gcc warning, implemenet this later ! */
-    return(Matrix);
-#endif
-}
+/*
+ * SYL_STATIC smat4 Inverse(smat4 Matrix)
+ * {
+ * #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
+ *     __m128 a0 = _SYL_VEC_SHUFFLE_0101(Matrix.v[0], Matrix.v[1]); // 00, 01, 10, 11
+ *     __m128 a1 = _SYL_VEC_SHUFFLE_2323(Matrix.v[0], Matrix.v[1]); // 02, 03, 12, 13
+ *
+ *     smat4 Result;
+ *     Result.v[0] = _SYL_VEC_SHUFFLE(a0, Matrix.v[2], 0, 2, 0, 3); // 00, 10, 20, 23(=0)
+ *     Result.v[1] = _SYL_VEC_SHUFFLE(a0, Matrix.v[2], 1, 3, 1, 3); // 01, 11, 21, 23(=0)
+ *     Result.v[2] = _SYL_VEC_SHUFFLE(a1, Matrix.v[2], 0, 2, 2, 3); // 02, 12, 22, 23(=0)
+ *
+ *     __m128 SizeSquared = _mm_mul_ps(Result.v[0], Result.v[0]);
+ *     SizeSquared = _mm_add_ps(SizeSquared, _mm_mul_ps(Result.v[1], Result.v[1]));
+ *     SizeSquared = _mm_add_ps(SizeSquared, _mm_mul_ps(Result.v[2], Result.v[2]));
+ *
+ *     __m128 Sqr = _mm_blendv_ps(_mm_div_ps(_S_XMM_ZERO, SizeSquared), _S_XMM_ZERO, _mm_cmplt_ps(SizeSquared, _mm_set1_ps(_SYL_SMALL_NUMBER)));
+ *
+ *     Result.v[0] = _mm_mul_ps(Result.v[0], Sqr);
+ *     Result.v[1] = _mm_mul_ps(Result.v[1], Sqr);
+ *     Result.v[2] = _mm_mul_ps(Result.v[2], Sqr);
+ *
+ *     Result.v[3] = _mm_mul_ps(Result.v[0], _SYL_VEC_SWIZZLE1(Matrix.v[3], 0));
+ *     Result.v[3] = _mm_add_ps(Result.v[3], _mm_mul_ps(Result.v[1], _SYL_VEC_SWIZZLE1(Matrix.v[3], 1)));
+ *     Result.v[3] = _mm_add_ps(Result.v[3], _mm_mul_ps(Result.v[2], _SYL_VEC_SWIZZLE1(Matrix.v[3], 2)));
+ *     Result.v[3] = _mm_sub_ps(_mm_setr_ps(0.f, 0.f, 0.f, 1.f), Result.v[3]);
+ *
+ *     return(Result);
+ * #else
+ *     /\* TODO(xcatalyst): This is temporary to prevent gcc warning, implemenet this later ! *\/
+ *     return(Matrix);
+ * #endif
+ * }
+ */
 
 SYL_STATIC svec4 s_mat4_transform(smat4 Matrix, svec4 Vector)
 {
