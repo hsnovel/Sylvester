@@ -23,7 +23,7 @@ If you want to make function non-inline (NOT RECCOMENDED) define ```SYL_NO_INLIN
 If you want to mark the functions as non static define ```SYL_NO_STATIC``` \
 Before including ```sylvester.h```
 
-[C version guide](#c-introduction) \
+[Guide](#c-introduction)
 
 # Introduction
 All Sylvester function are prefixed with ```s_```. All of the operator comparisons have
@@ -44,13 +44,13 @@ the final vector. You don't have to assign the return type to anything. It's onl
 
 There aren't many functions in this section. I currently don't have
 any idea for what I can add. Reccomendations are appreciated.
-[List of utility functions for C](https://github.com/xcatalyst/Sylvester/blob/master/docs/utility_c.md)
+[List of utility functions](https://github.com/xcatalyst/Sylvester/blob/master/docs/utility.md)
 
 ----
 
 ### Vector Operations
 
-[List of vector functions for C](https://github.com/xcatalyst/Sylvester/blob/master/docs/vector_c.md)
+[List of vector functions](https://github.com/xcatalyst/Sylvester/blob/master/docs/vector.md)
 
 There are 3 types of vectors supported on Sylvester. 4D, 3D and 2D vectors which can be
 accessed with ```svec2``` ```svec3``` and ```svec4```.
@@ -58,6 +58,7 @@ accessed with ```svec2``` ```svec3``` and ```svec4```.
 ```cpp
 SVEC3(float a, float b, float c); // Takes floats
 SVEC3A(float* a);                  // Takes array
+SMAT4(float value) // Builds identity matrix with the given value
 ```
 I am not going to be typing out every possible vector function out there. Because the only thing that
 changes are prefixes.
@@ -76,7 +77,7 @@ would be ```s_mat4_mul_vec4(Matrix, Vector)```. The parameters are in the same o
 
 ### Matrix Operations
 
-[List of matrix functions](https://github.com/xcatalyst/Sylvester/blob/master/docs/matrix_c.md)
+[List of matrix functions](https://github.com/xcatalyst/Sylvester/blob/master/docs/matrix.md)
 
 Sylvester matrix is decleared as smat4. Currently there is only 4x4 matrix in Sylvester. I might
 add 3x3 later but currently priority is given to make the library more robust then to add

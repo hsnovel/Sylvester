@@ -2446,20 +2446,21 @@ SYL_INLINE float s_vec4_sum(svec4 vec1)
  *                 MATRIX 4X4                 *
  *********************************************/
 
+/* Build an identity matrix with given value */
 SYL_INLINE smat4 SMAT4(float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
 	smat4 R;
-	R.v[0] = _mm_set1_ps(value);
-	R.v[1] = _mm_set1_ps(value);
-	R.v[2] = _mm_set1_ps(value);
-	R.v[3] = _mm_set1_ps(value);
+	R.v[0] = _mm_set_ps(value, 0, 0, 0);
+	R.v[1] = _mm_set_ps(0, value, 0, 0);
+	R.v[2] = _mm_set_ps(0, 0, value, 0);
+	R.v[3] = _mm_set_ps(0, 0, 0, value);
 	return(R);
 #else
-	smat4 Result = { { value, value, value, value,
-				   value, value, value, value,
-				   value, value, a[10], value,
-				   value, value, a[14], value } };
+	smat4 Result = { { value, 0, 0, 0,
+				   0, value, 0, 0,
+				   0, 0, value, 0,
+				   0, 0, 0, value } };
 	return(Result);
 #endif
 }
