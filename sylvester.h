@@ -2832,6 +2832,53 @@ SYL_INLINE smat4 s_mat4_translate(smat4 matrix, svec3 vec)
 	return matrix;
 }
 
+SYL_INLINE smat4 s_mat4_rotate(smat4 matrix, float angle, svec3 vec)
+{
+	/* NOTE: too many unnecesarry temporary variables, clean it up */
+	float a = angle;
+	float c = cos(angle);
+	float s = sin(angle);
+
+	svec3 axis = s_vec3_normalize(vec);
+	svec3 temp = s_vec3_mul_scalar(axis, (1 - c));
+
+	smat4 rotate;
+	rotate.m00 = c + temp.x * axis.x;
+	rotate.m01 = temp.x * axis.y + s * axis.z;
+	rotate.m02 = temp.x * axis.x - s * axis.y;
+
+	rotate.m10 = temp.y * axis.x - s * axis.z;
+	rotate.m11 = c + temp.y * axis.y;
+	rotate.m12 = temp.y * axis.z + s * axis.x;
+
+	rotate.m20 = temp.z * axis.x + s * axis.y;
+	rotate.m21 = temp.z * axis.y - s * axis.x;
+	rotate.m22 = c + temp.z * axis.z;
+
+	smat4 result;
+
+	result.v4d[0] = s_vec4_mul(matrix.v4d[0], SVEC4(rotate.m00, rotate.m00, rotate.m00, rotate.m00));
+	result.v4d[0] = s_vec4_add(result.v4d[0], s_vec4_mul(matrix.v4d[1], SVEC4(rotate.m01, rotate.m01, rotate.m01, rotate.m01)));
+	result.v4d[0] = s_vec4_add(result.v4d[0], s_vec4_mul(matrix.v4d[2], SVEC4(rotate.m02, rotate.m02, rotate.m02, rotate.m02)));
+
+	svec4 rta = s_vec4_mul(matrix.v4d[0], SVEC4(rotate.m10, rotate.m10, rotate.m10, rotate.m10));
+	svec4 rtb = s_vec4_mul(matrix.v4d[1], SVEC4(rotate.m11, rotate.m11, rotate.m11, rotate.m11));
+	svec4 rtc = s_vec4_mul(matrix.v4d[2], SVEC4(rotate.m12, rotate.m12, rotate.m12, rotate.m12));
+	svec4 tmpr = s_vec4_add(rta, rtb);
+	tmpr = s_vec4_add(tmpr, rtc);
+	result.v4d[1] = tmpr;
+
+	svec4 rt1 = s_vec4_mul(matrix.v4d[0], SVEC4(rotate.m20, rotate.m20, rotate.m20, rotate.m20));
+	svec4 rt2 = s_vec4_mul(matrix.v4d[1], SVEC4(rotate.m21, rotate.m21, rotate.m21, rotate.m21));
+	svec4 rt3 = s_vec4_mul(matrix.v4d[2], SVEC4(rotate.m22, rotate.m22, rotate.m22, rotate.m22));
+	svec4 tmpa = s_vec4_add(rt1, rt2);
+	tmpa = s_vec4_add(tmpa, rt3);
+	result.v4d[2] = tmpa;
+
+	result.v4d[3] = matrix.v4d[3];
+	return result;
+}
+
 SYL_INLINE smat4 s_mat4_xrotation(float Angle)
 {
 	float CosAngle = cos(Angle);
