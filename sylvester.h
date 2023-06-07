@@ -2835,7 +2835,6 @@ SYL_INLINE smat4 s_mat4_translate(smat4 matrix, svec3 vec)
 SYL_INLINE smat4 s_mat4_rotate(smat4 matrix, float angle, svec3 vec)
 {
 	/* NOTE: too many unnecesarry temporary variables, clean it up */
-	float a = angle;
 	float c = cos(angle);
 	float s = sin(angle);
 
