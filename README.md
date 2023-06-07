@@ -4,13 +4,13 @@ Sylvester is a high-performance single header advanced mathematics library desig
 mainly for 3D Graphics applications such as OpenGL, Direct3D, and Vulkan. It focuses
 on simplicity, usability, and performance. Sylvester works only on C++.
 
-Sylvester has both C and CPP version. The CPP version uses operator and funtion overloading with the ```Syl``` namespace.
-C version uses ```s_``` prefix and all operations have to be done explicity with functions.
+You can include the implementation with SYL_IMPLEMENTATION or just the decleartions
+with including the file.
 
 ## [Visit the docs for usage](https://github.com/xcatalyst/Sylvester/blob/master/docs/README.md)
 
 ## Feature Support
-Sylvester is not a finished library. It will take time for me to implement all the functions 
+Sylvester is not a finished library. It will take time for me to implement all the functions
 necessary and fix all the bugs. Currently, Sylvester supports:
 * Utility Functions
 * Vector 2D
