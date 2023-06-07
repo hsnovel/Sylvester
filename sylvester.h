@@ -334,11 +334,12 @@ SYL_INLINE svec4 s_vec4_clamp(svec4 Value, svec4 Min, svec4 Max);
 SYL_INLINE float s_vec4_max(svec4 A);
 SYL_INLINE float s_vec4_min(svec4 A);
 SYL_INLINE float s_vec4_sum(svec4 vec1);
-SYL_INLINE smat4 MAT4V(float m00, float m01, float m02, float m03,
+SYL_INLINE smat4 SMAT4(float value);
+SYL_INLINE smat4 SMAT4V(float m00, float m01, float m02, float m03,
 		       float m10, float m11, float m12, float m13,
 		       float m20, float m21, float m22, float m23,
 		       float m30, float m31, float m32, float m33);
-SYL_INLINE smat4 MAT4A(float* a);
+SYL_INLINE smat4 SMAT4A(float* a);
 SYL_INLINE void s_mat4_zero(smat4* Matrix);
 SYL_INLINE smat4 s_mat4_identity();
 SYL_INLINE bool s_mat4_is_identity(smat4 Mat);
@@ -2444,7 +2445,25 @@ SYL_INLINE float s_vec4_sum(svec4 vec1)
  *                 MATRIX 4X4                 *
  *********************************************/
 
-SYL_INLINE smat4 MAT4V(float m00, float m01, float m02, float m03,
+SYL_INLINE smat4 SMAT4(float value)
+{
+#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
+	smat4 R;
+	R.v[0] = _mm_set1_ps(value);
+	R.v[1] = _mm_set1_ps(value);
+	R.v[2] = _mm_set1_ps(value);
+	R.v[3] = _mm_set1_ps(value);
+	return(R);
+#else
+	smat4 Result = { { value, value, value, value,
+				   value, value, value, value,
+				   value, value, a[10], value,
+				   value, value, a[14], value } };
+	return(Result);
+#endif
+}
+
+SYL_INLINE smat4 SMAT4F(float m00, float m01, float m02, float m03,
 		       float m10, float m11, float m12, float m13,
 		       float m20, float m21, float m22, float m23,
 		       float m30, float m31, float m32, float m33)
@@ -2465,7 +2484,7 @@ SYL_INLINE smat4 MAT4V(float m00, float m01, float m02, float m03,
 #endif
 }
 
-SYL_INLINE smat4 MAT4A(float* a)
+SYL_INLINE smat4 SMAT4A(float* a)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
 	smat4 R;

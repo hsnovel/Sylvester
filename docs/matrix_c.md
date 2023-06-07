@@ -2,6 +2,11 @@
 
 * Sylvester use column major matricies.
 
+Set all values of a matrix to the value
+```cpp
+smat4 SMAT4(float value);
+```
+
 Returns a identity matrix.
 ```cpp
 mat4 s_mat4_identity();
@@ -22,7 +27,7 @@ Return inverse of a matrix.
 mat4 s_mat4_inverse(mat4 Matrix);
 ```
 
-Inverse of a matrix but the scale of this matrix should be 1 
+Inverse of a matrix but the scale of this matrix should be 1
 ```cpp
 mat4 s_mat4_inverse_noscale(mat4 Matrix);
 ```
@@ -57,7 +62,7 @@ Return a projection matrix in RH with the given values.
 mat4 s_mat4_perspective_projection_rh(float Fov, float AspectRatio, float NearClipPlane, float FarClipPlane);
 ```
 
-Return a ortographic matrix with the given values. 
+Return a ortographic matrix with the given values.
 ```cpp
 mat4 s_mat4_orthographic_projection_rh(float AspectRatio, float NearClipPlane, float FarClipPlane);
 `

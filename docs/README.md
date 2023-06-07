@@ -56,8 +56,8 @@ There are 3 types of vectors supported on Sylvester. 4D, 3D and 2D vectors which
 accessed with ```svec2``` ```svec3``` and ```svec4```.
 
 ```cpp
-S_VEC3(float a, float b, float c); // Takes floats
-S_VEC3A(float* a);                  // Takes array
+SVEC3(float a, float b, float c); // Takes floats
+SVEC3A(float* a);                  // Takes array
 ```
 I am not going to be typing out every possible vector function out there. Because the only thing that
 changes are prefixes.
