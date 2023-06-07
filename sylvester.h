@@ -183,163 +183,161 @@ SYL_INLINE svec3 s_rgb_to_hsv(svec3 RGB);
 SYL_INLINE svec2 S_VEC2F(float a, float b);
 SYL_INLINE svec2 S_VEC2A(float* a);
 SYL_INLINE void s_vec2_zero(svec2* Vector);
-SYL_INLINE bool s_vec2_equal(svec2 Vec1, svec2 Vec2);
-SYL_INLINE bool s_vec2_equal_scalar(svec2 Vec1, float Value);
-SYL_INLINE bool s_vec2_not_equal(svec2 Vec1, svec2 Vec2);
-SYL_INLINE bool s_vec2_not_equal_scalar(svec2 Vec1, float Value);
-SYL_INLINE bool s_vec2_greater(svec2 Vec1, svec2 Vec2);
-SYL_INLINE bool s_vec2_greater_scalar(svec2 Vec1, float Value);
-SYL_INLINE bool s_vec2_greater_equal(svec2 Vec1, svec2 Vec2);
-SYL_INLINE bool s_vec2_greater_equal_scalar(svec2 Vec1, float Value);
-SYL_INLINE bool s_vec2_less(svec2 Vec1, svec2 Vec2);
-SYL_INLINE bool s_vec2_less_scalar(svec2 Vec1, float Value);
-SYL_INLINE bool s_vec2_less_equal(svec2 Vec1, svec2 Vec2);
-SYL_INLINE bool s_vec2_less_equal_scalar(svec2 Vec1, float Value);
-SYL_INLINE svec2 s_vec2_add(svec2 Vec1, svec2 Vec2);
-SYL_INLINE svec2 s_vec2p_add(svec2* Vec1, svec2 Vec2);
-SYL_INLINE svec2 s_svec2_add_scalar(svec2 Vec1, float Value);
-SYL_INLINE svec2 s_svec2p_add_scalar(svec2* Vec1, float Value);
-SYL_INLINE svec2 s_vec2_sub(svec2 Vec1, svec2 Vec2);
-SYL_INLINE svec2 s_vec2p_sub(svec2* Vec1, svec2 Vec2);
-SYL_INLINE svec2 s_vec2_sub_scalar(svec2 Vec1, float Value);
-SYL_INLINE svec2 s_scalar_sub_vec2(float Value, svec2 Vec1);
-SYL_INLINE svec2 s_vec2p_sub_scalar(svec2* Vec1, float Value);
-SYL_INLINE svec2 s_scalar_sub_vec2p(float Value, svec2* Vec1);
-SYL_INLINE svec2 s_vec2_mul(svec2 Vec1, svec2 Vec2);
-SYL_INLINE svec2 s_vec2p_mul(svec2* Vec1, svec2 Vec2);
-SYL_INLINE svec2 s_vec2_mul_scalar(svec2 Vec1, float Value);
-SYL_INLINE svec2 s_vec2p_mul_scalar(svec2* Vec1, float Value);
-SYL_INLINE svec2 s_vec2_div(svec2 Vec1, svec2 Vec2);
-SYL_INLINE svec2 s_vec2p_div(svec2* Vec1, svec2 Vec2);
-SYL_INLINE svec2 s_vec2_div_scalar(svec2 Vec1, float Value);
-SYL_INLINE svec2 s_scalar_div_vec2(float Value, svec2 Vec1);
-SYL_INLINE svec2 s_vec2p_div_scalar(svec2* Vec1, float Value);
-SYL_INLINE svec2 s_scalar_div_vec2p(float Value, svec2* Vec1);
+SYL_INLINE bool s_vec2_equal(svec2 vec1, svec2 Vec2);
+SYL_INLINE bool s_vec2_equal_scalar(svec2 vec1, float Value);
+SYL_INLINE bool s_vec2_not_equal(svec2 vec1, svec2 Vec2);
+SYL_INLINE bool s_vec2_not_equal_scalar(svec2 vec1, float Value);
+SYL_INLINE bool s_vec2_greater(svec2 vec1, svec2 Vec2);
+SYL_INLINE bool s_vec2_greater_scalar(svec2 vec1, float Value);
+SYL_INLINE bool s_vec2_greater_equal(svec2 vec1, svec2 Vec2);
+SYL_INLINE bool s_vec2_greater_equal_scalar(svec2 vec1, float Value);
+SYL_INLINE bool s_vec2_less(svec2 vec1, svec2 Vec2);
+SYL_INLINE bool s_vec2_less_scalar(svec2 vec1, float Value);
+SYL_INLINE bool s_vec2_less_equal(svec2 vec1, svec2 Vec2);
+SYL_INLINE bool s_vec2_less_equal_scalar(svec2 vec1, float Value);
+SYL_INLINE svec2 s_vec2_add(svec2 vec1, svec2 Vec2);
+SYL_INLINE svec2 s_vec2p_add(svec2* vec1, svec2 Vec2);
+SYL_INLINE svec2 s_svec2_add_scalar(svec2 vec1, float Value);
+SYL_INLINE svec2 s_svec2p_add_scalar(svec2* vec1, float Value);
+SYL_INLINE svec2 s_vec2_sub(svec2 vec1, svec2 Vec2);
+SYL_INLINE svec2 s_vec2p_sub(svec2* vec1, svec2 Vec2);
+SYL_INLINE svec2 s_vec2_sub_scalar(svec2 vec1, float Value);
+SYL_INLINE svec2 s_scalar_sub_vec2(float Value, svec2 vec1);
+SYL_INLINE svec2 s_vec2p_sub_scalar(svec2* vec1, float Value);
+SYL_INLINE svec2 s_scalar_sub_vec2p(float Value, svec2* vec1);
+SYL_INLINE svec2 s_vec2_mul(svec2 vec1, svec2 Vec2);
+SYL_INLINE svec2 s_vec2p_mul(svec2* vec1, svec2 Vec2);
+SYL_INLINE svec2 s_vec2_mul_scalar(svec2 vec1, float Value);
+SYL_INLINE svec2 s_vec2p_mul_scalar(svec2* vec1, float Value);
+SYL_INLINE svec2 s_vec2_div(svec2 vec1, svec2 Vec2);
+SYL_INLINE svec2 s_vec2p_div(svec2* vec1, svec2 Vec2);
+SYL_INLINE svec2 s_vec2_div_scalar(svec2 vec1, float Value);
+SYL_INLINE svec2 s_scalar_div_vec2(float Value, svec2 vec1);
+SYL_INLINE svec2 s_vec2p_div_scalar(svec2* vec1, float Value);
+SYL_INLINE svec2 s_scalar_div_vec2p(float Value, svec2* vec1);
 SYL_INLINE svec2 s_vec2_negate(svec2 a);
 SYL_INLINE svec2 s_vec2_floor(svec2 A);
 SYL_INLINE svec2 s_vec2_round(svec2 A);
-SYL_INLINE float s_vec2_dot(svec2 Vec1, svec2 Vec2);
-SYL_INLINE svec2 s_vec2_hadamard(svec2 Vec1, svec2 Vec2);
-SYL_INLINE svec2 s_vec2_lerp(svec2 Vec1, svec2 Vec2, float t);
+SYL_INLINE float s_vec2_dot(svec2 vec1, svec2 Vec2);
+SYL_INLINE svec2 s_vec2_hadamard(svec2 vec1, svec2 Vec2);
+SYL_INLINE svec2 s_vec2_lerp(svec2 vec1, svec2 Vec2, float t);
 SYL_INLINE svec2 s_vec2_clamp(svec2 Value, svec2 Min, svec2 Max);
-SYL_INLINE float s_vec2_length(svec2 Vec1);
-SYL_INLINE float s_vec2_distance(svec2 Vec1, svec2 Vec2);
+SYL_INLINE float s_vec2_length(svec2 vec1);
+SYL_INLINE float s_vec2_distance(svec2 vec1, svec2 Vec2);
 SYL_INLINE svec2 s_vec2_normalize(svec2 a);
 SYL_INLINE svec2 s_vec2_reflect(svec2 Pos, svec2 N);
 SYL_INLINE svec2 s_vec2_project(svec2 VectorToProject, svec2 ProjectionVector);
-SYL_INLINE svec2 s_vec2_max_vector(svec2 Vec1, svec2 Vec2);
-SYL_INLINE svec2 s_vec2_min_vector(svec2 Vec1, svec2 Vec2);
+SYL_INLINE svec2 s_vec2_max_vector(svec2 vec1, svec2 Vec2);
+SYL_INLINE svec2 s_vec2_min_vector(svec2 vec1, svec2 Vec2);
 SYL_INLINE float s_vec2_max(svec2 A);
 SYL_INLINE float s_vec2_min(svec2 A);
-SYL_INLINE float s_vec2_sum(svec2 Vec1);
-SYL_INLINE float s_triangle_area(svec2 Vec1, svec2 Vec2, svec2 Vec3);
+SYL_INLINE float s_vec2_sum(svec2 vec1);
+SYL_INLINE float s_triangle_area(svec2 vec1, svec2 Vec2, svec2 Vec3);
 SYL_INLINE svec3 S_VEC3F(float a, float b, float c);
 SYL_INLINE svec3 S_VEC3A(float* a);
 SYL_INLINE void s_vec3_zero(svec3* Vector);
-SYL_INLINE bool s_vec3_equal(svec3 Vec1, svec3 Vec2);
-SYL_INLINE bool s_vec3_equal_scalar(svec3 Vec1, float Value);
-SYL_INLINE bool s_vec3_not_equal(svec3 Vec1, svec3 Vec2);
-SYL_INLINE bool s_vec3_not_equal_scalar(svec3 Vec1, float Value);
-SYL_INLINE bool s_vec3_greater(svec3 Vec1, svec3 Vec2);
-SYL_INLINE bool s_vec3_less(svec3 Vec1, svec3 Vec2);
-SYL_INLINE bool s_vec3_less_scalar(svec3 Vec1, float Value);
-SYL_INLINE bool s_vec3_greater_equal(svec3 Vec1, svec3 Vec2);
-SYL_INLINE bool s_vec3_greater_equal_scalar(svec3 Vec1, float Value);
-SYL_INLINE bool s_vec3_less_equal(svec3 Vec1, svec3 Vec2);
-SYL_INLINE bool s_vec3_less_equal_scalar(svec3 Vec1, float Value);
-SYL_INLINE svec3 s_vec3_add(svec3 Vec1, svec3 Vec2);
-SYL_INLINE svec3 s_vec3p_add(svec3* Vec1, svec3 Vec2);
-SYL_INLINE svec3 s_vec3_add_scalar(svec3 Vec1, float Value);
-SYL_INLINE svec3 s_vec3p_add_scalar(svec3* Vec1, float Value);
-SYL_INLINE svec3 s_vec3_sub(svec3 Vec1, svec3 Vec2);
-SYL_INLINE svec3 s_vec3p_sub(svec3* Vec1, svec3 Vec2);
-SYL_INLINE svec3 s_vec3_sub_scalar(svec3 Vec1, float Value);
-SYL_INLINE svec3 s_vec3p_sub_saclar(svec3* Vec1, float Value);
+SYL_INLINE bool s_vec3_equal(svec3 vec1, svec3 Vec2);
+SYL_INLINE bool s_vec3_equal_scalar(svec3 vec1, float Value);
+SYL_INLINE bool s_vec3_not_equal(svec3 vec1, svec3 Vec2);
+SYL_INLINE bool s_vec3_not_equal_scalar(svec3 vec1, float Value);
+SYL_INLINE bool s_vec3_greater(svec3 vec1, svec3 Vec2);
+SYL_INLINE bool s_vec3_less(svec3 vec1, svec3 Vec2);
+SYL_INLINE bool s_vec3_less_scalar(svec3 vec1, float Value);
+SYL_INLINE bool s_vec3_greater_equal(svec3 vec1, svec3 Vec2);
+SYL_INLINE bool s_vec3_greater_equal_scalar(svec3 vec1, float Value);
+SYL_INLINE bool s_vec3_less_equal(svec3 vec1, svec3 Vec2);
+SYL_INLINE bool s_vec3_less_equal_scalar(svec3 vec1, float Value);
+SYL_INLINE svec3 s_vec3_add(svec3 vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3p_add(svec3* vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3_add_scalar(svec3 vec1, float Value);
+SYL_INLINE svec3 s_vec3p_add_scalar(svec3* vec1, float Value);
+SYL_INLINE svec3 s_vec3_sub(svec3 vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3p_sub(svec3* vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3_sub_scalar(svec3 vec1, float Value);
+SYL_INLINE svec3 s_vec3p_sub_saclar(svec3* vec1, float Value);
 SYL_INLINE svec3 s_scalar_sub_vec3(float value, svec3 vec1);
 SYL_INLINE svec3 s_scalar_sub_vec3p(float value, svec3* vec1);
-SYL_INLINE svec3 s_vec3_mul(svec3 Vec1, svec3 Vec2);
-SYL_INLINE svec3 s_vec3p_mul(svec3* Vec1, svec3 Vec2);
-SYL_INLINE svec3 s_vec3_mul_scalar(svec3 Vec1, float Value);
-SYL_INLINE svec3 s_vec3p_mul_scalar(svec3* Vec1, float Value);
-SYL_INLINE svec3 s_vec3_div(svec3 Vec1, svec3 Vec2);
-SYL_INLINE svec3 s_vec3p_div(svec3* Vec1, svec3 Vec2);
-SYL_INLINE svec3 s_vec3_div_scalar(svec3 Vec1, float Value);
-SYL_INLINE svec3 s_vec3p_div_scalar(svec3* Vec1, float Value);
-SYL_INLINE svec3 s_scalar_div_vec3(float Value, svec3 Vec1);
-SYL_INLINE svec3 s_scalar_div_vec3p(float Value, svec3* Vec1);
+SYL_INLINE svec3 s_vec3_mul(svec3 vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3p_mul(svec3* vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3_mul_scalar(svec3 vec1, float Value);
+SYL_INLINE svec3 s_vec3p_mul_scalar(svec3* vec1, float Value);
+SYL_INLINE svec3 s_vec3_div(svec3 vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3p_div(svec3* vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3_div_scalar(svec3 vec1, float Value);
+SYL_INLINE svec3 s_vec3p_div_scalar(svec3* vec1, float Value);
+SYL_INLINE svec3 s_scalar_div_vec3(float Value, svec3 vec1);
+SYL_INLINE svec3 s_scalar_div_vec3p(float Value, svec3* vec1);
 SYL_INLINE svec3 s_vec3_floor(svec3 A);
 SYL_INLINE svec3 s_vec3_round(svec3 A);
 SYL_INLINE svec3 s_vec3_negate(svec3 a);
-SYL_INLINE float s_vec3_dot(svec3 Vec1, svec3 Vec2);
-SYL_INLINE svec3 s_vec3_hadamard(svec3 Vec1, svec3 Vec2);
-SYL_INLINE float s_vec3_length(svec3 Vec1);
-SYL_INLINE float s_vec3_distance(svec3 Vec1, svec3 Vec2);
+SYL_INLINE float s_vec3_dot(svec3 vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3_hadamard(svec3 vec1, svec3 Vec2);
+SYL_INLINE float s_vec3_length(svec3 vec1);
+SYL_INLINE float s_vec3_distance(svec3 vec1, svec3 Vec2);
 SYL_INLINE svec3 s_vec3_normalize(svec3 a);
 SYL_INLINE float s_vec3_max_value(svec3 A);
 SYL_INLINE float s_vec3_min_value(svec3 A);
-SYL_INLINE svec3 s_vec3_max_vector(svec3 Vec1, svec3 Vec2);
-SYL_INLINE svec3 s_vec3_min_vector(svec3 Vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3_max_vector(svec3 vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3_min_vector(svec3 vec1, svec3 Vec2);
 SYL_INLINE svec3 s_vec3_clamp(svec3 Value, svec3 Min, svec3 Max);
-SYL_INLINE svec3 s_vec3_lerp(svec3 Vec1, svec3 Vec2, float t);
+SYL_INLINE svec3 s_vec3_lerp(svec3 vec1, svec3 Vec2, float t);
 SYL_INLINE svec3 s_vec3_project(svec3 VectorToProject, svec3 ProjectionVector);
-SYL_INLINE svec3 s_vec3_cross(svec3 Vec1, svec3 Vec2);
+SYL_INLINE svec3 s_vec3_cross(svec3 vec1, svec3 Vec2);
 SYL_INLINE float Slope(svec3 PointA, svec3 PointB);
 SYL_INLINE svec4 S_VEC4F(float a, float b, float c, float d);
 SYL_INLINE svec4 S_VEC4A(float* a);
 SYL_INLINE svec4 S_VEC4VF(svec3 Vector, float Value);
 SYL_INLINE void s_vector4_zero(svec4* Vector);
-SYL_INLINE bool s_vec4_equal(svec4 Vec1, svec4 Vec2);
-SYL_INLINE bool s_vec4_equal_scalar(svec4 Vec1, float Value);
-SYL_INLINE bool s_vec4_not_equal(svec4 Vec1, svec4 Vec2);
-SYL_INLINE bool s_vec4_not_equal_scalar(svec4 Vec1, float Value);
-SYL_INLINE bool s_vec4_greater(svec4 Vec1, svec4 Vec2);
-SYL_INLINE bool s_vec4_less(svec4 Vec1, svec4 Vec2);
-SYL_INLINE bool s_vec4_less_scalar(svec4 Vec1, float Value);
-SYL_INLINE bool s_vec4_greater_equal(svec4 Vec1, svec4 Vec2);
-SYL_INLINE bool s_vec4_greater_equal_scalar(svec4 Vec1, float Value);
-SYL_INLINE bool s_vec4_less_equal(svec4 Vec1, svec4 Vec2);
-SYL_INLINE bool s_vec4_less_equal_scalar(svec4 Vec1, float Value);
-SYL_INLINE svec4 s_vec4_add(svec4 Vec1, svec4 Vec2);
-SYL_INLINE svec4 s_vec4p_add(svec4* Vec1, svec4 Vec2);
-SYL_INLINE svec4 s_vec4_add_scalar(svec4 Vec1, float Value);
-SYL_INLINE svec4 s_vec4p_add_scalar(svec4* Vec1, float Value);
-SYL_INLINE svec4 s_vec4_sub(svec4 Vec1, svec4 Vec2);
-SYL_INLINE svec4 s_vec4p_sub(svec4* Vec1, svec4 Vec2);
-SYL_INLINE svec4 s_vec4_sub_scalar(svec4 Vec1, float Value);
-SYL_INLINE svec4 s_vec4p_sub_scalar(svec4* Vec1, float Value);
-SYL_INLINE svec4 s_scalar_vec4_sub(float value, svec4 Vec1);
-SYL_INLINE svec4 s_scalar_sub_vec4p(float value, svec4* Vec1);
-SYL_INLINE svec4 s_vec4_mul(svec4 Vec1, svec4 Vec2);
-SYL_INLINE svec4 s_vec4p_mul(svec4* Vec1, svec4 Vec2);
-SYL_INLINE svec4 s_vec4_mul_scalar(svec4 Vec1, float Value);
-SYL_INLINE svec4 s_vec4p_mul_scalar(svec4* Vec1, float Value);
-SYL_INLINE svec4 s_vec4_div(svec4 Vec1, svec4 Vec2);
-SYL_INLINE svec4 s_vec4p_div(svec4* Vec1, svec4 Vec2);
-SYL_INLINE svec4 s_vec4_div_scalar(svec4 Vec1, float Value);
-SYL_INLINE svec4 s_vec4p_div_scalar(svec4* Vec1, float Value);
+SYL_INLINE bool s_vec4_equal(svec4 vec1, svec4 Vec2);
+SYL_INLINE bool s_vec4_equal_scalar(svec4 vec1, float Value);
+SYL_INLINE bool s_vec4_not_equal(svec4 vec1, svec4 Vec2);
+SYL_INLINE bool s_vec4_not_equal_scalar(svec4 vec1, float Value);
+SYL_INLINE bool s_vec4_greater(svec4 vec1, svec4 Vec2);
+SYL_INLINE bool s_vec4_less(svec4 vec1, svec4 Vec2);
+SYL_INLINE bool s_vec4_less_scalar(svec4 vec1, float Value);
+SYL_INLINE bool s_vec4_greater_equal(svec4 vec1, svec4 Vec2);
+SYL_INLINE bool s_vec4_greater_equal_scalar(svec4 vec1, float Value);
+SYL_INLINE bool s_vec4_less_equal(svec4 vec1, svec4 Vec2);
+SYL_INLINE bool s_vec4_less_equal_scalar(svec4 vec1, float Value);
+SYL_INLINE svec4 s_vec4_add(svec4 vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4p_add(svec4* vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4_add_scalar(svec4 vec1, float Value);
+SYL_INLINE svec4 s_vec4p_add_scalar(svec4* vec1, float Value);
+SYL_INLINE svec4 s_vec4_sub(svec4 vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4p_sub(svec4* vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4_sub_scalar(svec4 vec1, float Value);
+SYL_INLINE svec4 s_vec4p_sub_scalar(svec4* vec1, float Value);
+SYL_INLINE svec4 s_scalar_vec4_sub(float value, svec4 vec1);
+SYL_INLINE svec4 s_scalar_sub_vec4p(float value, svec4* vec1);
+SYL_INLINE svec4 s_vec4_mul(svec4 vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4p_mul(svec4* vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4_mul_scalar(svec4 vec1, float Value);
+SYL_INLINE svec4 s_vec4p_mul_scalar(svec4* vec1, float Value);
+SYL_INLINE svec4 s_vec4_div(svec4 vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4p_div(svec4* vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4_div_scalar(svec4 vec1, float Value);
+SYL_INLINE svec4 s_vec4p_div_scalar(svec4* vec1, float Value);
 SYL_INLINE svec4 s_vec4_floor(svec4 A);
 SYL_INLINE svec4 s_vec4_round(svec4 A);
 SYL_INLINE svec4 s_vec4_negate(svec4 a);
-SYL_INLINE float s_vec4_dot(svec4 Vec1, svec4 Vec2);
-SYL_INLINE svec4 s_vec4_hadamard(svec4 Vec1, svec4 Vec2);
-SYL_INLINE float s_vec4_length(svec4 Vec1);
-SYL_INLINE float s_vec4_distance(svec4 Vec1, svec4 Vec2);
+SYL_INLINE float s_vec4_dot(svec4 vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4_hadamard(svec4 vec1, svec4 Vec2);
+SYL_INLINE float s_vec4_length(svec4 vec1);
+SYL_INLINE float s_vec4_distance(svec4 vec1, svec4 Vec2);
 SYL_INLINE svec4 s_vec4_normalize(svec4 a);
-SYL_INLINE svec4 s_vec4_lerp(svec4 Vec1, svec4 Vec2, float t);
-SYL_INLINE svec4 s_vec4_cross(svec4 Vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4_lerp(svec4 vec1, svec4 Vec2, float t);
+SYL_INLINE svec4 s_vec4_cross(svec4 vec1, svec4 Vec2);
 SYL_INLINE svec4 s_vec4_project(svec4 VectorToProject, svec4 ProjectionVector);
-SYL_INLINE svec4 s_vec4_max_vector(svec4 Vec1, svec4 Vec2);
-SYL_INLINE svec4 s_vec4_min_vector(svec4 Vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4_max_vector(svec4 vec1, svec4 Vec2);
+SYL_INLINE svec4 s_vec4_min_vector(svec4 vec1, svec4 Vec2);
 SYL_INLINE svec4 s_vec4_clamp(svec4 Value, svec4 Min, svec4 Max);
 SYL_INLINE float s_vec4_max(svec4 A);
 SYL_INLINE float s_vec4_min(svec4 A);
-SYL_INLINE float s_vec4_sum(svec4 Vec1);
-/*
- * SYL_INLINE smat4 MAT4V(float m00, float m01, float m02, float m03,
- * 		       float m10, float m11, float m12, float m13,
- * 		       float m20, float m21, float m22, float m23,
- * 		       float m30, float m31, float m32, float m33);
- */
+SYL_INLINE float s_vec4_sum(svec4 vec1);
+SYL_INLINE smat4 MAT4V(float m00, float m01, float m02, float m03,
+		       float m10, float m11, float m12, float m13,
+		       float m20, float m21, float m22, float m23,
+		       float m30, float m31, float m32, float m33);
 SYL_INLINE smat4 MAT4A(float* a);
 SYL_INLINE void s_mat4_zero(smat4* Matrix);
 SYL_INLINE smat4 s_mat4_identity();
@@ -360,6 +358,11 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 #endif // SYLVESTER_H
 
 #ifdef SYL_IMPLEMENTATION
+
+/*********************************************
+ *                 Utility                   *
+ *********************************************/
+
 
 SYL_INLINE float s_radian_to_degree(float Radian)
 {
@@ -454,13 +457,9 @@ SYL_INLINE float s_clampf(float Value, float Min, float Max)
 	float Result = Value;
 
 	if (Result < Min)
-		{
-			Result = Min;
-		}
+		Result = Min;
 	else if (Result > Max)
-		{
-			Result = Max;
-		}
+		Result = Max;
 
 	return(Result);
 }
@@ -470,13 +469,9 @@ SYL_INLINE float s_clampd(float Value, float Min, float Max)
 	float Result = Value;
 
 	if (Result < Min)
-		{
-			Result = Min;
-		}
+		Result = Min;
 	else if (Result > Max)
-		{
-			Result = Max;
-		}
+		Result = Max;
 
 	return(Result);
 }
@@ -486,13 +481,9 @@ SYL_INLINE int s_clampi(int Value, int Min, int Max)
 	int Result = Value;
 
 	if (Result < Min)
-		{
-			Result = Min;
-		}
+		Result = Min;
 	else if (Result > Max)
-		{
-			Result = Max;
-		}
+		Result = Max;
 
 	return(Result);
 }
@@ -667,340 +658,340 @@ SYL_INLINE void s_vec2_zero(svec2* vector)
 	*vector = _SVEC2_ZERO;
 }
 
-SYL_INLINE bool s_vec2_equal(svec2 Vec1, svec2 Vec2)
+SYL_INLINE bool s_vec2_equal(svec2 vec1, svec2 vec2)
 {
 	bool result = false;
-	if (Vec1.x == Vec2.x && Vec1.y == Vec2.y)
+	if (vec1.x == vec2.x && vec1.y == vec2.y)
 		result = true;
 	return(result);
 }
 
-SYL_INLINE bool s_vec2_equal_scalar(svec2 Vec1, float Value)
+SYL_INLINE bool s_vec2_equal_scalar(svec2 vec1, float Value)
 {
 	bool result = false;
-	if (Vec1.x == Value && Vec1.y == Value)
+	if (vec1.x == Value && vec1.y == Value)
 		result = true;
 	return(result);
 }
 
-SYL_INLINE bool s_vec2_not_equal(svec2 Vec1, svec2 Vec2)
+SYL_INLINE bool s_vec2_not_equal(svec2 vec1, svec2 vec2)
 {
 	bool result = false;
-	if (Vec1.x != Vec2.x && Vec1.y != Vec2.y)
+	if (vec1.x != vec2.x && vec1.y != vec2.y)
 		result = true;
 	return(result);
 }
 
-SYL_INLINE bool s_vec2_not_equal_scalar(svec2 Vec1, float Value)
+SYL_INLINE bool s_vec2_not_equal_scalar(svec2 vec1, float Value)
 {
 	bool result = false;
-	if (Vec1.x != Value && Vec1.y != Value)
+	if (vec1.x != Value && vec1.y != Value)
 		result = true;
 	return(result);
 }
 
-SYL_INLINE bool s_vec2_greater(svec2 Vec1, svec2 Vec2)
+SYL_INLINE bool s_vec2_greater(svec2 vec1, svec2 vec2)
 {
 	bool result = false;
-	if (Vec1.x > Vec2.x && Vec1.y > Vec2.y)
+	if (vec1.x > vec2.x && vec1.y > vec2.y)
 		result = true;
 	return(result);
 }
 
-SYL_INLINE bool s_vec2_greater_scalar(svec2 Vec1, float Value)
+SYL_INLINE bool s_vec2_greater_scalar(svec2 vec1, float value)
 {
 	bool result = false;
-	if (Vec1.x > Value && Vec1.y > Value)
+	if (vec1.x > value && vec1.y > value)
 		result = true;
 	return(result);
 }
 
-SYL_INLINE bool s_vec2_greater_equal(svec2 Vec1, svec2 Vec2)
+SYL_INLINE bool s_vec2_greater_equal(svec2 vec1, svec2 vec2)
 {
 	bool result = false;
-	if (Vec1.x >= Vec2.x && Vec1.y >= Vec2.y)
+	if (vec1.x >= vec2.x && vec1.y >= vec2.y)
 		result = true;
 	return(result);
 }
 
-SYL_INLINE bool s_vec2_greater_equal_scalar(svec2 Vec1, float Value)
+SYL_INLINE bool s_vec2_greater_equal_scalar(svec2 vec1, float value)
 {
 	bool result = false;
-	if (Vec1.x >= Value && Vec1.y >= Value)
+	if (vec1.x >= value && vec1.y >= value)
 		result = true;
 	return(result);
 }
 
 
-SYL_INLINE bool s_vec2_less(svec2 Vec1, svec2 Vec2)
+SYL_INLINE bool s_vec2_less(svec2 vec1, svec2 vec2)
 {
 	bool result = false;
-	if (Vec1.x < Vec2.x && Vec1.y < Vec2.y)
+	if (vec1.x < vec2.x && vec1.y < vec2.y)
 		result = true;
 	return(result);
 }
 
-SYL_INLINE bool s_vec2_less_scalar(svec2 Vec1, float Value)
+SYL_INLINE bool s_vec2_less_scalar(svec2 vec1, float value)
 {
 	bool result = false;
-	if (Vec1.x < Value && Vec1.y < Value)
+	if (vec1.x < value && vec1.y < value)
 		result = true;
 	return(result);
 }
 
-SYL_INLINE bool s_vec2_less_equal(svec2 Vec1, svec2 Vec2)
+SYL_INLINE bool s_vec2_less_equal(svec2 vec1, svec2 vec2)
 {
 	bool result = false;
-	if (Vec1.x <= Vec2.x && Vec1.y <= Vec2.y)
+	if (vec1.x <= vec2.x && vec1.y <= vec2.y)
 		result = true;
 	return(result);
 }
 
-SYL_INLINE bool s_vec2_less_equal_scalar(svec2 Vec1, float Value)
+SYL_INLINE bool s_vec2_less_equal_scalar(svec2 vec1, float value)
 {
 	bool result = false;
-	if (Vec1.x <= Value && Vec1.y <= Value)
+	if (vec1.x <= value && vec1.y <= value)
 		result = true;
 	return(result);
 }
 
-SYL_INLINE svec2 s_vec2_add(svec2 Vec1, svec2 Vec2)
+SYL_INLINE svec2 s_vec2_add(svec2 vec1, svec2 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec2));
+	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec2));
 	return *(svec2*)&r;
 #else
-	svec2 result = { { (Vec1.x + Vec2.x), (Vec1.y + Vec2.y) } };
+	svec2 result = { { (vec1.x + vec2.x), (vec1.y + vec2.y) } };
 	return(result);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2p_add(svec2* Vec1, svec2 Vec2)
+SYL_INLINE svec2 s_vec2p_add(svec2* vec1, svec2 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1->e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec2));
-	*Vec1 = *(svec2*)&r;
-	return(*Vec1);
+	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1->e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec2));
+	*vec1 = *(svec2*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x + Vec2.x;
-	Vec1->y = Vec1->y + Vec2.y;	//
-	return(*Vec1);
+	vec1->x = vec1->x + vec2.x;
+	vec1->y = vec1->y + vec2.y;	//
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec2 s_svec2_add_scalar(svec2 Vec1, float Value)
+SYL_INLINE svec2 s_svec2_add_scalar(svec2 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1), _mm_set1_ps(Value));
+	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1), _mm_set1_ps(value));
 	return *(svec2*)&r;
 #else
-	svec2 Result = { { (Vec1.x + Value), (Vec1.y + Value) } };
+	svec2 Result = { { (vec1.x + value), (vec1.y + value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec2 s_svec2p_add_scalar(svec2* Vec1, float Value)
+SYL_INLINE svec2 s_svec2p_add_scalar(svec2* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1->e), _mm_set1_ps(Value));
-	*Vec1 = *(svec2*)&r;
-	return(*Vec1);
+	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1->e), _mm_set1_ps(value));
+	*vec1 = *(svec2*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x + Value;
-	Vec1->y = Vec1->y + Value;
-	return(*Vec1);
+	vec1->x = vec1->x + value;
+	vec1->y = vec1->y + value;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2_sub(svec2 Vec1, svec2 Vec2)
+SYL_INLINE svec2 s_vec2_sub(svec2 vec1, svec2 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec2));
+	__m128 r = _mm_sub_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec2));
 	return *(svec2*)&r;
 #else
-	svec2 Result = { { (Vec1.x - Vec2.x), (Vec2.x - Vec2.y) } };
+	svec2 Result = { { (vec1.x - vec2.x), (vec2.x - vec2.y) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2p_sub(svec2* Vec1, svec2 Vec2)
+SYL_INLINE svec2 s_vec2p_sub(svec2* vec1, svec2 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1->e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec2));
-	*Vec1 = *(svec2*)&r;
-	return(*Vec1);
+	__m128 r = _mm_sub_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1->e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec2));
+	*vec1 = *(svec2*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x - Vec2.x;
-	Vec1->y = Vec1->y - Vec2.y;
-	return(*Vec1);
+	vec1->x = vec1->x - vec2.x;
+	vec1->y = vec1->y - vec2.y;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2_sub_scalar(svec2 Vec1, float Value)
+SYL_INLINE svec2 s_vec2_sub_scalar(svec2 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1), _mm_set1_ps(Value));
+	__m128 r = _mm_sub_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1), _mm_set1_ps(value));
 	return *(svec2*)&r;
 #else
-	svec2 Result = { { (Vec1.x - Value), (Vec1.y - Value) } };
+	svec2 Result = { { (vec1.x - value), (vec1.y - value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec2 s_scalar_sub_vec2(float Value, svec2 Vec1)
+SYL_INLINE svec2 s_scalar_sub_vec2(float value, svec2 vec1)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_set1_ps(Value), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1));
+	__m128 r = _mm_sub_ps(_mm_set1_ps(value), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1));
 	return *(svec2*)&r;
 #else
-	svec2 Result = { { (Value - Vec1.x), (Value - Vec1.y) } };
+	svec2 Result = { { (value - vec1.x), (value - vec1.y) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2p_sub_scalar(svec2* Vec1, float Value)
+SYL_INLINE svec2 s_vec2p_sub_scalar(svec2* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1->e), _mm_set1_ps(Value));
-	*Vec1 = *(svec2*)&r;
-	return(*Vec1);
+	__m128 r = _mm_sub_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1->e), _mm_set1_ps(value));
+	*vec1 = *(svec2*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x - Value;
-	Vec1->y = Vec1->y - Value;
-	return(*Vec1);
+	vec1->x = vec1->x - value;
+	vec1->y = vec1->y - value;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec2 s_scalar_sub_vec2p(float Value, svec2* Vec1)
+SYL_INLINE svec2 s_scalar_sub_vec2p(float value, svec2* vec1)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1->e), _mm_set1_ps(Value));
-	*Vec1 = *(svec2*)&r;
-	return(*Vec1);
+	__m128 r = _mm_sub_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1->e), _mm_set1_ps(value));
+	*vec1 = *(svec2*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Value - Vec1->x;
-	Vec1->y = Value - Vec1->y;
-	return(*Vec1);
+	vec1->x = value - vec1->x;
+	vec1->y = value - vec1->y;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2_mul(svec2 Vec1, svec2 Vec2)
+SYL_INLINE svec2 s_vec2_mul(svec2 vec1, svec2 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec2));
+	__m128 r = _mm_mul_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec2));
 	return *(svec2*)&r;
 #else
-	svec2 Result = { { (Vec1.x * Vec2.x), (Vec1.y * Vec2.y) } };
+	svec2 Result = { { (vec1.x * vec2.x), (vec1.y * vec2.y) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2p_mul(svec2* Vec1, svec2 Vec2)
+SYL_INLINE svec2 s_vec2p_mul(svec2* vec1, svec2 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1->e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec2));
-	*Vec1 = *(svec2*)&r;
-	return(*Vec1);
+	__m128 r = _mm_mul_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1->e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec2));
+	*vec1 = *(svec2*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x * Vec2.x;
-	Vec1->y = Vec1->y * Vec2.y;
-	return(*Vec1);
+	vec1->x = vec1->x * vec2.x;
+	vec1->y = vec1->y * vec2.y;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2_mul_scalar(svec2 Vec1, float Value)
+SYL_INLINE svec2 s_vec2_mul_scalar(svec2 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1), _mm_set1_ps(Value));
+	__m128 r = _mm_mul_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1), _mm_set1_ps(value));
 	return *(svec2*)&r;
 #else
-	svec2 Result = { { (Vec1.x * Value), (Vec1.y * Value) } };
+	svec2 Result = { { (vec1.x * value), (vec1.y * value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2p_mul_scalar(svec2* Vec1, float Value)
+SYL_INLINE svec2 s_vec2p_mul_scalar(svec2* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1->e), _mm_set1_ps(Value));
-	*Vec1 = *(svec2*)&r;
-	return(*Vec1);
+	__m128 r = _mm_mul_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1->e), _mm_set1_ps(value));
+	*vec1 = *(svec2*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x * Value;
-	Vec1->y = Vec1->y * Value;
-	return(*Vec1);
+	vec1->x = vec1->x * value;
+	vec1->y = vec1->y * value;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2_div(svec2 Vec1, svec2 Vec2)
+SYL_INLINE svec2 s_vec2_div(svec2 vec1, svec2 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec2));
+	__m128 r = _mm_div_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec2));
 	return *(svec2*)&r;
 #else
-	svec2 Result = { { (Vec1.x / Vec2.x), (Vec1.y / Vec2.y) } };
+	svec2 Result = { { (vec1.x / vec2.x), (vec1.y / vec2.y) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2p_div(svec2* Vec1, svec2 Vec2)
+SYL_INLINE svec2 s_vec2p_div(svec2* vec1, svec2 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1->e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec2));
-	*Vec1 = *(svec2*)&r;
-	return(*Vec1);
+	__m128 r = _mm_div_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1->e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec2));
+	*vec1 = *(svec2*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x / Vec2.x;
-	Vec1->y = Vec1->y / Vec2.y;
-	return(*Vec1);
+	vec1->x = vec1->x / vec2.x;
+	vec1->y = vec1->y / vec2.y;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2_div_scalar(svec2 Vec1, float Value)
+SYL_INLINE svec2 s_vec2_div_scalar(svec2 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1), _mm_set1_ps(Value));
+	__m128 r = _mm_div_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1), _mm_set1_ps(value));
 	return *(svec2*)&r;
 #else
-	svec2 Result = { { (Vec1.x / Value), (Vec1.y / Value) } };
+	svec2 Result = { { (vec1.x / value), (vec1.y / value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec2 s_scalar_div_vec2(float Value, svec2 Vec1)
+SYL_INLINE svec2 s_scalar_div_vec2(float value, svec2 vec1)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_set1_ps(Value), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1));
+	__m128 r = _mm_div_ps(_mm_set1_ps(value), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1));
 	return *(svec2*)&r;
 #else
-	svec2 Result = { { (Value / Vec1.x), (Value / Vec1.y) } };
+	svec2 Result = { { (value / vec1.x), (value / vec1.y) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec2 s_vec2p_div_scalar(svec2* Vec1, float Value)
+SYL_INLINE svec2 s_vec2p_div_scalar(svec2* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1->e), _mm_set1_ps(Value));
-	*Vec1 = *(svec2*)&r;
-	return(*Vec1);
+	__m128 r = _mm_div_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1->e), _mm_set1_ps(value));
+	*vec1 = *(svec2*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x / Value;
-	Vec1->y = Vec1->y / Value;;
-	return(*Vec1);
+	vec1->x = vec1->x / value;
+	vec1->y = vec1->y / value;;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec2 s_scalar_div_vec2p(float Value, svec2* Vec1)
+SYL_INLINE svec2 s_scalar_div_vec2p(float value, svec2* vec1)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_set1_ps(Value), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1->e));
-	*Vec1 = *(svec2*)&r;
-	return(*Vec1);
+	__m128 r = _mm_div_ps(_mm_set1_ps(value), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1->e));
+	*vec1 = *(svec2*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Value / Vec1->x;
-	Vec1->y = Value / Vec1->y;
-	return(*Vec1);
+	vec1->x = value / vec1->x;
+	vec1->y = value / vec1->y;
+	return(*vec1);
 #endif
 }
 
@@ -1024,42 +1015,42 @@ SYL_INLINE svec2 s_vec2_round(svec2 A)
 	return(Result);
 }
 
-SYL_INLINE float s_vec2_dot(svec2 Vec1, svec2 Vec2)
+SYL_INLINE float s_vec2_dot(svec2 vec1, svec2 vec2)
 {
-	return((Vec1.x * Vec2.x) + (Vec1.y * Vec2.y));
+	return((vec1.x * vec2.x) + (vec1.y * vec2.y));
 }
 
-SYL_INLINE svec2 s_vec2_hadamard(svec2 Vec1, svec2 Vec2)
+SYL_INLINE svec2 s_vec2_hadamard(svec2 vec1, svec2 vec2)
 {
-	svec2 Result = { { (Vec1.x * Vec2.x), (Vec1.y * Vec2.y) } };
+	svec2 Result = { { (vec1.x * vec2.x), (vec1.y * vec2.y) } };
 	return(Result);
 }
 
-SYL_INLINE svec2 s_vec2_lerp(svec2 Vec1, svec2 Vec2, float t)
+SYL_INLINE svec2 s_vec2_lerp(svec2 vec1, svec2 vec2, float t)
 {
-	svec2 r = { { Vec1.x + (Vec2.x - Vec1.x * t), Vec1.y + ((Vec2.y - Vec1.y * t)) } };
+	svec2 r = { { vec1.x + (vec2.x - vec1.x * t), vec1.y + ((vec2.y - vec1.y * t)) } };
 	return r;
 }
 
-SYL_INLINE svec2 s_vec2_clamp(svec2 Value, svec2 Min, svec2 Max)
+SYL_INLINE svec2 s_vec2_clamp(svec2 value, svec2 Min, svec2 Max)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_min_ps(_mm_max_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Value.v), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Min.v)), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Max.v));
+	__m128 Result = _mm_min_ps(_mm_max_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & value.v), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Min.v)), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Max.v));
 	return *(svec2*)&Result;
 #else
-	svec2 Result = { { s_clampf(Value.x, Min.x, Max.x), s_clampf(Value.y, Min.y, Max.y) } };
+	svec2 Result = { { s_clampf(value.x, Min.x, Max.x), s_clampf(value.y, Min.y, Max.y) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE float s_vec2_length(svec2 Vec1)
+SYL_INLINE float s_vec2_length(svec2 vec1)
 {
-	return(sqrt((Vec1.x * Vec1.x) + (Vec1.y * Vec1.y)));
+	return(sqrt((vec1.x * vec1.x) + (vec1.y * vec1.y)));
 }
 
-SYL_INLINE float s_vec2_distance(svec2 Vec1, svec2 Vec2)
+SYL_INLINE float s_vec2_distance(svec2 vec1, svec2 vec2)
 {
-	return s_vec2_length(s_vec2_sub(Vec1, Vec2));
+	return s_vec2_length(s_vec2_sub(vec1, vec2));
 }
 
 SYL_INLINE svec2 s_vec2_normalize(svec2 a)
@@ -1092,43 +1083,43 @@ static inline svec2 s_vec2_flatten(svec2 Pos, svec2 Normal)
 }
 
 /* Per component comparsion to return a vector containing the largest components */
-SYL_INLINE svec2 s_vec2_max_vector(svec2 Vec1, svec2 Vec2)
+SYL_INLINE svec2 s_vec2_max_vector(svec2 vec1, svec2 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_max_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1.e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec2.e));
+	__m128 r = _mm_max_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1.e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec2.e));
 	return *(svec2*)&r;
 #else
 	svec2 Result;
-	if (Vec1.x > Vec2.x)
-		Result.x = Vec1.x;
+	if (vec1.x > vec2.x)
+		Result.x = vec1.x;
 	else
-		Result.x = Vec2.x;
+		Result.x = vec2.x;
 
-	if (Vec1.y > Vec2.y)
-		Result.y = Vec1.y;
+	if (vec1.y > vec2.y)
+		Result.y = vec1.y;
 	else
-		Result.y = Vec2.y;
+		Result.y = vec2.y;
 	return(Result);
 #endif
 }
 
 /* Per component comparsion to return a vector containing the smollest components */
-SYL_INLINE svec2 s_vec2_min_vector(svec2 Vec1, svec2 Vec2)
+SYL_INLINE svec2 s_vec2_min_vector(svec2 vec1, svec2 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_min_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1.e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec2.e));
+	__m128 r = _mm_min_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1.e), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec2.e));
 	return *(svec2*)&r;
 #else
 	svec2 Result;
-	if (Vec1.x < Vec2.x)
-		Result.x = Vec1.x;
+	if (vec1.x < vec2.x)
+		Result.x = vec1.x;
 	else
-		Result.x = Vec2.x;
+		Result.x = vec2.x;
 
-	if (Vec1.y < Vec2.y)
-		Result.y = Vec1.y;
+	if (vec1.y < vec2.y)
+		Result.y = vec1.y;
 	else
-		Result.y = Vec2.y;
+		Result.y = vec2.y;
 	return(Result);
 #endif
 }
@@ -1152,14 +1143,14 @@ SYL_INLINE float s_vec2_min(svec2 A)
 }
 
 /* Add all components of the vector together */
-SYL_INLINE float s_vec2_sum(svec2 Vec1)
+SYL_INLINE float s_vec2_sum(svec2 vec1)
 {
-	return(Vec1.x + Vec1.y);
+	return(vec1.x + vec1.y);
 }
 
-SYL_INLINE float s_triangle_area(svec2 Vec1, svec2 Vec2, svec2 Vec3)
+SYL_INLINE float s_triangle_area(svec2 vec1, svec2 vec2, svec2 Vec3)
 {
-	float r = ((Vec1.x * Vec2.y) + (Vec2.x * Vec3.y) + (Vec3.x * Vec1.y) - (Vec1.y * Vec2.x) - (Vec2.y * Vec3.x) - (Vec3.y * Vec1.x)) / 2;
+	float r = ((vec1.x * vec2.y) + (vec2.x * Vec3.y) + (Vec3.x * vec1.y) - (vec1.y * vec2.x) - (vec2.y * Vec3.x) - (Vec3.y * vec1.x)) / 2;
 	if (r < 0)
 		{
 			r = -r;
@@ -1191,26 +1182,26 @@ SYL_INLINE void s_vec3_zero(svec3* vector)
 	vector->z = 0;
 }
 
-SYL_INLINE bool s_vec3_equal(svec3 Vec1, svec3 Vec2)
+SYL_INLINE bool s_vec3_equal(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpeq_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 Result = _mm_cmpeq_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
-	if ((Vec1.x == Vec2.x) && (Vec1.y == Vec2.y) && (Vec1.z == Vec2.z))
+	if ((vec1.x == vec2.x) && (vec1.y == vec2.y) && (vec1.z == vec2.z))
 		return(true);
 	else
 		return(false);
 #endif
 }
 
-SYL_INLINE bool s_vec3_equal_scalar(svec3 Vec1, float Value)
+SYL_INLINE bool s_vec3_equal_scalar(svec3 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpeq_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
+	__m128 Result = _mm_cmpeq_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
-	if ((Vec1.x == Value) && (Vec1.y == Value) && (Vec1.z == Value))
+	if ((vec1.x == value) && (vec1.y == value) && (vec1.z == value))
 		return(true);
 	else
 		return(false);
@@ -1218,67 +1209,67 @@ SYL_INLINE bool s_vec3_equal_scalar(svec3 Vec1, float Value)
 #endif
 }
 
-SYL_INLINE bool s_vec3_not_equal(svec3 Vec1, svec3 Vec2)
+SYL_INLINE bool s_vec3_not_equal(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
 
-	__m128 Result = _mm_cmpeq_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 Result = _mm_cmpeq_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return (((_mm_movemask_ps(Result) & 7) == 7) == 0);
 #else
-	if ((Vec1.x != Vec2.x) && (Vec1.y != Vec2.y) && (Vec1.z == Vec2.z))
+	if ((vec1.x != vec2.x) && (vec1.y != vec2.y) && (vec1.z == vec2.z))
 		return(true);
 	else
 		return(false);
 #endif
 }
 
-SYL_INLINE bool s_vec3_not_equal_scalar(svec3 Vec1, float Value)
+SYL_INLINE bool s_vec3_not_equal_scalar(svec3 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpneq_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
+	__m128 Result = _mm_cmpneq_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
-	if ((Vec1.x != Value) && (Vec1.y != Value) && (Vec1.z == Value))
+	if ((vec1.x != value) && (vec1.y != value) && (vec1.z == value))
 		return(true);
 	else
 		return(false);
 #endif
 }
 
-SYL_INLINE bool s_vec3_greater(svec3 Vec1, svec3 Vec2)
+SYL_INLINE bool s_vec3_greater(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
 
-	__m128 Result = _mm_cmpgt_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 Result = _mm_cmpgt_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
-	if ((Vec1.x > Vec2.x) && (Vec1.y > Vec1.y) && (Vec1.z > Vec1.z))
+	if ((vec1.x > vec2.x) && (vec1.y > vec1.y) && (vec1.z > vec1.z))
 		return(true);
 	else
 		return(false);
 #endif
 }
 
-SYL_INLINE bool s_vec3_less(svec3 Vec1, svec3 Vec2)
+SYL_INLINE bool s_vec3_less(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmplt_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 Result = _mm_cmplt_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
-	if ((Vec1.x < Vec2.x) && (Vec1.y < Vec2.y) && (Vec1.z < Vec2.z))
+	if ((vec1.x < vec2.x) && (vec1.y < vec2.y) && (vec1.z < vec2.z))
 		return(true);
 	else
 		return(false);
 #endif
 }
 
-SYL_INLINE bool s_vec3_less_scalar(svec3 Vec1, float Value)
+SYL_INLINE bool s_vec3_less_scalar(svec3 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmplt_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
+	__m128 Result = _mm_cmplt_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
-	if ((Vec1.x < Value) && (Vec1.y < Value) && (Vec1.z < Value))
+	if ((vec1.x < value) && (vec1.y < value) && (vec1.z < value))
 		return(true);
 	else
 		return(false);
@@ -1286,155 +1277,155 @@ SYL_INLINE bool s_vec3_less_scalar(svec3 Vec1, float Value)
 }
 
 
-SYL_INLINE bool s_vec3_greater_equal(svec3 Vec1, svec3 Vec2)
+SYL_INLINE bool s_vec3_greater_equal(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpge_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 Result = _mm_cmpge_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
-	if ((Vec1.x >= Vec2.x) && (Vec1.y >= Vec2.y) && (Vec1.z > Vec2.z))
+	if ((vec1.x >= vec2.x) && (vec1.y >= vec2.y) && (vec1.z > vec2.z))
 		return(true);
 	else
 		return(false);
 #endif
 }
 
-SYL_INLINE bool s_vec3_greater_equal_scalar(svec3 Vec1, float Value)
+SYL_INLINE bool s_vec3_greater_equal_scalar(svec3 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpge_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
+	__m128 Result = _mm_cmpge_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
-	if ((Vec1.x >= Value) && (Vec1.y >= Value) && (Vec1.z > Value))
+	if ((vec1.x >= value) && (vec1.y >= value) && (vec1.z > value))
 		return(true);
 	else
 		return(false);
 #endif
 }
 
-SYL_INLINE bool s_vec3_less_equal(svec3 Vec1, svec3 Vec2)
+SYL_INLINE bool s_vec3_less_equal(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmple_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 Result = _mm_cmple_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
-	if ((Vec1.x <= Vec2.x) && (Vec1.y <= Vec2.y) && (Vec1.z > Vec2.z))
+	if ((vec1.x <= vec2.x) && (vec1.y <= vec2.y) && (vec1.z > vec2.z))
 		return(true);
 	else
 		return(false);
 #endif
 }
 
-SYL_INLINE bool s_vec3_less_equal_scalar(svec3 Vec1, float Value)
+SYL_INLINE bool s_vec3_less_equal_scalar(svec3 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmple_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
+	__m128 Result = _mm_cmple_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
-	if ((Vec1.x <= Value) && (Vec1.y <= Value) && (Vec1.z > Value))
+	if ((vec1.x <= value) && (vec1.y <= value) && (vec1.z > value))
 		return(true);
 	else
 		return(false);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3_add(svec3 Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3_add(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec1), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & Vec2));
+	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1), _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec2));
 	return *(svec3*)&r;
 #else
-	svec3 Result = { { (Vec1.x + Vec2.x), (Vec1.y + Vec2.y), (Vec1.z + Vec2.z) } };
+	svec3 Result = { { (vec1.x + vec2.x), (vec1.y + vec2.y), (vec1.z + vec2.z) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3p_add(svec3* Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3p_add(svec3* vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(_mm_load_ps(Vec1->e), _mm_load_ps(Vec2.e));
-	*Vec1 = *(svec3*)&r;
-	return(*Vec1);
+	__m128 r = _mm_add_ps(_mm_load_ps(vec1->e), _mm_load_ps(vec2.e));
+	*vec1 = *(svec3*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x + Vec2.x;
-	Vec1->y = Vec1->y + Vec2.y;
-	Vec1->z = Vec1->z + Vec2.z;
-	return(*Vec1);
+	vec1->x = vec1->x + vec2.x;
+	vec1->y = vec1->y + vec2.y;
+	vec1->z = vec1->z + vec2.z;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3_add_scalar(svec3 Vec1, float Value)
+SYL_INLINE svec3 s_vec3_add_scalar(svec3 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
+	__m128 r = _mm_add_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
 	return *(svec3*)&r;
 #else
-	svec3 Result = { { (Vec1.x + Value), (Vec1.y + Value), (Vec1.z + Value) } };
+	svec3 Result = { { (vec1.x + value), (vec1.y + value), (vec1.z + value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3p_add_scalar(svec3* Vec1, float Value)
+SYL_INLINE svec3 s_vec3p_add_scalar(svec3* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(_mm_load_ps(Vec1->e), _mm_set1_ps(Value));
-	*Vec1 = *(svec3*)&r;
-	return(*Vec1);
+	__m128 r = _mm_add_ps(_mm_load_ps(vec1->e), _mm_set1_ps(value));
+	*vec1 = *(svec3*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x + Value;
-	Vec1->y = Vec1->y + Value;
-	Vec1->z = Vec1->z + Value;
-	return(*Vec1);
+	vec1->x = vec1->x + value;
+	vec1->y = vec1->y + value;
+	vec1->z = vec1->z + value;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3_sub(svec3 Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3_sub(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 r = _mm_sub_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return *(svec3*)&r;
 #else
-	svec3 Result = { { (Vec1.x - Vec2.x), (Vec1.y - Vec2.y), (Vec1.z - Vec2.z) } };
+	svec3 Result = { { (vec1.x - vec2.x), (vec1.y - vec2.y), (vec1.z - vec2.z) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3p_sub(svec3* Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3p_sub(svec3* vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_load_ps(Vec1->e), _mm_load_ps(Vec2.e));
-	*Vec1 = *(svec3*)&r;
-	return(*Vec1);
+	__m128 r = _mm_sub_ps(_mm_load_ps(vec1->e), _mm_load_ps(vec2.e));
+	*vec1 = *(svec3*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x - Vec2.x;
-	Vec1->y = Vec1->y - Vec2.y;
-	Vec1->z = Vec1->z - Vec2.z;
-	return(*Vec1);
+	vec1->x = vec1->x - vec2.x;
+	vec1->y = vec1->y - vec2.y;
+	vec1->z = vec1->z - vec2.z;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3_sub_scalar(svec3 Vec1, float Value)
+SYL_INLINE svec3 s_vec3_sub_scalar(svec3 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
+	__m128 r = _mm_sub_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
 	return *(svec3*)&r;
 #else
-	svec3 Result = { { (Vec1.x - Value), (Vec1.y - Value), (Vec1.z - Value) } };
+	svec3 Result = { { (vec1.x - value), (vec1.y - value), (vec1.z - value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3p_sub_saclar(svec3* Vec1, float Value)
+SYL_INLINE svec3 s_vec3p_sub_saclar(svec3* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_load_ps(Vec1->e), _mm_set1_ps(Value));
-	*Vec1 = *(svec3*)&r;
-	return(*Vec1);
+	__m128 r = _mm_sub_ps(_mm_load_ps(vec1->e), _mm_set1_ps(value));
+	*vec1 = *(svec3*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x - Value;
-	Vec1->y = Vec1->y - Value;
-	Vec1->z = Vec1->z - Value;
-	return(*Vec1);
+	vec1->x = vec1->x - value;
+	vec1->y = vec1->y - value;
+	vec1->z = vec1->z - value;
+	return(*vec1);
 #endif
 }
 
@@ -1463,128 +1454,128 @@ SYL_INLINE svec3 s_scalar_sub_vec3p(float value, svec3* vec1)
 #endif
 }
 
-SYL_INLINE svec3 s_vec3_mul(svec3 Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3_mul(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 r = _mm_mul_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return *(svec3*)&r;
 #else
-	svec3 Result = { { (Vec1.x * Vec2.x), (Vec1.y * Vec2.y), (Vec1.z * Vec2.z) } };
+	svec3 Result = { { (vec1.x * vec2.x), (vec1.y * vec2.y), (vec1.z * vec2.z) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3p_mul(svec3* Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3p_mul(svec3* vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(_mm_load_ps(Vec1->e), _mm_load_ps(Vec2.e));
-	*Vec1 = *(svec3*)&r;
-	return(*Vec1);
+	__m128 r = _mm_mul_ps(_mm_load_ps(vec1->e), _mm_load_ps(vec2.e));
+	*vec1 = *(svec3*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x * Vec2.x;
-	Vec1->y = Vec1->y * Vec2.y;
-	Vec1->z = Vec1->z * Vec2.z;
-	return(*Vec1);
+	vec1->x = vec1->x * vec2.x;
+	vec1->y = vec1->y * vec2.y;
+	vec1->z = vec1->z * vec2.z;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3_mul_scalar(svec3 Vec1, float Value)
+SYL_INLINE svec3 s_vec3_mul_scalar(svec3 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
+	__m128 r = _mm_mul_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
 	return *(svec3*)&r;
 #else
-	svec3 Result = { { (Vec1.x * Value), (Vec1.y * Value),  (Vec1.z * Value) } };
+	svec3 Result = { { (vec1.x * value), (vec1.y * value),  (vec1.z * value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3p_mul_scalar(svec3* Vec1, float Value)
+SYL_INLINE svec3 s_vec3p_mul_scalar(svec3* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(_mm_load_ps(Vec1->e), _mm_set1_ps(Value));
-	*Vec1 = *(svec3*)&r;
-	return(*Vec1);
+	__m128 r = _mm_mul_ps(_mm_load_ps(vec1->e), _mm_set1_ps(value));
+	*vec1 = *(svec3*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x * Value;
-	Vec1->y = Vec1->y * Value;
-	Vec1->z = Vec1->z * Value;
-	return(*Vec1);
+	vec1->x = vec1->x * value;
+	vec1->y = vec1->y * value;
+	vec1->z = vec1->z * value;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3_div(svec3 Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3_div(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 r = _mm_div_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return *(svec3*)&r;
 #else
-	svec3 Result = { { (Vec1.x / Vec2.x), (Vec1.y / Vec2.y), (Vec1.z / Vec2.z) } };
+	svec3 Result = { { (vec1.x / vec2.x), (vec1.y / vec2.y), (vec1.z / vec2.z) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3p_div(svec3* Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3p_div(svec3* vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_load_ps(Vec1->e), _mm_load_ps(Vec2.e));
-	*Vec1 = *(svec3*)&r;
-	return(*Vec1);
+	__m128 r = _mm_div_ps(_mm_load_ps(vec1->e), _mm_load_ps(vec2.e));
+	*vec1 = *(svec3*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x / Vec2.x;
-	Vec1->y = Vec1->y / Vec2.y;
-	Vec1->z = Vec1->z / Vec2.z;
-	return(*Vec1);
+	vec1->x = vec1->x / vec2.x;
+	vec1->y = vec1->y / vec2.y;
+	vec1->z = vec1->z / vec2.z;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3_div_scalar(svec3 Vec1, float Value)
+SYL_INLINE svec3 s_vec3_div_scalar(svec3 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
+	__m128 r = _mm_div_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
 	return *(svec3*)&r;
 #else
-	svec3 Result = { { (Vec1.x / Value), (Vec1.y / Value), (Vec1.z / Value) } };
+	svec3 Result = { { (vec1.x / value), (vec1.y / value), (vec1.z / value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3p_div_scalar(svec3* Vec1, float Value)
+SYL_INLINE svec3 s_vec3p_div_scalar(svec3* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_load_ps(Vec1->e), _mm_set1_ps(Value));
-	*Vec1 = *(svec3*)&r;
-	return(*Vec1);
+	__m128 r = _mm_div_ps(_mm_load_ps(vec1->e), _mm_set1_ps(value));
+	*vec1 = *(svec3*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x / Value;
-	Vec1->y = Vec1->y / Value;
-	Vec1->z = Vec1->z / Value;
-	return(*Vec1);
+	vec1->x = vec1->x / value;
+	vec1->y = vec1->y / value;
+	vec1->z = vec1->z / value;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec3 s_scalar_div_vec3(float Value, svec3 Vec1)
+SYL_INLINE svec3 s_scalar_div_vec3(float value, svec3 vec1)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_set1_ps(Value), _mm_load_ps(Vec1.e));
+	__m128 r = _mm_div_ps(_mm_set1_ps(value), _mm_load_ps(vec1.e));
 	return *(svec3*)&r;
 #else
-	svec3 Result = { { (Value / Vec1.x), (Value / Vec1.y), (Value / Vec1.z) } };
+	svec3 Result = { { (value / vec1.x), (value / vec1.y), (value / vec1.z) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec3 s_scalar_div_vec3p(float Value, svec3* Vec1)
+SYL_INLINE svec3 s_scalar_div_vec3p(float value, svec3* vec1)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(_mm_set1_ps(Value), _mm_load_ps(Vec1->e));
-	*Vec1 = *(svec3*)&r;
-	return(*Vec1);
+	__m128 r = _mm_div_ps(_mm_set1_ps(value), _mm_load_ps(vec1->e));
+	*vec1 = *(svec3*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Value / Vec1->x;
-	Vec1->y = Value / Vec1->y;
-	Vec1->z = Value / Vec1->z;
-	return(*Vec1);
+	vec1->x = value / vec1->x;
+	vec1->y = value / vec1->y;
+	vec1->z = value / vec1->z;
+	return(*vec1);
 #endif
 }
 
@@ -1608,25 +1599,25 @@ SYL_INLINE svec3 s_vec3_negate(svec3 a)
 	return(r);
 }
 
-SYL_INLINE float s_vec3_dot(svec3 Vec1, svec3 Vec2)
+SYL_INLINE float s_vec3_dot(svec3 vec1, svec3 vec2)
 {
-	return((Vec1.x * Vec2.x) + (Vec1.y * Vec2.y) + (Vec1.z * Vec2.z));
+	return((vec1.x * vec2.x) + (vec1.y * vec2.y) + (vec1.z * vec2.z));
 }
 
-SYL_INLINE svec3 s_vec3_hadamard(svec3 Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3_hadamard(svec3 vec1, svec3 vec2)
 {
-	svec3 Result = { { (Vec1.x * Vec2.x), (Vec1.y * Vec2.y), (Vec1.z * Vec1.z) } };
+	svec3 Result = { { (vec1.x * vec2.x), (vec1.y * vec2.y), (vec1.z * vec1.z) } };
 	return(Result);
 }
 
-SYL_INLINE float s_vec3_length(svec3 Vec1)
+SYL_INLINE float s_vec3_length(svec3 vec1)
 {
-	return(sqrt((Vec1.x * Vec1.x) + (Vec1.y * Vec1.y) + (Vec1.z * Vec1.z)));
+	return(sqrt((vec1.x * vec1.x) + (vec1.y * vec1.y) + (vec1.z * vec1.z)));
 }
 
-SYL_INLINE float s_vec3_distance(svec3 Vec1, svec3 Vec2)
+SYL_INLINE float s_vec3_distance(svec3 vec1, svec3 vec2)
 {
-	return s_vec3_length(s_vec3_sub(Vec1, Vec2));
+	return s_vec3_length(s_vec3_sub(vec1, vec2));
 }
 
 SYL_INLINE svec3 s_vec3_normalize(svec3 a)
@@ -1663,77 +1654,77 @@ SYL_INLINE float s_vec3_min_value(svec3 A)
 }
 
 /* Per component comparsion to return a vector containing the largest components */
-SYL_INLINE svec3 s_vec3_max_vector(svec3 Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3_max_vector(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_max_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 r = _mm_max_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return *(svec3*)&r;
 #else
 	svec3 Result;
-	if (Vec1.x > Vec2.x)
-		Result.x = Vec1.x;
+	if (vec1.x > vec2.x)
+		Result.x = vec1.x;
 	else
-		Result.x = Vec2.x;
+		Result.x = vec2.x;
 
-	if (Vec1.y > Vec2.y)
-		Result.y = Vec1.y;
+	if (vec1.y > vec2.y)
+		Result.y = vec1.y;
 	else
-		Result.y = Vec2.y;
+		Result.y = vec2.y;
 
-	if (Vec1.z > Vec2.z)
-		Result.z = Vec1.z;
+	if (vec1.z > vec2.z)
+		Result.z = vec1.z;
 	else
-		Result.z = Vec2.z;
+		Result.z = vec2.z;
 
 	return(Result);
 #endif
 }
 
 /* Per component comparsion to return a vector containing the smollest components */
-SYL_INLINE svec3 s_vec3_min_vector(svec3 Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3_min_vector(svec3 vec1, svec3 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_min_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 r = _mm_min_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return *(svec3*)&r;
 #else
 	svec3 Result;
-	if (Vec1.x < Vec2.x)
-		Result.x = Vec1.x;
+	if (vec1.x < vec2.x)
+		Result.x = vec1.x;
 	else
-		Result.x = Vec2.x;
+		Result.x = vec2.x;
 
-	if (Vec1.y < Vec2.y)
-		Result.y = Vec1.y;
+	if (vec1.y < vec2.y)
+		Result.y = vec1.y;
 	else
-		Result.y = Vec2.y;
+		Result.y = vec2.y;
 
-	if (Vec1.z < Vec2.z)
-		Result.z = Vec1.z;
+	if (vec1.z < vec2.z)
+		Result.z = vec1.z;
 	else
-		Result.z = Vec2.z;
+		Result.z = vec2.z;
 
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec3 s_vec3_clamp(svec3 Value, svec3 Min, svec3 Max)
+SYL_INLINE svec3 s_vec3_clamp(svec3 value, svec3 Min, svec3 Max)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_max_ps(_mm_setr_ps(Min.x, Min.y, Min.z, 0.0f), _mm_setr_ps(Value.x, Value.y, Value.z, 0.0f));
+	__m128 Result = _mm_max_ps(_mm_setr_ps(Min.x, Min.y, Min.z, 0.0f), _mm_setr_ps(value.x, value.y, value.z, 0.0f));
 	Result = _mm_min_ps(_mm_setr_ps(Max.x, Max.y, Max.z, 0.0f), Result);
 	return *(svec3*)&Result;
 #else
-	svec3 Result = s_vec3_min_vector(s_vec3_max_vector(Value, Min), Max);
+	svec3 Result = s_vec3_min_vector(s_vec3_max_vector(value, Min), Max);
 	return(Result);
 #endif
 }
 
 /* TODO(xcatalyst): Faster ! */
-SYL_INLINE svec3 s_vec3_lerp(svec3 Vec1, svec3 Vec2, float t)
+SYL_INLINE svec3 s_vec3_lerp(svec3 vec1, svec3 vec2, float t)
 {
-	svec3 Result = { { Vec1.e[0] + ((Vec2.e[0] - Vec1.e[0]) * t),
-				   Vec1.e[1] + ((Vec2.e[1] - Vec1.e[1]) * t),
-				   Vec1.e[2] + ((Vec2.e[2] - Vec1.e[2]) * t) } };
+	svec3 Result = { { vec1.e[0] + ((vec2.e[0] - vec1.e[0]) * t),
+				   vec1.e[1] + ((vec2.e[1] - vec1.e[1]) * t),
+				   vec1.e[2] + ((vec2.e[2] - vec1.e[2]) * t) } };
 	return(Result);
 
 }
@@ -1744,18 +1735,18 @@ SYL_INLINE svec3 s_vec3_project(svec3 vectorToProject, svec3 Projectionvector)
 	return(s_vec3_mul_scalar(Projectionvector, scale));
 }
 
-SYL_INLINE svec3 s_vec3_cross(svec3 Vec1, svec3 Vec2)
+SYL_INLINE svec3 s_vec3_cross(svec3 vec1, svec3 vec2)
 {
 #if defined(SYL_DEBUG)
 	svec3 Result;
-	Result.x = Vec1.y * Vec2.z - Vec1.z * Vec2.y;
-	Result.y = Vec1.z * Vec2.x - Vec1.x * Vec2.z;
-	Result.z = Vec1.x * Vec2.y - Vec1.y * Vec2.x;
+	Result.x = vec1.y * vec2.z - vec1.z * vec2.y;
+	Result.y = vec1.z * vec2.x - vec1.x * vec2.z;
+	Result.z = vec1.x * vec2.y - vec1.y * vec2.x;
 	return(Result);
 #else
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 V1 = _mm_load_ps(Vec1.e);
-	__m128 V2 = _mm_load_ps(Vec2.e);
+	__m128 V1 = _mm_load_ps(vec1.e);
+	__m128 V2 = _mm_load_ps(vec2.e);
 	__m128 A1 = _SYL_PERMUTE_PS(V1, _SYL_SHUFFLE(3, 0, 2, 1));
 	__m128 A2 = _SYL_PERMUTE_PS(V2, _SYL_SHUFFLE(3, 1, 0, 2));
 	__m128 r = _mm_mul_ps(A1, A2);
@@ -1765,9 +1756,9 @@ SYL_INLINE svec3 s_vec3_cross(svec3 Vec1, svec3 Vec2)
 	__m128 re = _mm_and_ps(r, _S_XMM_MASK_3);
 	return *(svec3*)&re;
 #else
-	svec3 Result = { { Vec1.e[1] * Vec2.e[2] - Vec1.e[2] * Vec2.e[1],
-				   Vec1.e[2] * Vec2.e[0] - Vec1.e[0] * Vec2.e[2],
-				   Vec1.e[0] * Vec2.e[1] - Vec1.e[1] * Vec2.e[0] } };
+	svec3 Result = { { vec1.e[1] * vec2.e[2] - vec1.e[2] * vec2.e[1],
+				   vec1.e[2] * vec2.e[0] - vec1.e[0] * vec2.e[2],
+				   vec1.e[0] * vec2.e[1] - vec1.e[1] * vec2.e[0] } };
 	return(Result);
 #endif
 #endif
@@ -1809,9 +1800,9 @@ SYL_INLINE svec4 S_VEC4A(float* a)
 	return(r);
 }
 
-SYL_INLINE svec4 S_VEC4VF(svec3 vector, float Value)
+SYL_INLINE svec4 S_VEC4VF(svec3 vector, float value)
 {
-	svec4 r = { { vector.x, vector.y, vector.z, Value } };
+	svec4 r = { { vector.x, vector.y, vector.z, value } };
 	return(r);
 }
 
@@ -1827,13 +1818,13 @@ SYL_INLINE void s_vector4_zero(svec4* vector)
 #endif
 }
 
-SYL_INLINE bool s_vec4_equal(svec4 Vec1, svec4 Vec2)
+SYL_INLINE bool s_vec4_equal(svec4 vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpeq_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 Result = _mm_cmpeq_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
 #else
-	if ((Vec1.x == Vec2.x) && (Vec1.y == Vec2.y) && (Vec1.z == Vec2.z)) {
+	if ((vec1.x == vec2.x) && (vec1.y == vec2.y) && (vec1.z == vec2.z)) {
 		return(true);
 	}
 	else {
@@ -1842,13 +1833,13 @@ SYL_INLINE bool s_vec4_equal(svec4 Vec1, svec4 Vec2)
 #endif
 }
 
-SYL_INLINE bool s_vec4_equal_scalar(svec4 Vec1, float Value)
+SYL_INLINE bool s_vec4_equal_scalar(svec4 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpeq_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
+	__m128 Result = _mm_cmpeq_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
 	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
 #else
-	if ((Vec1.x == Value) && (Vec1.y == Value) && (Vec1.z == Value)) {
+	if ((vec1.x == value) && (vec1.y == value) && (vec1.z == value)) {
 		return(true);
 	}
 	else {
@@ -1857,120 +1848,13 @@ SYL_INLINE bool s_vec4_equal_scalar(svec4 Vec1, float Value)
 #endif
 }
 
-SYL_INLINE bool s_vec4_not_equal(svec4 Vec1, svec4 Vec2)
+SYL_INLINE bool s_vec4_not_equal(svec4 vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpneq_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
+	__m128 Result = _mm_cmpneq_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
 	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
 #else
-	if ((Vec1.x != Vec2.x) && (Vec1.y != Vec2.y) && (Vec1.z != Vec2.z)) {
-		return(true);
-	}
-	else {
-		return(false);
-	}
-
-#endif
-}
-
-SYL_INLINE bool s_vec4_not_equal_scalar(svec4 Vec1, float Value)
-{
-#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpneq_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
-	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
-#else
-	if ((Vec1.x != Value) && (Vec1.y != Value) && (Vec1.z != Value)) {
-		return(true);
-	}
-	else {
-		return(false);
-	}
-#endif
-}
-
-SYL_INLINE bool s_vec4_greater(svec4 Vec1, svec4 Vec2)
-{
-#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpgt_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
-	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
-#else
-	if ((Vec1.x > Vec2.x) && (Vec1.y > Vec2.y) && (Vec1.z > Vec2.y)) {
-		return(true);
-	}
-	else {
-		return(false);
-	}
-#endif
-}
-
-SYL_INLINE bool s_vec4_less(svec4 Vec1, svec4 Vec2)
-{
-#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmplt_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
-	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
-#else
-	if ((Vec1.x < Vec2.x) && (Vec1.y < Vec2.y) && (Vec1.z < Vec2.y)) {
-		return(true);
-	}
-	else {
-		return(false);
-	}
-#endif
-}
-
-SYL_INLINE bool s_vec4_less_scalar(svec4 Vec1, float Value)
-{
-#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmplt_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
-	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
-#else
-	if ((Vec1.x < Value) && (Vec1.y < Value) && (Vec1.z < Value)) {
-		return(true);
-	}
-	else {
-		return(false);
-	}
-#endif
-}
-
-
-SYL_INLINE bool s_vec4_greater_equal(svec4 Vec1, svec4 Vec2)
-{
-#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpge_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
-	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
-#else
-	if ((Vec1.x >= Vec2.x) && (Vec1.y >= Vec2.y) && (Vec1.z >= Vec2.y)) {
-		return(true);
-	}
-	else {
-		return(false);
-	}
-#endif
-}
-
-SYL_INLINE bool s_vec4_greater_equal_scalar(svec4 Vec1, float Value)
-{
-#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmpge_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
-	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
-#else
-	if ((Vec1.x >= Value) && (Vec1.y >= Value) && (Vec1.z >= Value)) {
-		return(true);
-	}
-	else {
-		return(false);
-	}
-#endif
-}
-
-SYL_INLINE bool s_vec4_less_equal(svec4 Vec1, svec4 Vec2)
-{
-#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmple_ps(_mm_load_ps(Vec1.e), _mm_load_ps(Vec2.e));
-	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
-#else
-	if ((Vec1.x <= Vec2.x) && (Vec1.y <= Vec2.y) && (Vec1.z <= Vec2.y)) {
+	if ((vec1.x != vec2.x) && (vec1.y != vec2.y) && (vec1.z != vec2.z)) {
 		return(true);
 	}
 	else {
@@ -1980,13 +1864,120 @@ SYL_INLINE bool s_vec4_less_equal(svec4 Vec1, svec4 Vec2)
 #endif
 }
 
-SYL_INLINE bool s_vec4_less_equal_scalar(svec4 Vec1, float Value)
+SYL_INLINE bool s_vec4_not_equal_scalar(svec4 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_cmple_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
+	__m128 Result = _mm_cmpneq_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
 	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
 #else
-	if ((Vec1.x <= Value) && (Vec1.y <= Value) && (Vec1.z <= Value)) {
+	if ((vec1.x != value) && (vec1.y != value) && (vec1.z != value)) {
+		return(true);
+	}
+	else {
+		return(false);
+	}
+#endif
+}
+
+SYL_INLINE bool s_vec4_greater(svec4 vec1, svec4 vec2)
+{
+#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
+	__m128 Result = _mm_cmpgt_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
+	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
+#else
+	if ((vec1.x > vec2.x) && (vec1.y > vec2.y) && (vec1.z > vec2.y)) {
+		return(true);
+	}
+	else {
+		return(false);
+	}
+#endif
+}
+
+SYL_INLINE bool s_vec4_less(svec4 vec1, svec4 vec2)
+{
+#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
+	__m128 Result = _mm_cmplt_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
+	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
+#else
+	if ((vec1.x < vec2.x) && (vec1.y < vec2.y) && (vec1.z < vec2.y)) {
+		return(true);
+	}
+	else {
+		return(false);
+	}
+#endif
+}
+
+SYL_INLINE bool s_vec4_less_scalar(svec4 vec1, float value)
+{
+#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
+	__m128 Result = _mm_cmplt_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
+	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
+#else
+	if ((vec1.x < value) && (vec1.y < value) && (vec1.z < value)) {
+		return(true);
+	}
+	else {
+		return(false);
+	}
+#endif
+}
+
+
+SYL_INLINE bool s_vec4_greater_equal(svec4 vec1, svec4 vec2)
+{
+#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
+	__m128 Result = _mm_cmpge_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
+	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
+#else
+	if ((vec1.x >= vec2.x) && (vec1.y >= vec2.y) && (vec1.z >= vec2.y)) {
+		return(true);
+	}
+	else {
+		return(false);
+	}
+#endif
+}
+
+SYL_INLINE bool s_vec4_greater_equal_scalar(svec4 vec1, float value)
+{
+#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
+	__m128 Result = _mm_cmpge_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
+	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
+#else
+	if ((vec1.x >= value) && (vec1.y >= value) && (vec1.z >= value)) {
+		return(true);
+	}
+	else {
+		return(false);
+	}
+#endif
+}
+
+SYL_INLINE bool s_vec4_less_equal(svec4 vec1, svec4 vec2)
+{
+#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
+	__m128 Result = _mm_cmple_ps(_mm_load_ps(vec1.e), _mm_load_ps(vec2.e));
+	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
+#else
+	if ((vec1.x <= vec2.x) && (vec1.y <= vec2.y) && (vec1.z <= vec2.y)) {
+		return(true);
+	}
+	else {
+		return(false);
+	}
+
+#endif
+}
+
+SYL_INLINE bool s_vec4_less_equal_scalar(svec4 vec1, float value)
+{
+#if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
+	__m128 Result = _mm_cmple_ps(_mm_load_ps(vec1.e), _mm_set1_ps(value));
+	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
+#else
+	if ((vec1.x <= value) && (vec1.y <= value) && (vec1.z <= value)) {
 			return(true);
 		}
 	else {
@@ -1995,238 +1986,238 @@ SYL_INLINE bool s_vec4_less_equal_scalar(svec4 Vec1, float Value)
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_add(svec4 Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4_add(svec4 vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(Vec1.v, Vec2.v);
+	__m128 r = _mm_add_ps(vec1.v, vec2.v);
 	return *(svec4*)&r;
 #else
-	svec4 Result = { { (Vec1.x + Vec2.x), (Vec1.y + Vec2.y), (Vec1.z + Vec2.z), (Vec1.w + Vec2.w) } };
+	svec4 Result = { { (vec1.x + vec2.x), (vec1.y + vec2.y), (vec1.z + vec2.z), (vec1.w + vec2.w) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4p_add(svec4* Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4p_add(svec4* vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(Vec1->v, Vec2.v);
-	*Vec1 = *(svec4*)&r;
-	return(*Vec1);
+	__m128 r = _mm_add_ps(vec1->v, vec2.v);
+	*vec1 = *(svec4*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x + Vec2.x;
-	Vec1->y = Vec1->y + Vec2.y;
-	Vec1->z = Vec1->z + Vec2.z;
-	Vec1->w = Vec1->w + Vec2.w;
-	return(*Vec1);
+	vec1->x = vec1->x + vec2.x;
+	vec1->y = vec1->y + vec2.y;
+	vec1->z = vec1->z + vec2.z;
+	vec1->w = vec1->w + vec2.w;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_add_scalar(svec4 Vec1, float Value)
+SYL_INLINE svec4 s_vec4_add_scalar(svec4 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(Vec1.v, _mm_set1_ps(Value));
+	__m128 r = _mm_add_ps(vec1.v, _mm_set1_ps(value));
 	return *(svec4*)&r;
 #else
-	svec4 Result = { { (Vec1.x + Value), (Vec1.y + Value), (Vec1.z + Value), (Vec1.w + Value) } };
+	svec4 Result = { { (vec1.x + value), (vec1.y + value), (vec1.z + value), (vec1.w + value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4p_add_scalar(svec4* Vec1, float Value)
+SYL_INLINE svec4 s_vec4p_add_scalar(svec4* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_add_ps(Vec1->v, _mm_set1_ps(Value));
-	*Vec1 = *(svec4*)&r;
-	return(*Vec1);
+	__m128 r = _mm_add_ps(vec1->v, _mm_set1_ps(value));
+	*vec1 = *(svec4*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x + Value;
-	Vec1->y = Vec1->y + Value;
-	Vec1->z = Vec1->z + Value;
-	Vec1->w = Vec1->w + Value;
-	return(*Vec1);
+	vec1->x = vec1->x + value;
+	vec1->y = vec1->y + value;
+	vec1->z = vec1->z + value;
+	vec1->w = vec1->w + value;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_sub(svec4 Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4_sub(svec4 vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(Vec1.v, Vec2.v);
+	__m128 r = _mm_sub_ps(vec1.v, vec2.v);
 	return *(svec4*)&r;
 #else
-	svec4 Result = { { (Vec1.x - Vec2.x), (Vec1.y - Vec2.y), (Vec1.z - Vec2.z), (Vec1.w - Vec2.w) } };
+	svec4 Result = { { (vec1.x - vec2.x), (vec1.y - vec2.y), (vec1.z - vec2.z), (vec1.w - vec2.w) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4p_sub(svec4* Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4p_sub(svec4* vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(Vec1->v, Vec2.v);
-	*Vec1 = *(svec4*)&r;
-	return(*Vec1);
+	__m128 r = _mm_sub_ps(vec1->v, vec2.v);
+	*vec1 = *(svec4*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x - Vec2.x;
-	Vec1->y = Vec1->y - Vec2.y;
-	Vec1->z = Vec1->z - Vec2.z;
-	Vec1->w = Vec1->w - Vec2.w;
-	return(*Vec1);
+	vec1->x = vec1->x - vec2.x;
+	vec1->y = vec1->y - vec2.y;
+	vec1->z = vec1->z - vec2.z;
+	vec1->w = vec1->w - vec2.w;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_sub_scalar(svec4 Vec1, float Value)
+SYL_INLINE svec4 s_vec4_sub_scalar(svec4 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(Vec1.v, _mm_set1_ps(Value));
+	__m128 r = _mm_sub_ps(vec1.v, _mm_set1_ps(value));
 	return *(svec4*)&r;
 #else
-	svec4 Result = { { (Vec1.x - Value), (Vec1.y - Value), (Vec1.z - Value), (Vec1.w - Value) } };
+	svec4 Result = { { (vec1.x - value), (vec1.y - value), (vec1.z - value), (vec1.w - value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4p_sub_scalar(svec4* Vec1, float Value)
+SYL_INLINE svec4 s_vec4p_sub_scalar(svec4* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(Vec1->v, _mm_set1_ps(Value));
-	*Vec1 = *(svec4*)&r;
-	return(*Vec1);
+	__m128 r = _mm_sub_ps(vec1->v, _mm_set1_ps(value));
+	*vec1 = *(svec4*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x - Value;
-	Vec1->y = Vec1->y - Value;
-	Vec1->z = Vec1->z - Value;
-	Vec1->w = Vec1->w - Value;
-	return(*Vec1);
+	vec1->x = vec1->x - value;
+	vec1->y = vec1->y - value;
+	vec1->z = vec1->z - value;
+	vec1->w = vec1->w - value;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec4 s_scalar_vec4_sub(float value, svec4 Vec1)
+SYL_INLINE svec4 s_scalar_vec4_sub(float value, svec4 vec1)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_set1_ps(value), Vec1.v);
+	__m128 r = _mm_sub_ps(_mm_set1_ps(value), vec1.v);
 	return *(svec4*)&r;
 #else
-	svec4 Result = { { (value - Vec1.x), (value - Vec1.y), (value - Vec1.z), (value - Vec1.w) } };
+	svec4 Result = { { (value - vec1.x), (value - vec1.y), (value - vec1.z), (value - vec1.w) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_scalar_sub_vec4p(float value, svec4* Vec1)
+SYL_INLINE svec4 s_scalar_sub_vec4p(float value, svec4* vec1)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_sub_ps(_mm_set1_ps(value), Vec1->v);
-	*Vec1 = *(svec4*)&r;
-	return(*Vec1);
+	__m128 r = _mm_sub_ps(_mm_set1_ps(value), vec1->v);
+	*vec1 = *(svec4*)&r;
+	return(*vec1);
 #else
-	Vec1->x = value - Vec1->x;
-	Vec1->y = value - Vec1->y;
-	Vec1->z = value - Vec1->z;
-	Vec1->w = value - Vec1->w;
-	return(*Vec1);
+	vec1->x = value - vec1->x;
+	vec1->y = value - vec1->y;
+	vec1->z = value - vec1->z;
+	vec1->w = value - vec1->w;
+	return(*vec1);
 #endif
 }
 
 
-SYL_INLINE svec4 s_vec4_mul(svec4 Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4_mul(svec4 vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(Vec1.v, _mm_load_ps(Vec2.e));
+	__m128 r = _mm_mul_ps(vec1.v, _mm_load_ps(vec2.e));
 	return *(svec4*)&r;
 #else
-	svec4 Result = { { (Vec1.x - Vec2.x), (Vec1.y - Vec2.y), (Vec1.z - Vec2.z), (Vec1.w - Vec2.w) } };
+	svec4 Result = { { (vec1.x - vec2.x), (vec1.y - vec2.y), (vec1.z - vec2.z), (vec1.w - vec2.w) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4p_mul(svec4* Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4p_mul(svec4* vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(Vec1->v, _mm_load_ps(Vec2.e));
-	*Vec1 = *(svec4*)&r;
-	return(*Vec1);
+	__m128 r = _mm_mul_ps(vec1->v, _mm_load_ps(vec2.e));
+	*vec1 = *(svec4*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x * Vec2.x;
-	Vec1->y = Vec1->y * Vec2.y;
-	Vec1->z = Vec1->z * Vec2.z;
-	Vec1->w = Vec1->w * Vec2.w;
-	return(*Vec1);
+	vec1->x = vec1->x * vec2.x;
+	vec1->y = vec1->y * vec2.y;
+	vec1->z = vec1->z * vec2.z;
+	vec1->w = vec1->w * vec2.w;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_mul_scalar(svec4 Vec1, float Value)
+SYL_INLINE svec4 s_vec4_mul_scalar(svec4 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(Vec1.v, _mm_set1_ps(Value));
+	__m128 r = _mm_mul_ps(vec1.v, _mm_set1_ps(value));
 	return *(svec4*)&r;
 #else
-	svec4 Result = { { (Vec1.x * Value), (Vec1.y * Value), (Vec1.z * Value), (Vec1.w * Value) } };
+	svec4 Result = { { (vec1.x * value), (vec1.y * value), (vec1.z * value), (vec1.w * value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4p_mul_scalar(svec4* Vec1, float Value)
+SYL_INLINE svec4 s_vec4p_mul_scalar(svec4* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_mul_ps(Vec1->v, _mm_set1_ps(Value));
-	*Vec1 = *(svec4*)&r;
-	return(*Vec1);
+	__m128 r = _mm_mul_ps(vec1->v, _mm_set1_ps(value));
+	*vec1 = *(svec4*)&r;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x * Value;
-	Vec1->y = Vec1->y * Value;
-	Vec1->z = Vec1->z * Value;
-	Vec1->w = Vec1->w * Value;
-	return(*Vec1);
+	vec1->x = vec1->x * value;
+	vec1->y = vec1->y * value;
+	vec1->z = vec1->z * value;
+	vec1->w = vec1->w * value;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_div(svec4 Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4_div(svec4 vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 r = _mm_div_ps(Vec1.v, Vec2.v);
+	__m128 r = _mm_div_ps(vec1.v, vec2.v);
 	return *(svec4*)&r;
 #else
-	svec4 Result = { { (Vec1.x / Vec2.x), (Vec1.y / Vec2.y), (Vec1.z / Vec2.z), (Vec1.w / Vec2.w) } };
+	svec4 Result = { { (vec1.x / vec2.x), (vec1.y / vec2.y), (vec1.z / vec2.z), (vec1.w / vec2.w) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4p_div(svec4* Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4p_div(svec4* vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_div_ps(Vec1->v, Vec2.v);
-	*Vec1 = *(svec4*)&Result;
-	return(*Vec1);
+	__m128 Result = _mm_div_ps(vec1->v, vec2.v);
+	*vec1 = *(svec4*)&Result;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x / Vec2.x;
-	Vec1->y = Vec1->y / Vec2.y;
-	Vec1->z = Vec1->z / Vec2.z;
-	Vec1->w = Vec1->w / Vec2.w;
-	return(*Vec1);
+	vec1->x = vec1->x / vec2.x;
+	vec1->y = vec1->y / vec2.y;
+	vec1->z = vec1->z / vec2.z;
+	vec1->w = vec1->w / vec2.w;
+	return(*vec1);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_div_scalar(svec4 Vec1, float Value)
+SYL_INLINE svec4 s_vec4_div_scalar(svec4 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_div_ps(Vec1.v, _mm_set1_ps(Value));
+	__m128 Result = _mm_div_ps(vec1.v, _mm_set1_ps(value));
 	return *(svec4*)&Result;
 #else
-	svec4 Result = { { (Vec1.x / Value), (Vec1.y / Value), (Vec1.z / Value), (Vec1.w / Value) } };
+	svec4 Result = { { (vec1.x / value), (vec1.y / value), (vec1.z / value), (vec1.w / value) } };
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4p_div_scalar(svec4* Vec1, float Value)
+SYL_INLINE svec4 s_vec4p_div_scalar(svec4* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_div_ps(Vec1->v, _mm_set1_ps(Value));
-	*Vec1 = *(svec4*)&Result;
-	return(*Vec1);
+	__m128 Result = _mm_div_ps(vec1->v, _mm_set1_ps(value));
+	*vec1 = *(svec4*)&Result;
+	return(*vec1);
 #else
-	Vec1->x = Vec1->x / Value;
-	Vec1->y = Vec1->y / Value;
-	Vec1->z = Vec1->z / Value;
-	Vec1->w = Vec1->w / Value;
-	return(*Vec1);
+	vec1->x = vec1->x / value;
+	vec1->y = vec1->y / value;
+	vec1->z = vec1->z / value;
+	vec1->w = vec1->w / value;
+	return(*vec1);
 #endif
 }
 
@@ -2255,46 +2246,46 @@ SYL_INLINE svec4 s_vec4_negate(svec4 a)
 #endif
 }
 
-SYL_INLINE float s_vec4_dot(svec4 Vec1, svec4 Vec2)
+SYL_INLINE float s_vec4_dot(svec4 vec1, svec4 vec2)
 {
 #if defined(SYL_DEBUG)
-	return((Vec1.x * Vec2.x) + (Vec1.y * Vec2.y) + (Vec1.z * Vec2.z) + (Vec1.w * Vec2.w));
+	return((vec1.x * vec2.x) + (vec1.y * vec2.y) + (vec1.z * vec2.z) + (vec1.w * vec2.w));
 #else
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_dp_ps(Vec1.v, Vec2.v, 0xFF);
+	__m128 Result = _mm_dp_ps(vec1.v, vec2.v, 0xFF);
 	return(*(float*)&Result);
 #else
-	return (Vec1.e[0] * Vec2.e[0]) + (Vec1.e[1] * Vec2.e[1]) + (Vec1.e[2] * Vec2.e[2]) + (Vec1.e[3] * Vec2.e[3]);
+	return (vec1.e[0] * vec2.e[0]) + (vec1.e[1] * vec2.e[1]) + (vec1.e[2] * vec2.e[2]) + (vec1.e[3] * vec2.e[3]);
 #endif
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_hadamard(svec4 Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4_hadamard(svec4 vec1, svec4 vec2)
 {
-	svec4 Result = { { (Vec1.x * Vec2.x), (Vec1.y * Vec2.y), (Vec1.z * Vec2.z), (Vec1.w * Vec2.w) } };
+	svec4 Result = { { (vec1.x * vec2.x), (vec1.y * vec2.y), (vec1.z * vec2.z), (vec1.w * vec2.w) } };
 	return(Result);
 }
 
-SYL_INLINE float s_vec4_length(svec4 Vec1)
+SYL_INLINE float s_vec4_length(svec4 vec1)
 {
 #if defined(SYL_DEBUG)
-	return(sqrt((Vec1.x * Vec1.x) + (Vec1.y * Vec1.y) + (Vec1.z * Vec1.z) + (Vec1.w * Vec1.w)));
+	return(sqrt((vec1.x * vec1.x) + (vec1.y * vec1.y) + (vec1.z * vec1.z) + (vec1.w * vec1.w)));
 #else
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 V = _mm_load_ps(Vec1.e);
+	__m128 V = _mm_load_ps(vec1.e);
 	__m128 A1 = _mm_mul_ps(V, V);
 	__m128 A2 = _mm_hadd_ps(A1, A1);
 	__m128 A3 = _mm_hadd_ps(A2, A2);
 	return sqrtf(_mm_cvtss_f32(A3));
 #else
-	return(sqrt((Vec1.x * Vec1.x) + (Vec1.y * Vec1.y) + (Vec1.z * Vec1.z) + (Vec1.w * Vec1.w)));
+	return(sqrt((vec1.x * vec1.x) + (vec1.y * vec1.y) + (vec1.z * vec1.z) + (vec1.w * vec1.w)));
 #endif
 #endif
 }
 
-SYL_INLINE float s_vec4_distance(svec4 Vec1, svec4 Vec2)
+SYL_INLINE float s_vec4_distance(svec4 vec1, svec4 vec2)
 {
-	return s_vec4_length(s_vec4_sub(Vec1, Vec2));
+	return s_vec4_length(s_vec4_sub(vec1, vec2));
 }
 
 SYL_INLINE svec4 s_vec4_normalize(svec4 a)
@@ -2302,23 +2293,23 @@ SYL_INLINE svec4 s_vec4_normalize(svec4 a)
 	return(s_vec4_mul_scalar(a, (1.0f / s_vec4_length(a))));
 }
 
-SYL_INLINE svec4 s_vec4_lerp(svec4 Vec1, svec4 Vec2, float t)
+SYL_INLINE svec4 s_vec4_lerp(svec4 vec1, svec4 vec2, float t)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_add_ps(Vec1.v, _mm_mul_ps((_mm_sub_ps(Vec2.v, Vec1.v)), _mm_set1_ps(t)));
+	__m128 Result = _mm_add_ps(vec1.v, _mm_mul_ps((_mm_sub_ps(vec2.v, vec1.v)), _mm_set1_ps(t)));
 	return(*(svec4*)&Result);
 #else
-	svec4 Result = s_vec4_add(Vec1, (s_vec4_mul_scalar(s_vec4_sub(Vec2, Vec1), t)));
-	// vec4 Result = Vec1 + ((Vec2 - Vec1) * t);
+	svec4 Result = s_vec4_add(vec1, (s_vec4_mul_scalar(s_vec4_sub(vec2, vec1), t)));
+	// vec4 Result = vec1 + ((vec2 - vec1) * t);
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_cross(svec4 Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4_cross(svec4 vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 a1 = _SYL_PERMUTE_PS(Vec1.v, _SYL_SHUFFLE(3, 0, 2, 1));
-	__m128 a2 = _SYL_PERMUTE_PS(Vec2.v, _SYL_SHUFFLE(3, 1, 0, 2));
+	__m128 a1 = _SYL_PERMUTE_PS(vec1.v, _SYL_SHUFFLE(3, 0, 2, 1));
+	__m128 a2 = _SYL_PERMUTE_PS(vec2.v, _SYL_SHUFFLE(3, 1, 0, 2));
 	__m128 r = _mm_mul_ps(a1, a2);
 	a1 = _SYL_PERMUTE_PS(a1, _SYL_SHUFFLE(3, 0, 2, 1));
 	a2 = _SYL_PERMUTE_PS(a2, _SYL_SHUFFLE(3, 1, 0, 2));
@@ -2326,9 +2317,9 @@ SYL_INLINE svec4 s_vec4_cross(svec4 Vec1, svec4 Vec2)
 	__m128 re = _mm_and_ps(r, _S_XMM_MASK_3);
 	return *(svec4*)&re;
 #else
-	svec4 Result = { { Vec1.e[1] * Vec2.e[2] - Vec1.e[2] * Vec2.e[1],
-				   Vec1.e[2] * Vec2.e[0] - Vec1.e[0] * Vec2.e[2],
-				   Vec1.e[0] * Vec2.e[1] - Vec1.e[1] * Vec2.e[0], 0.0f } };
+	svec4 Result = { { vec1.e[1] * vec2.e[2] - vec1.e[2] * vec2.e[1],
+				   vec1.e[2] * vec2.e[0] - vec1.e[0] * vec2.e[2],
+				   vec1.e[0] * vec2.e[1] - vec1.e[1] * vec2.e[0], 0.0f } };
 	return(Result);
 #endif
 }
@@ -2340,80 +2331,80 @@ SYL_INLINE svec4 s_vec4_project(svec4 vectorToProject, svec4 Projectionvector)
 }
 
 /* Per component comparsion to return a vector containing the largest components */
-SYL_INLINE svec4 s_vec4_max_vector(svec4 Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4_max_vector(svec4 vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_max_ps(Vec1.v, Vec2.v);
+	__m128 Result = _mm_max_ps(vec1.v, vec2.v);
 	return *(svec4*)&Result;
 #else
 	svec4 Result;
-	if (Vec1.x > Vec2.x)
-		Result.x = Vec1.x;
+	if (vec1.x > vec2.x)
+		Result.x = vec1.x;
 	else
-		Result.x = Vec2.x;
+		Result.x = vec2.x;
 
-	if (Vec1.y > Vec2.y)
-		Result.y = Vec1.y;
+	if (vec1.y > vec2.y)
+		Result.y = vec1.y;
 	else
-		Result.y = Vec2.y;
+		Result.y = vec2.y;
 
-	if (Vec1.z > Vec2.z)
-		Result.z = Vec1.z;
+	if (vec1.z > vec2.z)
+		Result.z = vec1.z;
 	else
-		Result.z = Vec2.z;
+		Result.z = vec2.z;
 
-	if (Vec1.w > Vec2.w)
-		Result.w = Vec1.w;
+	if (vec1.w > vec2.w)
+		Result.w = vec1.w;
 	else
-		Result.w = Vec2.w;
+		Result.w = vec2.w;
 
 	return(Result);
 #endif
 }
 
 /* Per component comparsion to return a vector containing the smollest components */
-SYL_INLINE svec4 s_vec4_min_vector(svec4 Vec1, svec4 Vec2)
+SYL_INLINE svec4 s_vec4_min_vector(svec4 vec1, svec4 vec2)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Result = _mm_min_ps(Vec1.v, Vec2.v);
+	__m128 Result = _mm_min_ps(vec1.v, vec2.v);
 	return *(svec4*)&Result;
 #else
 	svec4 Result;
-	if (Vec1.x < Vec2.x)
-		Result.x = Vec1.x;
+	if (vec1.x < vec2.x)
+		Result.x = vec1.x;
 	else
-		Result.x = Vec2.x;
+		Result.x = vec2.x;
 
-	if (Vec1.y < Vec2.y)
-		Result.y = Vec1.y;
+	if (vec1.y < vec2.y)
+		Result.y = vec1.y;
 	else
-		Result.y = Vec2.y;
+		Result.y = vec2.y;
 
-	if (Vec1.z < Vec2.z)
-		Result.z = Vec1.z;
+	if (vec1.z < vec2.z)
+		Result.z = vec1.z;
 	else
-		Result.z = Vec2.z;
+		Result.z = vec2.z;
 
-	if (Vec1.w < Vec2.w)
-		Result.w = Vec1.w;
+	if (vec1.w < vec2.w)
+		Result.w = vec1.w;
 	else
-		Result.w = Vec2.w;
+		Result.w = vec2.w;
 
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_clamp(svec4 Value, svec4 Min, svec4 Max)
+SYL_INLINE svec4 s_vec4_clamp(svec4 value, svec4 Min, svec4 Max)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
 	// __m128 Result = _mm_max_ps(Min.v, Max.v);
 	// Result = _mm_max_ps(Max.v, Result);
 	// return *(svec4*)&Result;
 
-	__m128 Result = _mm_min_ps(_mm_max_ps(Value.v, Min.v), Max.v);
+	__m128 Result = _mm_min_ps(_mm_max_ps(value.v, Min.v), Max.v);
 	return *(svec4*)&Result;
 #else
-	svec4 Result = s_vec4_min_vector(s_vec4_max_vector(Value, Min), Max);
+	svec4 Result = s_vec4_min_vector(s_vec4_max_vector(value, Min), Max);
 	return(Result);
 #endif
 }
@@ -2422,8 +2413,8 @@ SYL_INLINE svec4 s_vec4_clamp(svec4 Value, svec4 Min, svec4 Max)
 SYL_INLINE float s_vec4_max(svec4 A)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Value = _mm_load_ps(A.e);
-	__m128 r = _mm_max_ps(Value, Value);
+	__m128 value = _mm_load_ps(A.e);
+	__m128 r = _mm_max_ps(value, value);
 	return *(float*)&r;
 #else
 	/* TODO(xcatalyst): Implement ! */
@@ -2435,8 +2426,8 @@ SYL_INLINE float s_vec4_max(svec4 A)
 SYL_INLINE float s_vec4_min(svec4 A)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	__m128 Value = _mm_load_ps(A.e);
-	__m128 r = _mm_min_ps(Value, Value);
+	__m128 value = _mm_load_ps(A.e);
+	__m128 r = _mm_min_ps(value, value);
 	return *(float*)&r;
 #else
 	/* TODO(xcatalyst): Implement ! */
