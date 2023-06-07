@@ -21,6 +21,7 @@
 #include <smmintrin.h>
 #endif
 
+#include <string.h>
 #include <math.h>
 #include <stdbool.h>
 
