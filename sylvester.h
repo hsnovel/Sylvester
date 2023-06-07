@@ -129,7 +129,7 @@ smat4 _S_IDENT4X4 = { {
 		0.0f, 0.0f, 0.0f, 1.0f
 	} };
 
- svec2 _SVEC2_ZERO = { { 0.0f, 0.0f } };
+svec2 _SVEC2_ZERO = { { 0.0f, 0.0f } };
 
 #if defined(SYL_ENABLE_SSE4)
 __m128 _S_XMM_ZERO = { 0.0f, 0.0f, 0.0f, 0.0f };
@@ -233,7 +233,7 @@ SYL_INLINE float s_vec2_max(svec2 A);
 SYL_INLINE float s_vec2_min(svec2 A);
 SYL_INLINE float s_vec2_sum(svec2 vec1);
 SYL_INLINE float s_triangle_area(svec2 vec1, svec2 Vec2, svec2 Vec3);
-SYL_INLINE svec3 S_VEC3F(float a, float b, float c);
+SYL_INLINE svec3 S_VEC3(float a, float b, float c);
 SYL_INLINE svec3 S_VEC3A(float* a);
 SYL_INLINE void s_vec3_zero(svec3* Vector);
 SYL_INLINE bool s_vec3_equal(svec3 vec1, svec3 Vec2);
@@ -284,7 +284,7 @@ SYL_INLINE svec3 s_vec3_lerp(svec3 vec1, svec3 Vec2, float t);
 SYL_INLINE svec3 s_vec3_project(svec3 VectorToProject, svec3 ProjectionVector);
 SYL_INLINE svec3 s_vec3_cross(svec3 vec1, svec3 Vec2);
 SYL_INLINE float Slope(svec3 PointA, svec3 PointB);
-SYL_INLINE svec4 S_VEC4F(float a, float b, float c, float d);
+SYL_INLINE svec4 S_VEC4(float a, float b, float c, float d);
 SYL_INLINE svec4 S_VEC4A(float* a);
 SYL_INLINE svec4 S_VEC4VF(svec3 Vector, float Value);
 SYL_INLINE void s_vector4_zero(svec4* Vector);
@@ -1162,8 +1162,7 @@ SYL_INLINE float s_triangle_area(svec2 vec1, svec2 vec2, svec2 Vec3)
  *                 VECTOR 3D		     *
  *********************************************/
 
-
-SYL_INLINE svec3 S_VEC3F(float a, float b, float c)
+SYL_INLINE svec3 S_VEC3(float a, float b, float c)
 {
 	svec3 r = { { a, b, c } };
 	return(r);
@@ -1788,7 +1787,7 @@ SYL_INLINE float Slope(svec3 PointA, svec3 PointB)
  *                   VECTOR 4D		         *
  *********************************************/
 
-SYL_INLINE svec4 S_VEC4F(float a, float b, float c, float d)
+SYL_INLINE svec4 S_VEC4(float a, float b, float c, float d)
 {
 	svec4 r = { { a, b, c, d } };
 	return(r);
@@ -1978,11 +1977,11 @@ SYL_INLINE bool s_vec4_less_equal_scalar(svec4 vec1, float value)
 	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
 #else
 	if ((vec1.x <= value) && (vec1.y <= value) && (vec1.z <= value)) {
-			return(true);
-		}
+		return(true);
+	}
 	else {
-			return(false);
-		}
+		return(false);
+	}
 #endif
 }
 
@@ -2394,17 +2393,17 @@ SYL_INLINE svec4 s_vec4_min_vector(svec4 vec1, svec4 vec2)
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_clamp(svec4 value, svec4 Min, svec4 Max)
+SYL_INLINE svec4 s_vec4_clamp(svec4 value, svec4 Min, svec4 max)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	// __m128 Result = _mm_max_ps(Min.v, Max.v);
-	// Result = _mm_max_ps(Max.v, Result);
+	// __m128 Result = _mm_max_ps(Min.v, max.v);
+	// Result = _mm_max_ps(max.v, Result);
 	// return *(svec4*)&Result;
 
-	__m128 Result = _mm_min_ps(_mm_max_ps(value.v, Min.v), Max.v);
+	__m128 Result = _mm_min_ps(_mm_max_ps(value.v, Min.v), max.v);
 	return *(svec4*)&Result;
 #else
-	svec4 Result = s_vec4_min_vector(s_vec4_max_vector(value, Min), Max);
+	svec4 Result = s_vec4_min_vector(s_vec4_max_vector(value, Min), max);
 	return(Result);
 #endif
 }
@@ -2521,13 +2520,13 @@ SYL_INLINE bool s_mat4_is_identity(smat4 Mat)
 	    Mat.e[4] == 0.0f && Mat.e[5] == 1.0f && Mat.e[6] == 0.0f && Mat.e[7] == 0.0f &&
 	    Mat.e[8] == 0.0f && Mat.e[9] == 0.0f && Mat.e[10] == 1.0f && Mat.e[11] == 0.0f &&
 	    Mat.e[12] == 0.0f && Mat.e[13] == 0.0f && Mat.e[14] == 0.0f && Mat.e[15] == 1.0f) {
-			/* Nice you spend couple of frames calculating this... */
-			return(true);
-		}
+		/* Nice you spend couple of frames calculating this... */
+		return(true);
+	}
 	else {
-			/* Maybe even failed what a shame.. */
-			return(false);
-		}
+		/* Maybe even failed what a shame.. */
+		return(false);
+	}
 #endif
 }
 
