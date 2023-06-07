@@ -180,8 +180,8 @@ SYL_INLINE double s_truncated(double Value, double Places);
 SYL_INLINE float s_normalize(float Value, float Min, float Max);
 SYL_INLINE float s_map(float Value, float SourceMin, float SourceMax, float DestMin, float DestMax);
 SYL_INLINE svec3 s_rgb_to_hsv(svec3 RGB);
-SYL_INLINE svec2 S_VEC2F(float a, float b);
-SYL_INLINE svec2 S_VEC2A(float* a);
+SYL_INLINE svec2 SVEC2F(float a, float b);
+SYL_INLINE svec2 SVEC2A(float* a);
 SYL_INLINE void s_vec2_zero(svec2* Vector);
 SYL_INLINE bool s_vec2_equal(svec2 vec1, svec2 Vec2);
 SYL_INLINE bool s_vec2_equal_scalar(svec2 vec1, float Value);
@@ -233,8 +233,8 @@ SYL_INLINE float s_vec2_max(svec2 A);
 SYL_INLINE float s_vec2_min(svec2 A);
 SYL_INLINE float s_vec2_sum(svec2 vec1);
 SYL_INLINE float s_triangle_area(svec2 vec1, svec2 Vec2, svec2 Vec3);
-SYL_INLINE svec3 S_VEC3(float a, float b, float c);
-SYL_INLINE svec3 S_VEC3A(float* a);
+SYL_INLINE svec3 SVEC3(float a, float b, float c);
+SYL_INLINE svec3 SVEC3A(float* a);
 SYL_INLINE void s_vec3_zero(svec3* Vector);
 SYL_INLINE bool s_vec3_equal(svec3 vec1, svec3 Vec2);
 SYL_INLINE bool s_vec3_equal_scalar(svec3 vec1, float Value);
@@ -284,9 +284,9 @@ SYL_INLINE svec3 s_vec3_lerp(svec3 vec1, svec3 Vec2, float t);
 SYL_INLINE svec3 s_vec3_project(svec3 VectorToProject, svec3 ProjectionVector);
 SYL_INLINE svec3 s_vec3_cross(svec3 vec1, svec3 Vec2);
 SYL_INLINE float Slope(svec3 PointA, svec3 PointB);
-SYL_INLINE svec4 S_VEC4(float a, float b, float c, float d);
-SYL_INLINE svec4 S_VEC4A(float* a);
-SYL_INLINE svec4 S_VEC4VF(svec3 Vector, float Value);
+SYL_INLINE svec4 SVEC4(float a, float b, float c, float d);
+SYL_INLINE svec4 SVEC4A(float* a);
+SYL_INLINE svec4 SVEC4VF(svec3 Vector, float Value);
 SYL_INLINE void s_vector4_zero(svec4* Vector);
 SYL_INLINE bool s_vec4_equal(svec4 vec1, svec4 Vec2);
 SYL_INLINE bool s_vec4_equal_scalar(svec4 vec1, float Value);
@@ -655,7 +655,8 @@ SYL_INLINE svec2 S_VEC2A(float* a) // From array
 
 SYL_INLINE void s_vec2_zero(svec2* vector)
 {
-	*vector = _SVEC2_ZERO;
+	vector->x = 0;
+	vector->y = 0;
 }
 
 SYL_INLINE bool s_vec2_equal(svec2 vec1, svec2 vec2)
@@ -1162,13 +1163,13 @@ SYL_INLINE float s_triangle_area(svec2 vec1, svec2 vec2, svec2 Vec3)
  *                 VECTOR 3D		     *
  *********************************************/
 
-SYL_INLINE svec3 S_VEC3(float a, float b, float c)
+SYL_INLINE svec3 SVEC3(float a, float b, float c)
 {
 	svec3 r = { { a, b, c } };
 	return(r);
 }
 
-SYL_INLINE svec3 S_VEC3A(float* a)
+SYL_INLINE svec3 SVEC3A(float* a)
 {
 	svec3 r = { { a[0], a[1], a[2] } };
 	return(r);
@@ -1787,19 +1788,19 @@ SYL_INLINE float Slope(svec3 PointA, svec3 PointB)
  *                   VECTOR 4D		         *
  *********************************************/
 
-SYL_INLINE svec4 S_VEC4(float a, float b, float c, float d)
+SYL_INLINE svec4 SVEC4(float a, float b, float c, float d)
 {
 	svec4 r = { { a, b, c, d } };
 	return(r);
 }
 
-SYL_INLINE svec4 S_VEC4A(float* a)
+SYL_INLINE svec4 SVEC4A(float* a)
 {
 	svec4 r = { { a[0], a[1], a[2], a[3] } };
 	return(r);
 }
 
-SYL_INLINE svec4 S_VEC4VF(svec3 vector, float value)
+SYL_INLINE svec4 SVEC4VF(svec3 vector, float value)
 {
 	svec4 r = { { vector.x, vector.y, vector.z, value } };
 	return(r);
@@ -2790,7 +2791,7 @@ SYL_INLINE svec4 s_mat4_mul_vec4(smat4 Matrix1, svec4 vector)
 
 SYL_INLINE svec3 s_mat4_mul_vec3(smat4 Matrix1, svec3 vector)
 {
-	svec4 Vec = s_mat4_transform(Matrix1, S_VEC4VF(vector, 1.0f));
+	svec4 Vec = s_mat4_transform(Matrix1, SVEC4VF(vector, 1.0f));
 	svec3 Result = { { Vec.x, Vec.y, Vec.z } };
 	return(Result);
 }
