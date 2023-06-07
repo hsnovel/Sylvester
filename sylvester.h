@@ -649,7 +649,7 @@ SYL_INLINE svec3 s_rgb_to_hsv(svec3 RGB)
  *                 VECTOR 2D		  *
  *********************************************/
 
-SYL_INLINE svec2 S_VEC2F(float a, float b) // From individiaul valeus
+SYL_INLINE svec2 SVEC2(float a, float b) // From individiaul valeus
 {
 	svec2 r = { { a, b } };
 	return(r);
@@ -661,9 +661,9 @@ SYL_INLINE svec2 S_VEC2A(float* a) // From array
 	return(r);
 }
 
-SYL_INLINE void s_vec2_zero(svec2* Vector)
+SYL_INLINE void s_vec2_zero(svec2* vector)
 {
-	*Vector = _SVEC2_ZERO;
+	*vector = _SVEC2_ZERO;
 }
 
 SYL_INLINE bool s_vec2_equal(svec2 Vec1, svec2 Vec2)
@@ -1076,10 +1076,10 @@ SYL_INLINE svec2 s_vec2_reflect(svec2 Pos, svec2 N)
 }
 
 /* Project from a position along a vector on to a plane */
-SYL_INLINE svec2 s_vec2_project(svec2 VectorToProject, svec2 ProjectionVector)
+SYL_INLINE svec2 s_vec2_project(svec2 vectorToProject, svec2 Projectionvector)
 {
-	float scale = s_vec2_dot(ProjectionVector, VectorToProject) / s_vec2_dot(ProjectionVector, ProjectionVector);
-	return(s_vec2_mul_scalar(ProjectionVector, scale));
+	float scale = s_vec2_dot(Projectionvector, vectorToProject) / s_vec2_dot(Projectionvector, Projectionvector);
+	return(s_vec2_mul_scalar(Projectionvector, scale));
 }
 
 /* Flattens a position to a normal plane */
@@ -1099,22 +1099,14 @@ SYL_INLINE svec2 s_vec2_max_vector(svec2 Vec1, svec2 Vec2)
 #else
 	svec2 Result;
 	if (Vec1.x > Vec2.x)
-		{
-			Result.x = Vec1.x;
-		}
+		Result.x = Vec1.x;
 	else
-		{
-			Result.x = Vec2.x;
-		}
+		Result.x = Vec2.x;
 
 	if (Vec1.y > Vec2.y)
-		{
-			Result.y = Vec1.y;
-		}
+		Result.y = Vec1.y;
 	else
-		{
-			Result.y = Vec2.y;
-		}
+		Result.y = Vec2.y;
 	return(Result);
 #endif
 }
@@ -1128,22 +1120,14 @@ SYL_INLINE svec2 s_vec2_min_vector(svec2 Vec1, svec2 Vec2)
 #else
 	svec2 Result;
 	if (Vec1.x < Vec2.x)
-		{
-			Result.x = Vec1.x;
-		}
+		Result.x = Vec1.x;
 	else
-		{
-			Result.x = Vec2.x;
-		}
+		Result.x = Vec2.x;
 
 	if (Vec1.y < Vec2.y)
-		{
-			Result.y = Vec1.y;
-		}
+		Result.y = Vec1.y;
 	else
-		{
-			Result.y = Vec2.y;
-		}
+		Result.y = Vec2.y;
 	return(Result);
 #endif
 }
@@ -1152,26 +1136,18 @@ SYL_INLINE svec2 s_vec2_min_vector(svec2 Vec1, svec2 Vec2)
 SYL_INLINE float s_vec2_max(svec2 A)
 {
 	if (A.e[0] > A.e[1])
-		{
-			return(A.e[0]);
-		}
+		return(A.e[0]);
 	else
-		{
-			return(A.e[1]);
-		}
+		return(A.e[1]);
 }
 
 /* Return the smollest element inside vec4 */
 SYL_INLINE float s_vec2_min(svec2 A)
 {
 	if (A.e[0] < A.e[1])
-		{
-			return(A.e[0]);
-		}
+		return(A.e[0]);
 	else
-		{
-			return(A.e[1]);
-		}
+		return(A.e[1]);
 }
 
 /* Add all components of the vector together */
@@ -1207,11 +1183,11 @@ SYL_INLINE svec3 S_VEC3A(float* a)
 	return(r);
 }
 
-SYL_INLINE void s_vec3_zero(svec3* Vector)
+SYL_INLINE void s_vec3_zero(svec3* vector)
 {
-	Vector->x = 0;
-	Vector->y = 0;
-	Vector->z = 0;
+	vector->x = 0;
+	vector->y = 0;
+	vector->z = 0;
 }
 
 SYL_INLINE bool s_vec3_equal(svec3 Vec1, svec3 Vec2)
@@ -1221,13 +1197,9 @@ SYL_INLINE bool s_vec3_equal(svec3 Vec1, svec3 Vec2)
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
 	if ((Vec1.x == Vec2.x) && (Vec1.y == Vec2.y) && (Vec1.z == Vec2.z))
-		{
-			return(true);
-		}
+		return(true);
 	else
-		{
-			return(false);
-		}
+		return(false);
 #endif
 }
 
@@ -1238,13 +1210,9 @@ SYL_INLINE bool s_vec3_equal_scalar(svec3 Vec1, float Value)
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
 	if ((Vec1.x == Value) && (Vec1.y == Value) && (Vec1.z == Value))
-		{
-			return(true);
-		}
+		return(true);
 	else
-		{
-			return(false);
-		}
+		return(false);
 
 #endif
 }
@@ -1257,13 +1225,9 @@ SYL_INLINE bool s_vec3_not_equal(svec3 Vec1, svec3 Vec2)
 	return (((_mm_movemask_ps(Result) & 7) == 7) == 0);
 #else
 	if ((Vec1.x != Vec2.x) && (Vec1.y != Vec2.y) && (Vec1.z == Vec2.z))
-		{
-			return(true);
-		}
+		return(true);
 	else
-		{
-			return(false);
-		}
+		return(false);
 #endif
 }
 
@@ -1274,13 +1238,9 @@ SYL_INLINE bool s_vec3_not_equal_scalar(svec3 Vec1, float Value)
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
 	if ((Vec1.x != Value) && (Vec1.y != Value) && (Vec1.z == Value))
-		{
-			return(true);
-		}
+		return(true);
 	else
-		{
-			return(false);
-		}
+		return(false);
 #endif
 }
 
@@ -1292,13 +1252,9 @@ SYL_INLINE bool s_vec3_greater(svec3 Vec1, svec3 Vec2)
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
 	if ((Vec1.x > Vec2.x) && (Vec1.y > Vec1.y) && (Vec1.z > Vec1.z))
-		{
-			return(true);
-		}
+		return(true);
 	else
-		{
-			return(false);
-		}
+		return(false);
 #endif
 }
 
@@ -1309,13 +1265,9 @@ SYL_INLINE bool s_vec3_less(svec3 Vec1, svec3 Vec2)
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
 	if ((Vec1.x < Vec2.x) && (Vec1.y < Vec2.y) && (Vec1.z < Vec2.z))
-		{
-			return(true);
-		}
+		return(true);
 	else
-		{
-			return(false);
-		}
+		return(false);
 #endif
 }
 
@@ -1326,13 +1278,9 @@ SYL_INLINE bool s_vec3_less_scalar(svec3 Vec1, float Value)
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
 	if ((Vec1.x < Value) && (Vec1.y < Value) && (Vec1.z < Value))
-		{
-			return(true);
-		}
+		return(true);
 	else
-		{
-			return(false);
-		}
+		return(false);
 #endif
 }
 
@@ -1344,13 +1292,9 @@ SYL_INLINE bool s_vec3_greater_equal(svec3 Vec1, svec3 Vec2)
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
 	if ((Vec1.x >= Vec2.x) && (Vec1.y >= Vec2.y) && (Vec1.z > Vec2.z))
-		{
-			return(true);
-		}
+		return(true);
 	else
-		{
-			return(false);
-		}
+		return(false);
 #endif
 }
 
@@ -1361,13 +1305,9 @@ SYL_INLINE bool s_vec3_greater_equal_scalar(svec3 Vec1, float Value)
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
 	if ((Vec1.x >= Value) && (Vec1.y >= Value) && (Vec1.z > Value))
-		{
-			return(true);
-		}
+		return(true);
 	else
-		{
-			return(false);
-		}
+		return(false);
 #endif
 }
 
@@ -1378,13 +1318,9 @@ SYL_INLINE bool s_vec3_less_equal(svec3 Vec1, svec3 Vec2)
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
 	if ((Vec1.x <= Vec2.x) && (Vec1.y <= Vec2.y) && (Vec1.z > Vec2.z))
-		{
-			return(true);
-		}
+		return(true);
 	else
-		{
-			return(false);
-		}
+		return(false);
 #endif
 }
 
@@ -1395,13 +1331,9 @@ SYL_INLINE bool s_vec3_less_equal_scalar(svec3 Vec1, float Value)
 	return (((_mm_movemask_ps(Result) & 7) == 7) != 0);
 #else
 	if ((Vec1.x <= Value) && (Vec1.y <= Value) && (Vec1.z > Value))
-		{
-			return(true);
-		}
+		return(true);
 	else
-		{
-			return(false);
-		}
+		return(false);
 #endif
 }
 
@@ -1805,10 +1737,10 @@ SYL_INLINE svec3 s_vec3_lerp(svec3 Vec1, svec3 Vec2, float t)
 
 }
 
-SYL_INLINE svec3 s_vec3_project(svec3 VectorToProject, svec3 ProjectionVector)
+SYL_INLINE svec3 s_vec3_project(svec3 vectorToProject, svec3 Projectionvector)
 {
-	float scale = s_vec3_dot(ProjectionVector, VectorToProject) / s_vec3_dot(ProjectionVector, ProjectionVector);
-	return(s_vec3_mul_scalar(ProjectionVector, scale));
+	float scale = s_vec3_dot(Projectionvector, vectorToProject) / s_vec3_dot(Projectionvector, Projectionvector);
+	return(s_vec3_mul_scalar(Projectionvector, scale));
 }
 
 SYL_INLINE svec3 s_vec3_cross(svec3 Vec1, svec3 Vec2)
@@ -1851,11 +1783,11 @@ SYL_INLINE float Slope(svec3 PointA, svec3 PointB)
 
 //SYL_INLINE float AreaOfTriangle(vec3 a, vec3 b, vec3 c)
 //{
-//	vec3 Vector = a - b;
-//	float Area = sqrt(Dot(Vector, Vector));
+//	vec3 vector = a - b;
+//	float Area = sqrt(Dot(vector, vector));
 //	vec3 Side = c - b;
-//	float f = Dot(Vector, Side);
-//	Side -= Vector * f;
+//	float f = Dot(vector, Side);
+//	Side -= vector * f;
 //	Area *= sqrtf(Dot(Side, Side));
 //	return(Area);
 //}
@@ -1876,21 +1808,21 @@ SYL_INLINE svec4 S_VEC4A(float* a)
 	return(r);
 }
 
-SYL_INLINE svec4 S_VEC4VF(svec3 Vector, float Value)
+SYL_INLINE svec4 S_VEC4VF(svec3 vector, float Value)
 {
-	svec4 r = { { Vector.x, Vector.y, Vector.z, Value } };
+	svec4 r = { { vector.x, vector.y, vector.z, Value } };
 	return(r);
 }
 
-SYL_INLINE void s_vector4_zero(svec4* Vector)
+SYL_INLINE void s_vector4_zero(svec4* vector)
 {
 #if defined(SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	_mm_store_ps(Vector->e, _S_XMM_ZERO);
+	_mm_store_ps(vector->e, _S_XMM_ZERO);
 #else
-	Vector->x = 0;
-	Vector->y = 0;
-	Vector->z = 0;
-	Vector->w = 0;
+	vector->x = 0;
+	vector->y = 0;
+	vector->z = 0;
+	vector->w = 0;
 #endif
 }
 
@@ -2053,12 +1985,10 @@ SYL_INLINE bool s_vec4_less_equal_scalar(svec4 Vec1, float Value)
 	__m128 Result = _mm_cmple_ps(_mm_load_ps(Vec1.e), _mm_set1_ps(Value));
 	return ((_mm_movemask_ps(Result) == 0x0f) != 0);
 #else
-	if ((Vec1.x <= Value) && (Vec1.y <= Value) && (Vec1.z <= Value))
-		{
+	if ((Vec1.x <= Value) && (Vec1.y <= Value) && (Vec1.z <= Value)) {
 			return(true);
 		}
-	else
-		{
+	else {
 			return(false);
 		}
 #endif
@@ -2402,10 +2332,10 @@ SYL_INLINE svec4 s_vec4_cross(svec4 Vec1, svec4 Vec2)
 #endif
 }
 
-SYL_INLINE svec4 s_vec4_project(svec4 VectorToProject, svec4 ProjectionVector)
+SYL_INLINE svec4 s_vec4_project(svec4 vectorToProject, svec4 Projectionvector)
 {
-	float scale = s_vec4_dot(ProjectionVector, VectorToProject) / s_vec4_dot(ProjectionVector, ProjectionVector);
-	return(s_vec4_mul_scalar(ProjectionVector, scale));
+	float scale = s_vec4_dot(Projectionvector, vectorToProject) / s_vec4_dot(Projectionvector, Projectionvector);
+	return(s_vec4_mul_scalar(Projectionvector, scale));
 }
 
 /* Per component comparsion to return a vector containing the largest components */
@@ -2417,40 +2347,25 @@ SYL_INLINE svec4 s_vec4_max_vector(svec4 Vec1, svec4 Vec2)
 #else
 	svec4 Result;
 	if (Vec1.x > Vec2.x)
-		{
-			Result.x = Vec1.x;
-		}
+		Result.x = Vec1.x;
 	else
-		{
-			Result.x = Vec2.x;
-		}
+		Result.x = Vec2.x;
 
 	if (Vec1.y > Vec2.y)
-		{
-			Result.y = Vec1.y;
-		}
+		Result.y = Vec1.y;
 	else
-		{
-			Result.y = Vec2.y;
-		}
+		Result.y = Vec2.y;
 
 	if (Vec1.z > Vec2.z)
-		{
-			Result.z = Vec1.z;
-		}
+		Result.z = Vec1.z;
 	else
-		{
-			Result.z = Vec2.z;
-		}
+		Result.z = Vec2.z;
 
 	if (Vec1.w > Vec2.w)
-		{
-			Result.w = Vec1.w;
-		}
+		Result.w = Vec1.w;
 	else
-		{
-			Result.w = Vec2.w;
-		}
+		Result.w = Vec2.w;
+
 	return(Result);
 #endif
 }
@@ -2464,40 +2379,24 @@ SYL_INLINE svec4 s_vec4_min_vector(svec4 Vec1, svec4 Vec2)
 #else
 	svec4 Result;
 	if (Vec1.x < Vec2.x)
-		{
-			Result.x = Vec1.x;
-		}
+		Result.x = Vec1.x;
 	else
-		{
-			Result.x = Vec2.x;
-		}
+		Result.x = Vec2.x;
 
 	if (Vec1.y < Vec2.y)
-		{
-			Result.y = Vec1.y;
-		}
+		Result.y = Vec1.y;
 	else
-		{
-			Result.y = Vec2.y;
-		}
+		Result.y = Vec2.y;
 
 	if (Vec1.z < Vec2.z)
-		{
-			Result.z = Vec1.z;
-		}
+		Result.z = Vec1.z;
 	else
-		{
-			Result.z = Vec2.z;
-		}
+		Result.z = Vec2.z;
 
 	if (Vec1.w < Vec2.w)
-		{
-			Result.w = Vec1.w;
-		}
+		Result.w = Vec1.w;
 	else
-		{
-			Result.w = Vec2.w;
-		}
+		Result.w = Vec2.w;
 
 	return(Result);
 #endif
@@ -2544,9 +2443,9 @@ SYL_INLINE float s_vec4_min(svec4 A)
 #endif
 }
 
-SYL_INLINE float s_vec4_sum(svec4 Vec1)
+SYL_INLINE float s_vec4_sum(svec4 vec1)
 {
-	return((Vec1.x + Vec1.y) + (Vec1.z + Vec1.w));
+	return((vec1.x + vec1.y) + (vec1.z + vec1.w));
 }
 
 /*********************************************
@@ -2629,13 +2528,11 @@ SYL_INLINE bool s_mat4_is_identity(smat4 Mat)
 	if (Mat.e[0] == 1.0f && Mat.e[1] == 0.0f && Mat.e[2] == 0.0f && Mat.e[3] == 0.0f &&
 	    Mat.e[4] == 0.0f && Mat.e[5] == 1.0f && Mat.e[6] == 0.0f && Mat.e[7] == 0.0f &&
 	    Mat.e[8] == 0.0f && Mat.e[9] == 0.0f && Mat.e[10] == 1.0f && Mat.e[11] == 0.0f &&
-	    Mat.e[12] == 0.0f && Mat.e[13] == 0.0f && Mat.e[14] == 0.0f && Mat.e[15] == 1.0f)
-		{
+	    Mat.e[12] == 0.0f && Mat.e[13] == 0.0f && Mat.e[14] == 0.0f && Mat.e[15] == 1.0f) {
 			/* Nice you spend couple of frames calculating this... */
 			return(true);
 		}
-	else
-		{
+	else {
 			/* Maybe even failed what a shame.. */
 			return(false);
 		}
@@ -2774,16 +2671,13 @@ SYL_INLINE smat4 s_mat4_mul(smat4 Matrix1, smat4 Matrix2)
 	smat4 Result;
 	s_mat4_zero(&Result);
 
-	for (int k = 0; k < 4; ++k)
-		{
-			for (int n = 0; n < 4; ++n)
-				{
-					for (int i = 0; i < 4; ++i)
-						{
-							Result.e2[k][n] += Matrix1.e2[k][i] * Matrix2.e2[i][n];
-						}
-				}
+	for (int k = 0; k < 4; ++k) {
+		for (int n = 0; n < 4; ++n) {
+			for (int i = 0; i < 4; ++i) {
+				Result.e2[k][n] += Matrix1.e2[k][i] * Matrix2.e2[i][n];
+			}
 		}
+	}
 
 	return(Result);
 #endif
@@ -2805,13 +2699,11 @@ SYL_INLINE smat4 s_mat4_transpose(smat4 Mat)
 #else
 	smat4 Result;
 
-	for (int j = 0; j < 4; ++j)
-		{
-			for (int i = 0; i < 4; ++i)
-				{
-					Result.e2[j][i] = Mat.e2[i][j];
-				}
+	for (int j = 0; j < 4; ++j) {
+		for (int i = 0; i < 4; ++i) {
+			Result.e2[j][i] = Mat.e2[i][j];
 		}
+	}
 	return(Result);
 #endif
 }
@@ -2876,39 +2768,38 @@ SYL_INLINE smat4 s_mat4_inverse_noscale(smat4 Matrix)
  * }
  */
 
-SYL_INLINE svec4 s_mat4_transform(smat4 Matrix, svec4 Vector)
-{
+SYL_INLINE svec4 s_mat4_transform(smat4 Matrix, svec4 vector) {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
 	svec4 Result;
-	Result.v = _SYL_PERMUTE_PS(Vector.v, _MM_SHUFFLE(3, 3, 3, 3));
+	Result.v = _SYL_PERMUTE_PS(vector.v, _MM_SHUFFLE(3, 3, 3, 3));
 	Result.v = _mm_mul_ps(Result.v, Matrix.v[3]);
-	__m128 Temp = _SYL_PERMUTE_PS(Vector.v, _MM_SHUFFLE(2, 2, 2, 2));
+	__m128 Temp = _SYL_PERMUTE_PS(vector.v, _MM_SHUFFLE(2, 2, 2, 2));
 	Result.v = _SYL_ADD_PS(Temp, Matrix.v[2], Result.v);
-	Temp = _SYL_PERMUTE_PS(Vector.v, _MM_SHUFFLE(1, 1, 1, 1));
+	Temp = _SYL_PERMUTE_PS(vector.v, _MM_SHUFFLE(1, 1, 1, 1));
 	Result.v = _SYL_ADD_PS(Temp, Matrix.v[1], Result.v);
-	Temp = _SYL_PERMUTE_PS(Vector.v, _MM_SHUFFLE(0, 0, 0, 0));
+	Temp = _SYL_PERMUTE_PS(vector.v, _MM_SHUFFLE(0, 0, 0, 0));
 	Result.v = _SYL_ADD_PS(Temp, Matrix.v[0], Result.v);
 	return(Result);
 #else
 	svec4 Result;
 
-	Result.x = Vector.x * Matrix.e2[0][0] + Vector.y * Matrix.e2[0][1] + Vector.z * Matrix.e2[0][2] + Vector.w * Matrix.e2[0][3];
-	Result.y = Vector.x * Matrix.e2[1][0] + Vector.y * Matrix.e2[1][1] + Vector.z * Matrix.e2[1][2] + Vector.w * Matrix.e2[1][3];
-	Result.z = Vector.x * Matrix.e2[2][0] + Vector.y * Matrix.e2[2][1] + Vector.z * Matrix.e2[2][2] + Vector.w * Matrix.e2[2][3];
-	Result.w = Vector.x * Matrix.e2[3][0] + Vector.y * Matrix.e2[3][1] + Vector.z * Matrix.e2[3][2] + Vector.w * Matrix.e2[3][3];
+	Result.x = vector.x * Matrix.e2[0][0] + vector.y * Matrix.e2[0][1] + vector.z * Matrix.e2[0][2] + vector.w * Matrix.e2[0][3];
+	Result.y = vector.x * Matrix.e2[1][0] + vector.y * Matrix.e2[1][1] + vector.z * Matrix.e2[1][2] + vector.w * Matrix.e2[1][3];
+	Result.z = vector.x * Matrix.e2[2][0] + vector.y * Matrix.e2[2][1] + vector.z * Matrix.e2[2][2] + vector.w * Matrix.e2[2][3];
+	Result.w = vector.x * Matrix.e2[3][0] + vector.y * Matrix.e2[3][1] + vector.z * Matrix.e2[3][2] + vector.w * Matrix.e2[3][3];
 
 	return(Result);
 #endif
 }
 
-SYL_INLINE svec4 s_mat4_mul_vec4(smat4 Matrix1, svec4 Vector)
+SYL_INLINE svec4 s_mat4_mul_vec4(smat4 Matrix1, svec4 vector)
 {
-	return s_mat4_transform(Matrix1, Vector);
+	return s_mat4_transform(Matrix1, vector);
 }
 
-SYL_INLINE svec3 s_mat4_mul_vec3(smat4 Matrix1, svec3 Vector)
+SYL_INLINE svec3 s_mat4_mul_vec3(smat4 Matrix1, svec3 vector)
 {
-	svec4 Vec = s_mat4_transform(Matrix1, S_VEC4VF(Vector, 1.0f));
+	svec4 Vec = s_mat4_transform(Matrix1, S_VEC4VF(vector, 1.0f));
 	svec3 Result = { { Vec.x, Vec.y, Vec.z } };
 	return(Result);
 }
@@ -2948,100 +2839,100 @@ SYL_INLINE smat4 s_mat4_zrotation(float Angle)
 	float CosAngle = cos(Angle);
 	float SinAngle = sin(Angle);
 
-	smat4 Result = { {
+	smat4 result = { {
 			CosAngle, -SinAngle, 0, 0,
 			SinAngle, CosAngle, 0, 0,
 			0, 0, 1, 0,
 			0, 0, 0, 1
 		} };
 
-	return(Result);
+	return(result);
 }
 
-SYL_INLINE smat4 s_mat4_translation(svec3 Vector)
+SYL_INLINE smat4 s_mat4_translation(svec3 vector)
 {
 #if defined(SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	smat4 Result;
-	Result.v[0] = _S_IDENT4x4R0;
-	Result.v[1] = _S_IDENT4x4R1;
-	Result.v[2] = _S_IDENT4x4R2;
-	Result.v[0] = _mm_set_ps(Vector.x, Vector.y, Vector.z, 1.0f);
-	return(Result);
+	smat4 result;
+	result.v[0] = _S_IDENT4x4R0;
+	result.v[1] = _S_IDENT4x4R1;
+	result.v[2] = _S_IDENT4x4R2;
+	result.v[0] = _mm_set_ps(vector.x, vector.y, vector.z, 1.0f);
+	return(result);
 #else
-	smat4 Result = { {
-			1, 0, 0, Vector.x,
-			0, 1, 0, Vector.y,
-			0, 0, 1, Vector.z,
+	smat4 result = { {
+			1, 0, 0, vector.x,
+			0, 1, 0, vector.y,
+			0, 0, 1, vector.z,
 			0, 0, 0, 1,
 		} };
 
-	return(Result);
+	return(result);
 #endif
 }
 
 /* No LH version for now...  */
-SYL_INLINE smat4 s_mat4_perspective_projection_rh(float Fov, float AspectRatio, float NearClipPlane, float FarClipPlane)
+SYL_INLINE smat4 s_mat4_perspective_projection_rh(float fov, float aspect_ratio, float NearClipPlane, float FarClipPlane)
 {
 #if defined(SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	float Sin = sin(0.5f * Fov);
-	float Cos = cos(0.5f * Fov);
+	float Sin = sin(0.5f * fov);
+	float Cos = cos(0.5f * fov);
 	float Range = FarClipPlane / (NearClipPlane - FarClipPlane);
 	float Height = Cos / Sin;
-	__m128 Mem = { Height / AspectRatio, Height, Range, Range * NearClipPlane };
+	__m128 Mem = { Height / aspect_ratio, Height, Range, Range * NearClipPlane };
 	__m128 Mem2 = Mem;
 	__m128 Temp = _mm_setzero_ps();
 	Temp = _mm_move_ss(Temp, Mem2);
-	smat4 Result;
-	Result.v[0] = Temp;
+	smat4 result;
+	result.v[0] = Temp;
 	Temp = Mem2;
 	Temp = _mm_and_ps(Temp, _S_XMM_MASK_Y);
-	Result.v[1] = Temp;
+	result.v[1] = Temp;
 	Temp = _mm_setzero_ps();
 	Mem2 = _mm_shuffle_ps(Mem2, _S_IDENT4x4R3, _MM_SHUFFLE(3, 2, 3, 2));
 	Temp = _mm_shuffle_ps(Temp, Mem2, _MM_SHUFFLE(3, 0, 0, 0));
-	Result.v[2] = Temp;
+	result.v[2] = Temp;
 	Temp = _mm_shuffle_ps(Temp, Mem2, _MM_SHUFFLE(2, 1, 0, 0));
-	Result.v[3] = Temp;
-	return(Result);
+	result.v[3] = Temp;
+	return(result);
 #else
-	//float Cotan = 1.0f / tanf(Fov / 2.0f);
+	//float Cotan = 1.0f / tanf(fov / 2.0f);
 
-	//mat4 Result = {
-	//	Cotan / AspectRatio, 0.0f, 0.0f, 0.0f,
+	//mat4 result = {
+	//	Cotan / aspect_ratio, 0.0f, 0.0f, 0.0f,
 	//	0.0f, Cotan, 0.0f, 0.0f,
 	//	0.0f, 0.0f, (FarClipPlane + NearClipPlane) / (NearClipPlane - FarClipPlane), -1.0f,
 	//	0.0f, 0.0f, (2.0f * FarClipPlane * NearClipPlane) / (NearClipPlane - FarClipPlane), 0.0f
 	//};
 
-	//return(Result);
+	//return(result);
 
-	float tanHalfFovy = tan(Fov / 2);
+	float tanHalffovy = tan(fov / 2);
 
-	smat4 Result;
-	s_mat4_zero(&Result);
-	Result.e2[0][0] = 1 / (AspectRatio * tanHalfFovy);
-	Result.e2[1][1] = 1 / (tanHalfFovy);
-	Result.e2[2][2] = -(FarClipPlane + NearClipPlane) / (FarClipPlane - NearClipPlane);
-	Result.e2[2][3] = -1;
-	Result.e2[3][2] = -(2 * FarClipPlane * NearClipPlane) / (FarClipPlane - NearClipPlane);
-	return Result;
+	smat4 result;
+	s_mat4_zero(&result);
+	result.e2[0][0] = 1 / (aspect_ratio * tanHalffovy);
+	result.e2[1][1] = 1 / (tanHalffovy);
+	result.e2[2][2] = -(FarClipPlane + NearClipPlane) / (FarClipPlane - NearClipPlane);
+	result.e2[2][3] = -1;
+	result.e2[3][2] = -(2 * FarClipPlane * NearClipPlane) / (FarClipPlane - NearClipPlane);
+	return result;
 #endif
 }
 
-SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float NearClipPlane, float FarClipPlane)
+SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float aspect_ratio, float near_clip_plane, float far_clip_plane)
 {
 	float Ral = 1.0f;
-	float Rsl = AspectRatio;
-	float Fan = NearClipPlane;
-	float Fsn = FarClipPlane;
+	float Rsl = aspect_ratio;
+	float Fan = near_clip_plane;
+	float Fsn = far_clip_plane;
 	float Tab = 2.0f / (Fan - Fsn);
 	float Tsb = (Fan + Fsn) / (Fan - Fsn);
 
-	smat4 Result = { { 1 / Ral,   0,   0,    0,
+	smat4 result = { { 1 / Ral,   0,   0,    0,
 				   0, 1 / Rsl,   0,    0,
 				   0,   0, 1 / Tab, -Tsb / Tab,
 				   0,   0,   0,    1 } };
-	return(Result);
+	return(result);
 }
 
 #ifdef __cplusplus
