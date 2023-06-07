@@ -349,6 +349,7 @@ SYL_INLINE smat4 s_mat4_inverse_noscale(smat4 Matrix);
 SYL_INLINE svec4 s_mat4_transform(smat4 Matrix, svec4 Vector);
 SYL_INLINE svec4 s_mat4_mul_vec4(smat4 Matrix1, svec4 Vector);
 SYL_INLINE svec3 s_mat4_mul_vec3(smat4 Matrix1, svec3 Vector);
+SYL_INLINE smat4 s_mat4_translate(smat4 matrix, svec3 vec);
 SYL_INLINE smat4 s_mat4_xrotation(float Angle);
 SYL_INLINE smat4 s_mat4_yrotation(float Angle);
 SYL_INLINE smat4 s_mat4_zrotation(float Angle);
@@ -2813,6 +2814,21 @@ SYL_INLINE svec3 s_mat4_mul_vec3(smat4 Matrix1, svec3 vector)
 	svec4 Vec = s_mat4_transform(Matrix1, SVEC4VF(vector, 1.0f));
 	svec3 Result = { { Vec.x, Vec.y, Vec.z } };
 	return(Result);
+}
+
+SYL_INLINE smat4 s_mat4_translate(smat4 matrix, svec3 vec)
+{
+	/* TODO: add simd version if I can figure out how to */
+	svec4 r1 = s_vec4_mul_scalar(matrix.v4d[0], vec.x);
+	svec4 r2 = s_vec4_mul_scalar(matrix.v4d[1], vec.y);
+	svec4 r3 = s_vec4_mul_scalar(matrix.v4d[2], vec.z);
+
+	svec4 rf = s_vec4_add(r1, r2);
+	rf = s_vec4_add(rf, r3);
+	rf = s_vec4_add(rf, matrix.v4d[3]);
+	matrix.v4d[3] = rf;
+
+	return matrix;
 }
 
 SYL_INLINE smat4 s_mat4_xrotation(float Angle)

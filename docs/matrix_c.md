@@ -22,6 +22,11 @@ Return transpose of a matrix
 mat4 s_mat4_transpose(mat4 Mat);
 ```
 
+Translate matrix with the given vector
+```cpp
+smat4 s_mat4_translate(smat4 matrix, svec3 vec);
+```
+
 Return inverse of a matrix.
 ```cpp
 mat4 s_mat4_inverse(mat4 Matrix);
