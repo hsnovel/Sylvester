@@ -197,8 +197,8 @@ SYL_INLINE bool s_vec2_less_equal(svec2 vec1, svec2 Vec2);
 SYL_INLINE bool s_vec2_less_equal_scalar(svec2 vec1, float Value);
 SYL_INLINE svec2 s_vec2_add(svec2 vec1, svec2 Vec2);
 SYL_INLINE svec2 s_vec2p_add(svec2* vec1, svec2 Vec2);
-SYL_INLINE svec2 s_svec2_add_scalar(svec2 vec1, float Value);
-SYL_INLINE svec2 s_svec2p_add_scalar(svec2* vec1, float Value);
+SYL_INLINE svec2 s_vec2_add_scalar(svec2 vec1, float Value);
+SYL_INLINE svec2 s_vec2p_add_scalar(svec2* vec1, float Value);
 SYL_INLINE svec2 s_vec2_sub(svec2 vec1, svec2 Vec2);
 SYL_INLINE svec2 s_vec2p_sub(svec2* vec1, svec2 Vec2);
 SYL_INLINE svec2 s_vec2_sub_scalar(svec2 vec1, float Value);
@@ -782,7 +782,7 @@ SYL_INLINE svec2 s_vec2p_add(svec2* vec1, svec2 vec2)
 #endif
 }
 
-SYL_INLINE svec2 s_svec2_add_scalar(svec2 vec1, float value)
+SYL_INLINE svec2 s_vec2_add_scalar(svec2 vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
 	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1), _mm_set1_ps(value));
@@ -793,7 +793,7 @@ SYL_INLINE svec2 s_svec2_add_scalar(svec2 vec1, float value)
 #endif
 }
 
-SYL_INLINE svec2 s_svec2p_add_scalar(svec2* vec1, float value)
+SYL_INLINE svec2 s_vec2p_add_scalar(svec2* vec1, float value)
 {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
 	__m128 r = _mm_add_ps(_mm_loadl_pi(_mm_setzero_ps(), (__m64*) & vec1->e), _mm_set1_ps(value));
