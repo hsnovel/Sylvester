@@ -39,31 +39,6 @@
 
 #define SYL_INLINE
 
-#define SYL_PI 3.14159265359f
-
-#define _SYL_SHUFFLE(a,b,c,d) (((a) << 6) | ((b) << 4) |	\
-			       ((c) << 2) | ((d)))
-
-#define _SYL_PERMUTE_PS( v, c ) _mm_shuffle_ps((v), (v), c )
-#define _SYL_ADD_PS( a, b, c ) _mm_sub_ps((c), _mm_mul_ps((a), (b)))
-
-#define _SYL_LOAD(a) _mm_load_ps((a))
-#define _SYL_LOADV2(a) _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & (a))
-
-#define _SYL_MAKE_SHUFFLE_MASK(x,y,z,w)           (x | (y<<2) | (z<<4) | (w<<6))
-#define _SYL_VEC_SWIZZLE_MASK(vec, mask)          _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(vec), mask))
-#define _SYL_VEC_SWIZZLE(vec, x, y, z, w)        _SYL_VEC_SWIZZLE_MASK(vec, _SYL_MAKE_SHUFFLE_MASK(x,y,z,w))
-#define _SYL_VEC_SWIZZLE1(vec, x)                _SYL_VEC_SWIZZLE_MASK(vec, _SYL_MAKE_SHUFFLE_MASK(x,x,x,x))
-#define _SYL_VEC_SWIZZLE_0022(vec)               _mm_moveldup_ps(vec)
-#define _SYL_VEC_SWIZZLE_1133(vec)               _mm_movehdup_ps(vec)
-
-// return (vec1[x], vec1[y], vec2[z], vec2[w])
-#define _SYL_VEC_SHUFFLE(vec1, vec2, x,y,z,w)    _mm_shuffle_ps(vec1, vec2, _SYL_MAKE_SHUFFLE_MASK(x,y,z,w))
-// special shuffle
-#define _SYL_VEC_SHUFFLE_0101(vec1, vec2)        _mm_movelh_ps(vec1, vec2)
-#define _SYL_VEC_SHUFFLE_2323(vec1, vec2)        _mm_movehl_ps(vec2, vec1)
-#define _SYL_SMALL_NUMBER		(1.e-8f)
-
 /* Doing it the normal way fucks up emacs indentation*/
 #define _SYL_CPP_EXTER_START extern "C" {
 #define _SYL_CPP_EXTERN_END }
@@ -121,29 +96,6 @@ typedef union smat4
 	__m256 v2[2];
 #endif
 } _SYL_SET_SPEC_ALIGN(16) smat4;
-
-smat4 _S_IDENT4X4 = { {
-		1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f
-	} };
-
-svec2 _SVEC2_ZERO = { { 0.0f, 0.0f } };
-
-#if defined(SYL_ENABLE_SSE4)
-__m128 _S_XMM_ZERO = { 0.0f, 0.0f, 0.0f, 0.0f };
-__m128 _S_IDENT4x4R0 = { 1.0f, 0.0f, 0.0f, 0.0f };
-__m128 _S_IDENT4x4R1 = { 0.0f, 1.0f, 0.0f, 0.0f };
-__m128 _S_IDENT4x4R2 = { 0.0f, 0.0f, 1.0f, 0.0f };
-__m128 _S_IDENT4x4R3 = { 0.0f, 0.0f, 0.0f, 1.0f };
-__m128 _S_XMM_MASK_3 = { (float)0xFFFFFFFF, (float)0xFFFFFFFF, (float)0xFFFFFFFF, (float)0x00000000 };
-__m128 _S_XMM_MASK_Y = { 0x00000000, (float)0xFFFFFFFF, 0x00000000, 0x00000000 };
-#endif
-
-#if defined(SYL_ENABLE_AVX)
-__m256 _S_YMM_ZERO = { { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f } };
-#endif
 
 SYL_INLINE float s_radian_to_degree(float Radian);
 SYL_INLINE float s_degree_to_radian(float Degree);
@@ -360,6 +312,54 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 #endif // SYLVESTER_H
 
 #ifdef SYL_IMPLEMENTATION
+
+#define SYL_PI 3.14159265359f
+
+#define _SYL_SHUFFLE(a,b,c,d) (((a) << 6) | ((b) << 4) |	\
+			       ((c) << 2) | ((d)))
+
+#define _SYL_PERMUTE_PS( v, c ) _mm_shuffle_ps((v), (v), c )
+#define _SYL_ADD_PS( a, b, c ) _mm_sub_ps((c), _mm_mul_ps((a), (b)))
+
+#define _SYL_LOAD(a) _mm_load_ps((a))
+#define _SYL_LOADV2(a) _mm_loadl_pi(_mm_setzero_ps(), (__m64*) & (a))
+
+#define _SYL_MAKE_SHUFFLE_MASK(x,y,z,w)           (x | (y<<2) | (z<<4) | (w<<6))
+#define _SYL_VEC_SWIZZLE_MASK(vec, mask)          _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(vec), mask))
+#define _SYL_VEC_SWIZZLE(vec, x, y, z, w)        _SYL_VEC_SWIZZLE_MASK(vec, _SYL_MAKE_SHUFFLE_MASK(x,y,z,w))
+#define _SYL_VEC_SWIZZLE1(vec, x)                _SYL_VEC_SWIZZLE_MASK(vec, _SYL_MAKE_SHUFFLE_MASK(x,x,x,x))
+#define _SYL_VEC_SWIZZLE_0022(vec)               _mm_moveldup_ps(vec)
+#define _SYL_VEC_SWIZZLE_1133(vec)               _mm_movehdup_ps(vec)
+
+// return (vec1[x], vec1[y], vec2[z], vec2[w])
+#define _SYL_VEC_SHUFFLE(vec1, vec2, x,y,z,w)    _mm_shuffle_ps(vec1, vec2, _SYL_MAKE_SHUFFLE_MASK(x,y,z,w))
+// special shuffle
+#define _SYL_VEC_SHUFFLE_0101(vec1, vec2)        _mm_movelh_ps(vec1, vec2)
+#define _SYL_VEC_SHUFFLE_2323(vec1, vec2)        _mm_movehl_ps(vec2, vec1)
+#define _SYL_SMALL_NUMBER		(1.e-8f)
+
+smat4 _S_IDENT4X4 = { {
+		1.0f, 0.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f, 0.0f,
+		0.0f, 0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f
+	} };
+
+svec2 _SVEC2_ZERO = { { 0.0f, 0.0f } };
+
+#if defined(SYL_ENABLE_SSE4)
+__m128 _S_XMM_ZERO = { 0.0f, 0.0f, 0.0f, 0.0f };
+__m128 _S_IDENT4x4R0 = { 1.0f, 0.0f, 0.0f, 0.0f };
+__m128 _S_IDENT4x4R1 = { 0.0f, 1.0f, 0.0f, 0.0f };
+__m128 _S_IDENT4x4R2 = { 0.0f, 0.0f, 1.0f, 0.0f };
+__m128 _S_IDENT4x4R3 = { 0.0f, 0.0f, 0.0f, 1.0f };
+__m128 _S_XMM_MASK_3 = { (float)0xFFFFFFFF, (float)0xFFFFFFFF, (float)0xFFFFFFFF, (float)0x00000000 };
+__m128 _S_XMM_MASK_Y = { 0x00000000, (float)0xFFFFFFFF, 0x00000000, 0x00000000 };
+#endif
+
+#if defined(SYL_ENABLE_AVX)
+__m256 _S_YMM_ZERO = { { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f } };
+#endif
 
 /*********************************************
  *                 Utility                   *
