@@ -294,6 +294,7 @@ SYL_INLINE smat4 SMAT4V(float m00, float m01, float m02, float m03,
 SYL_INLINE smat4 SMAT4A(float* a);
 SYL_INLINE void s_mat4_zero(smat4* Matrix);
 SYL_INLINE smat4 s_mat4_identity();
+SYL_INLINE void s_mat4_identityp(smat4 *ptr);
 SYL_INLINE bool s_mat4_is_identity(smat4 Mat);
 SYL_INLINE smat4 s_mat4_mul(smat4 Matrix1, smat4 Matrix2);
 SYL_INLINE smat4 s_mat4_transpose(smat4 Mat);
@@ -2522,6 +2523,18 @@ SYL_INLINE void s_mat4_zero(smat4* Matrix)
 SYL_INLINE smat4 s_mat4_identity()
 {
 	return(_S_IDENT4X4);
+}
+
+SYL_INLINE void s_mat4_identityp(smat4 *ptr)
+{
+#if defined(SYL_ENABLE_SSE4)
+	ptr->v[0] = _mm_set_ps(0, 0, 0, 1);
+	ptr->v[1] = _mm_set_ps(0, 0, 1, 0);
+	ptr->v[2] = _mm_set_ps(0, 1, 0, 0);
+	ptr->v[3] = _mm_set_ps(1, 0, 0, 0);
+#else
+	memcpy(ptr, _S_IDENT4X4, sizeof(smat4));
+#endif
 }
 
 SYL_INLINE bool s_mat4_is_identity(smat4 Mat)
