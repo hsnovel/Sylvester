@@ -23,7 +23,7 @@ If you want to make function non-inline (NOT RECCOMENDED) define ```SYL_NO_INLIN
 If you want to mark the functions as non static define ```SYL_NO_STATIC``` \
 Before including ```sylvester.h```
 
-[Guide](#c-introduction)
+[Guide](#introduction)
 
 # Introduction
 All Sylvester function are prefixed with ```s_```. All of the operator comparisons have
@@ -37,6 +37,32 @@ In the above the function is written as ```s_vec2_add_scalar``` all with undersc
 adds scalar value to the given vec2 and returns. If the type has ```p``` at the and i.e. ```vec2p```
 this adds the scalar value to that variable (Pass by referance) and returns a vec2 result containing
 the final vector. You don't have to assign the return type to anything. It's only for preferance.
+
+# Generic functions
+There are new functions added to sylvester which use C11's _Generic keyword, you can enable those
+functions with definin `SYL_GENERIC_FUNCTIONS`. These functions are listed as following:
+```cpp
+add(v1, v1)
+sub(v1, v1)
+
+mul(v1, v1)
+div(v1, v1)
+
+length(vec)
+lerp(v1, v2, v3)
+
+clamp(v1, v2, v3)
+
+max2(v1, v2)
+max_value(v1)
+
+min2(v1, v2)
+min_value(v1)
+
+normalize(v1)
+```
+
+These functions are just callers for standart sylvester functions.
 
 ----
 

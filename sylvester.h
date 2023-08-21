@@ -339,6 +339,91 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 #define _SYL_VEC_SHUFFLE_2323(vec1, vec2)        _mm_movehl_ps(vec2, vec1)
 #define _SYL_SMALL_NUMBER		(1.e-8f)
 
+#ifdef SYL_GENERIC_FUNCTIONS
+#define add(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_add,		\
+					    float: s_vec2_add_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_add,		\
+					     float: s_vec3_add_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_add,		\
+					     float: s_vec4_add_scalar	\
+					     )				\
+)(v1, v2)
+
+#define sub(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_sub,		\
+					    float: s_vec2_sub_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_sub,		\
+					     float: s_vec3_sub_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_sub,		\
+					     float: s_vec4_sub_scalar	\
+					    )				\
+			     )(v1, v2)
+
+
+#define mul(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_mul,		\
+					    float: s_vec2_mul_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_mul,		\
+					     float: s_vec3_mul_scalar,	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_mul,		\
+					     float: s_vec4_mul_scalar	\
+					     ),				\
+			     smat4: _Generic((v2),			\
+					      default: s_mat4_mul, \
+					      svec4: s_mat4_mul_vec4,	\
+					      svec3: s_mat4_mul_vec3 \
+					) \
+			     )(v1, v2)
+
+#define div(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_div,		\
+					    float: s_vec2_div_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_div,		\
+					     float: s_vec3_div_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_div,		\
+					     float: s_vec4_div_scalar	\
+					    )				\
+			     )(v1, v2)
+
+
+#define length(vec) _Generic((vec), svec2: s_vec2_length, svec3: s_vec3_length)(vec)
+#define lerp(v1, v2, v3) _Generic((v1), float: s_lerp, svec2: s_vec2_lerp, svec3: s_vec3_length, svec4: s_vec4_lerp)(v1, v2, v3)
+
+#define clamp(v1, v2, v3) _Generic((v1), float: s_clampf, double: s_clampd, int: s_clampi, svec2: s_vec2_clamp, svec3: s_vec3_clamp, svec4: s_vec4_clamp)(v1, v2, v3)
+
+#define max2(v1, v2) _Generic((v1), float: s_maxf, int: s_maxi, svec2: s_vec2_max_vector, svec3: s_vec3_max_vector, svec4: s_vec4_max_vector)(v1, v2)
+
+#define max_value(v1) _Generic((v1), svec2: s_vec2_max, svec3: s_vec3_max, svec4: s_vec4_max)(v1)
+
+#define min2(v1, v2) _Generic((v1), float: s_minf, int: s_mini, svec2: s_vec2_min_vector, svec3: s_vec3_min_vector, svec4: s_vec4_min_vector)(v1, v2)
+
+#define min_value(v1) _Generic((v1), svec2: s_vec2_min, svec3: s_vec3_min, svec4: s_vec4_min)(v1)
+
+#define normalize(v1) _Generic((v1), float: s_normalize, svec2: s_vec2_normalize, svec3: s_vec3_normalize, svec4: s_vec4_normalize)(v1)
+
+#endif
+
 smat4 _S_IDENT4X4 = { {
 		1.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f, 0.0f,
