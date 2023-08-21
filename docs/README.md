@@ -48,6 +48,19 @@ sub(v1, v1);
 mul(v1, v1);
 div(v1, v1);
 
+equal(v1, v2);
+not_equal(v1, v2);
+
+greater(v1, v2);
+greater_scalar(v1, v2);
+greater_equal(v1, v2);
+greater_equal_scalar(v1, v2);
+
+less(v1, v2);
+less_scalar(v1, v2);
+less_equal(v1, v2);
+less_equal_scalar(v1, v2);
+
 length(vec);
 lerp(v1, v2, v3);
 
@@ -60,6 +73,19 @@ min2(v1, v2);
 min_value(v1);
 
 normalize(v1);
+
+hadamard(v1, v2);
+dot(v1, v2);
+
+// Floor is already reserver in math.h
+syl_floor(v1);
+round(v1);
+// Ceil is already reserver in math.h
+syl_ceil(v1)
+
+project(v1, v2, v3);
+sum(v1);
+negate(v1);
 ```
 
 These functions are just callers for standart sylvester functions.
