@@ -44,45 +44,45 @@ functions with definin `SYL_GENERIC_FUNCTIONS`. These functions are listed as fo
 ```cpp
 syl_add(v1, v1);
 syl_sub(v1, v1);
-syl_
+
 syl_mul(v1, v1);
 syl_div(v1, v1);
-syl_
+
 syl_equal(v1, v2);
 syl_not_equal(v1, v2);
-syl_
+
 syl_greater(v1, v2);
 syl_greater_scalar(v1, v2);
 syl_greater_equal(v1, v2);
 syl_greater_equal_scalar(v1, v2);
-syl_
+
 syl_less(v1, v2);
 syl_less_scalar(v1, v2);
 syl_less_equal(v1, v2);
 syl_less_equal_scalar(v1, v2);
-syl_
+
 syl_length(vec);
 syl_lerp(v1, v2, v3);
-syl_
+
 syl_clamp(v1, v2, v3);
-syl_
+
 syl_max2(v1, v2);
 syl_max_value(v1);
-syl_
+
 syl_min2(v1, v2);
 syl_min_value(v1);
-syl_
+
 syl_normalize(v1);
-syl_
+
 syl_hadamard(v1, v2);
 syl_dot(v1, v2);
-syl_
-syl_// Floor is already reserver in math.h
+
+// Floor is already reserver in math.h
 syl_syl_floor(v1);
 syl_round(v1);
 syl_// Ceil is already reserver in math.h
 syl_syl_ceil(v1)
-syl_
+
 syl_project(v1, v2, v3);
 syl_sum(v1);
 syl_negate(v1);
