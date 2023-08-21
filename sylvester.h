@@ -341,7 +341,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 
 #ifdef SYL_GENERIC_FUNCTIONS
 
-#define add(v1, v2) _Generic((v1),					\
+#define syl_add(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_add,		\
 					    float: s_vec2_add_scalar	\
@@ -356,7 +356,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 					     )				\
 )(v1, v2)
 
-#define sub(v1, v2) _Generic((v1),					\
+#define syl_sub(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_sub,		\
 					    float: s_vec2_sub_scalar	\
@@ -372,7 +372,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 			     )(v1, v2)
 
 
-#define mul(v1, v2) _Generic((v1),					\
+#define syl_mul(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_mul,		\
 					    float: s_vec2_mul_scalar	\
@@ -392,7 +392,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 					) \
 			     )(v1, v2)
 
-#define div(v1, v2) _Generic((v1),					\
+#define syl_div(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_div,		\
 					    float: s_vec2_div_scalar	\
@@ -407,7 +407,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 					    )				\
 			     )(v1, v2)
 
-#define equal(v1, v2) _Generic((v1),					\
+#define syl_equal(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_equal,		\
 					    float: s_vec2_equal_scalar	\
@@ -422,7 +422,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 					     )				\
 )(v1, v2)
 
-#define not_equal(v1, v2) _Generic((v1),					\
+#define syl_not_equal(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_not_equal,		\
 					    float: s_vec2_not_equal_scalar	\
@@ -437,7 +437,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 					     )				\
 )(v1, v2)
 
-#define greater(v1, v2) _Generic((v1),					\
+#define syl_greater(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_greater,		\
 					    float: s_vec2_greater_scalar	\
@@ -453,7 +453,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 )(v1, v2)
 
 
-#define greater_scalar(v1, v2) _Generic((v1),					\
+#define syl_greater_scalar(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_greater_scalar,		\
 					    float: s_vec2_greater_scalar_scalar	\
@@ -468,7 +468,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 					     )				\
 )(v1, v2)
 
-#define greater_equal(v1, v2) _Generic((v1),					\
+#define syl_greater_equal(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_greater_equal,		\
 					    float: s_vec2_greater_equal_scalar	\
@@ -483,7 +483,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 					     )				\
 )(v1, v2)
 
-#define greater_equal_scalar(v1, v2) _Generic((v1),					\
+#define syl_greater_equal_scalar(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_greater_equal_scalar,		\
 					    float: s_vec2_greater_equal_scalar_scalar	\
@@ -498,7 +498,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 					     )				\
 )(v1, v2)
 
-#define less(v1, v2) _Generic((v1),					\
+#define syl_less(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_less,		\
 					    float: s_vec2_less_scalar	\
@@ -514,7 +514,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 )(v1, v2)
 
 
-#define less_scalar(v1, v2) _Generic((v1),					\
+#define syl_less_scalar(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_less_scalar,		\
 					    float: s_vec2_less_scalar_scalar	\
@@ -529,7 +529,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 					     )				\
 )(v1, v2)
 
-#define less_equal(v1, v2) _Generic((v1),					\
+#define syl_less_equal(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_less_equal,		\
 					    float: s_vec2_less_equal_scalar	\
@@ -544,7 +544,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 					     )				\
 )(v1, v2)
 
-#define less_equal_scalar(v1, v2) _Generic((v1),					\
+#define syl_less_equal_scalar(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_less_equal_scalar,		\
 					    float: s_vec2_less_equal_scalar_scalar	\
@@ -561,36 +561,80 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 
 
 
-#define length(vec) _Generic((vec), svec2: s_vec2_length, svec3: s_vec3_length)(vec)
-#define lerp(v1, v2, v3) _Generic((v1), float: s_lerp, svec2: s_vec2_lerp, svec3: s_vec3_length, svec4: s_vec4_lerp)(v1, v2, v3)
+#define syl_length(vec) _Generic((vec), svec2: s_vec2_length, svec3: s_vec3_length)(vec)
+#define syl_lerp(v1, v2, v3) _Generic((v1), float: s_lerp, svec2: s_vec2_lerp, svec3: s_vec3_length, svec4: s_vec4_lerp)(v1, v2, v3)
 
-#define clamp(v1, v2, v3) _Generic((v1), float: s_clampf, double: s_clampd, int: s_clampi, svec2: s_vec2_clamp, svec3: s_vec3_clamp, svec4: s_vec4_clamp)(v1, v2, v3)
+#define syl_clamp(v1, v2, v3) _Generic((v1), float: s_clampf, double: s_clampd, int: s_clampi, svec2: s_vec2_clamp, svec3: s_vec3_clamp, svec4: s_vec4_clamp)(v1, v2, v3)
 
-#define max2(v1, v2) _Generic((v1), float: s_maxf, int: s_maxi, svec2: s_vec2_max_vector, svec3: s_vec3_max_vector, svec4: s_vec4_max_vector)(v1, v2)
+#define syl_max2(v1, v2) _Generic((v1), float: s_maxf, int: s_maxi, svec2: s_vec2_max_vector, svec3: s_vec3_max_vector, svec4: s_vec4_max_vector)(v1, v2)
 
-#define max_value(v1) _Generic((v1), svec2: s_vec2_max, svec3: s_vec3_max, svec4: s_vec4_max)(v1)
+#define syl_max_value(v1) _Generic((v1), svec2: s_vec2_max, svec3: s_vec3_max, svec4: s_vec4_max)(v1)
 
-#define min2(v1, v2) _Generic((v1), float: s_minf, int: s_mini, svec2: s_vec2_min_vector, svec3: s_vec3_min_vector, svec4: s_vec4_min_vector)(v1, v2)
+#define syl_min2(v1, v2) _Generic((v1), float: s_minf, int: s_mini, svec2: s_vec2_min_vector, svec3: s_vec3_min_vector, svec4: s_vec4_min_vector)(v1, v2)
 
-#define min_value(v1) _Generic((v1), svec2: s_vec2_min, svec3: s_vec3_min, svec4: s_vec4_min)(v1)
+#define syl_min_value(v1) _Generic((v1), svec2: s_vec2_min, svec3: s_vec3_min, svec4: s_vec4_min)(v1)
 
-#define normalize(v1) _Generic((v1), float: s_normalize, svec2: s_vec2_normalize, svec3: s_vec3_normalize, svec4: s_vec4_normalize)(v1)
+#define syl_normalize(v1) _Generic((v1), float: s_normalize, svec2: s_vec2_normalize, svec3: s_vec3_normalize, svec4: s_vec4_normalize)(v1)
 
-#define hadamard(v1, v2) _Generic((v1), svec2: s_vec2_hadamard, svec3: s_vec3_hadamard, svec4: s_vec4_hadamard)(v1, v2)
+#define syl_hadamard(v1, v2) _Generic((v1), svec2: s_vec2_hadamard, svec3: s_vec3_hadamard, svec4: s_vec4_hadamard)(v1, v2)
 
-#define dot(v1, v2) _Generic((v1), svec2: s_vec2_dot, svec3: s_vec3_dot, svec4: s_vec4_dot)(v1, v2)
+#define syl_dot(v1, v2) _Generic((v1), svec2: s_vec2_dot, svec3: s_vec3_dot, svec4: s_vec4_dot)(v1, v2)
 // floor is already reserved for c function
 #define syl_floor(v1) _Generic((v1), float: s_floorf, double: s_floord, svec2: s_vec2_floor, svec3: s_vec3_floor, svec4: s_vec4_floor)(v1)
 
-#define round(v1) _Generic((v1), float: s_roundf, double: s_roundd, svec2: s_vec2_round, svec3: s_vec3_round, svec4: s_vec4_round)(v1)
+#define syl_round(v1) _Generic((v1), float: s_roundf, double: s_roundd, svec2: s_vec2_round, svec3: s_vec3_round, svec4: s_vec4_round)(v1)
 
 // ceil is already reserved for c function
 #define syl_ceil(v1) _Generic((v1), float: s_ceilf, double: s_ceild)(v1)
 
-#define project(v1, v2, v3) _Generic((v1), svec2: s_vec2_project, svec3: s_vec3_project, svec4: s_vec4_project)(v1, v2, v3)
+#define syl_project(v1, v2, v3) _Generic((v1), svec2: s_vec2_project, svec3: s_vec3_project, svec4: s_vec4_project)(v1, v2, v3)
 
-#define sum(v1) _Generic((v1), svec2: s_vec2_sum, svec3: s_vec3_sum, svec4: s_vec4_sum)(v1)
-#define negate(v1) _Generic((v1), svec2: s_vec2_negate, svec3: s_vec3_negate, svec4: s_vec4_negate)(v1)
+#define syl_sum(v1) _Generic((v1), svec2: s_vec2_sum, svec3: s_vec3_sum, svec4: s_vec4_sum)(v1)
+#define syl_negate(v1) _Generic((v1), svec2: s_vec2_negate, svec3: s_vec3_negate, svec4: s_vec4_negate)(v1)
+
+#ifdef SYL_GENERIC_FUNCTIONS_NO_PREFIX_ALIASES
+#define add syl_add
+#define sub syl_sub
+
+#define mul syl_mul
+#define div syl_div
+
+#define equal syl_equal
+#define not_equal syl_not_equal
+
+#define greater syl_greater
+#define greater_scalar syl_greater_scalar
+#define greater_equal syl_greater_equal
+#define greater_equal_scalar syl_greater_equal_scalar
+
+#define less syl_less
+#define less_scalar syl_less_scalar
+#define less_equal syl_less_equal
+#define less_equal_scalar syl_less_equal_scalar
+
+#define length syl_length
+#define lerp syl_lerp
+
+#define clamp syl_clamp
+
+#define max2 syl_max2
+#define max_value syl_max_value
+
+#define min2 syl_min2
+#define min_value syl_min_value
+
+#define normalize syl_normalize
+
+#define hadamard syl_hadamard
+#define dot syl_dot
+
+#define round syl_round
+
+#define project syl_project
+#define sum syl_sum
+#define negate syl_negate
+
+#endif
 
 #endif
 

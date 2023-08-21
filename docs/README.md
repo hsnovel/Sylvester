@@ -42,53 +42,55 @@ the final vector. You don't have to assign the return type to anything. It's onl
 There are new functions added to sylvester which use C11's _Generic keyword, you can enable those
 functions with definin `SYL_GENERIC_FUNCTIONS`. These functions are listed as following:
 ```cpp
-add(v1, v1);
-sub(v1, v1);
-
-mul(v1, v1);
-div(v1, v1);
-
-equal(v1, v2);
-not_equal(v1, v2);
-
-greater(v1, v2);
-greater_scalar(v1, v2);
-greater_equal(v1, v2);
-greater_equal_scalar(v1, v2);
-
-less(v1, v2);
-less_scalar(v1, v2);
-less_equal(v1, v2);
-less_equal_scalar(v1, v2);
-
-length(vec);
-lerp(v1, v2, v3);
-
-clamp(v1, v2, v3);
-
-max2(v1, v2);
-max_value(v1);
-
-min2(v1, v2);
-min_value(v1);
-
-normalize(v1);
-
-hadamard(v1, v2);
-dot(v1, v2);
-
-// Floor is already reserver in math.h
-syl_floor(v1);
-round(v1);
-// Ceil is already reserver in math.h
-syl_ceil(v1)
-
-project(v1, v2, v3);
-sum(v1);
-negate(v1);
+syl_add(v1, v1);
+syl_sub(v1, v1);
+syl_
+syl_mul(v1, v1);
+syl_div(v1, v1);
+syl_
+syl_equal(v1, v2);
+syl_not_equal(v1, v2);
+syl_
+syl_greater(v1, v2);
+syl_greater_scalar(v1, v2);
+syl_greater_equal(v1, v2);
+syl_greater_equal_scalar(v1, v2);
+syl_
+syl_less(v1, v2);
+syl_less_scalar(v1, v2);
+syl_less_equal(v1, v2);
+syl_less_equal_scalar(v1, v2);
+syl_
+syl_length(vec);
+syl_lerp(v1, v2, v3);
+syl_
+syl_clamp(v1, v2, v3);
+syl_
+syl_max2(v1, v2);
+syl_max_value(v1);
+syl_
+syl_min2(v1, v2);
+syl_min_value(v1);
+syl_
+syl_normalize(v1);
+syl_
+syl_hadamard(v1, v2);
+syl_dot(v1, v2);
+syl_
+syl_// Floor is already reserver in math.h
+syl_syl_floor(v1);
+syl_round(v1);
+syl_// Ceil is already reserver in math.h
+syl_syl_ceil(v1)
+syl_
+syl_project(v1, v2, v3);
+syl_sum(v1);
+syl_negate(v1);
 ```
 
-These functions are just callers for standart sylvester functions.
+These functions are just callers for standart sylvester functions. Functions
+with no prefixes can be alised with defining `SYL_GENERIC_FUNCTIONS_NO_PREFIX_ALIASES`
+This will add new functions that to not have `syl` prefix.
 
 ----
 
