@@ -587,7 +587,10 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 // ceil is already reserved for c function
 #define syl_ceil(v1) _Generic((v1), float: s_ceilf, double: s_ceild)(v1)
 
-#define project(v1, v2) _Generic((v1), svec2: s_vec2_project, svec3: s_vec3_project, svec4: s_vec4_project)(v1, v2)
+#define project(v1, v2, v3) _Generic((v1), svec2: s_vec2_project, svec3: s_vec3_project, svec4: s_vec4_project)(v1, v2, v3)
+
+#define sum(v1) _Generic((v1), svec2: s_vec2_sum, svec3: s_vec3_sum, svec4: s_vec4_sum)(v1)
+#define negate(v1) _Generic((v1), svec2: s_vec2_negate, svec3: s_vec3_negate, svec4: s_vec4_negate)(v1)
 
 #endif
 
