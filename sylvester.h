@@ -340,6 +340,7 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 #define _SYL_SMALL_NUMBER		(1.e-8f)
 
 #ifdef SYL_GENERIC_FUNCTIONS
+
 #define add(v1, v2) _Generic((v1),					\
 			     svec2: _Generic((v2),			\
 					    default: s_vec2_add,		\
@@ -406,6 +407,159 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 					    )				\
 			     )(v1, v2)
 
+#define equal(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_equal,		\
+					    float: s_vec2_equal_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_equal,		\
+					     float: s_vec3_equal_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_equal,		\
+					     float: s_vec4_equal_scalar	\
+					     )				\
+)(v1, v2)
+
+#define not_equal(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_not_equal,		\
+					    float: s_vec2_not_equal_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_not_equal,		\
+					     float: s_vec3_not_equal_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_not_equal,		\
+					     float: s_vec4_not_equal_scalar	\
+					     )				\
+)(v1, v2)
+
+#define greater(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_greater,		\
+					    float: s_vec2_greater_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_greater,		\
+					     float: s_vec3_greater_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_greater,		\
+					     float: s_vec4_greater_scalar	\
+					     )				\
+)(v1, v2)
+
+
+#define greater_scalar(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_greater_scalar,		\
+					    float: s_vec2_greater_scalar_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_greater_scalar,		\
+					     float: s_vec3_greater_scalar_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_greater_scalar,		\
+					     float: s_vec4_greater_scalar_scalar	\
+					     )				\
+)(v1, v2)
+
+#define greater_equal(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_greater_equal,		\
+					    float: s_vec2_greater_equal_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_greater_equal,		\
+					     float: s_vec3_greater_equal_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_greater_equal,		\
+					     float: s_vec4_greater_equal_scalar	\
+					     )				\
+)(v1, v2)
+
+#define greater_equal_scalar(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_greater_equal_scalar,		\
+					    float: s_vec2_greater_equal_scalar_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_greater_equal_scalar,		\
+					     float: s_vec3_greater_equal_scalar_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_greater_equal_scalar,		\
+					     float: s_vec4_greater_equal_scalar_scalar	\
+					     )				\
+)(v1, v2)
+
+#define less(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_less,		\
+					    float: s_vec2_less_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_less,		\
+					     float: s_vec3_less_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_less,		\
+					     float: s_vec4_less_scalar	\
+					     )				\
+)(v1, v2)
+
+
+#define less_scalar(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_less_scalar,		\
+					    float: s_vec2_less_scalar_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_less_scalar,		\
+					     float: s_vec3_less_scalar_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_less_scalar,		\
+					     float: s_vec4_less_scalar_scalar	\
+					     )				\
+)(v1, v2)
+
+#define less_equal(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_less_equal,		\
+					    float: s_vec2_less_equal_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_less_equal,		\
+					     float: s_vec3_less_equal_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_less_equal,		\
+					     float: s_vec4_less_equal_scalar	\
+					     )				\
+)(v1, v2)
+
+#define less_equal_scalar(v1, v2) _Generic((v1),					\
+			     svec2: _Generic((v2),			\
+					    default: s_vec2_less_equal_scalar,		\
+					    float: s_vec2_less_equal_scalar_scalar	\
+					    ),				\
+			     svec3: _Generic((v2),			\
+					    default: s_vec3_less_equal_scalar,		\
+					     float: s_vec3_less_equal_scalar_scalar	\
+					     ),				\
+			     svec4: _Generic((v2),			\
+					    default: s_vec4_less_equal_scalar,		\
+					     float: s_vec4_less_equal_scalar_scalar	\
+					     )				\
+)(v1, v2)
+
+
 
 #define length(vec) _Generic((vec), svec2: s_vec2_length, svec3: s_vec3_length)(vec)
 #define lerp(v1, v2, v3) _Generic((v1), float: s_lerp, svec2: s_vec2_lerp, svec3: s_vec3_length, svec4: s_vec4_lerp)(v1, v2, v3)
@@ -421,6 +575,19 @@ SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float Near
 #define min_value(v1) _Generic((v1), svec2: s_vec2_min, svec3: s_vec3_min, svec4: s_vec4_min)(v1)
 
 #define normalize(v1) _Generic((v1), float: s_normalize, svec2: s_vec2_normalize, svec3: s_vec3_normalize, svec4: s_vec4_normalize)(v1)
+
+#define hadamard(v1, v2) _Generic((v1), svec2: s_vec2_hadamard, svec3: s_vec3_hadamard, svec4: s_vec4_hadamard)(v1, v2)
+
+#define dot(v1, v2) _Generic((v1), svec2: s_vec2_dot, svec3: s_vec3_dot, svec4: s_vec4_dot)(v1, v2)
+// floor is already reserved for c function
+#define syl_floor(v1) _Generic((v1), float: s_floorf, double: s_floord, svec2: s_vec2_floor, svec3: s_vec3_floor, svec4: s_vec4_floor)(v1)
+
+#define round(v1) _Generic((v1), float: s_roundf, double: s_roundd, svec2: s_vec2_round, svec3: s_vec3_round, svec4: s_vec4_round)(v1)
+
+// ceil is already reserved for c function
+#define syl_ceil(v1) _Generic((v1), float: s_ceilf, double: s_ceild)(v1)
+
+#define project(v1, v2) _Generic((v1), svec2: s_vec2_project, svec3: s_vec3_project, svec4: s_vec4_project)(v1, v2)
 
 #endif
 
