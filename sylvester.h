@@ -227,7 +227,7 @@ SYL_INLINE svec3 s_vec3_hadamard(svec3 vec1, svec3 Vec2);
 SYL_INLINE float s_vec3_length(svec3 vec1);
 SYL_INLINE float s_vec3_distance(svec3 vec1, svec3 Vec2);
 SYL_INLINE svec3 s_vec3_normalize(svec3 a);
-SYL_INLINE float s_vec3_max_value(svec3 A);
+SYL_INLINE float s_vec3_max(svec3 A);
 SYL_INLINE float s_vec3_min_value(svec3 A);
 SYL_INLINE svec3 s_vec3_max_vector(svec3 vec1, svec3 Vec2);
 SYL_INLINE svec3 s_vec3_min_vector(svec3 vec1, svec3 Vec2);
@@ -1629,7 +1629,7 @@ SYL_INLINE svec3 s_vec3_normalize(svec3 a)
 }
 
 /* Return the biggest element inside vec4 */
-SYL_INLINE float s_vec3_max_value(svec3 A)
+SYL_INLINE float s_vec3_max(svec3 A)
 {
 	/* NOTE(xcatalyst): Current SSE4 version doesn't work. It is removed for now. Reimplement it later.*/
 	if (A.e[0] >= A.e[1] && A.e[0] >= A.e[2])
@@ -2533,7 +2533,7 @@ SYL_INLINE void s_mat4_identityp(smat4 *ptr)
 	ptr->v[2] = _mm_set_ps(0, 1, 0, 0);
 	ptr->v[3] = _mm_set_ps(1, 0, 0, 0);
 #else
-	memcpy(ptr, _S_IDENT4X4, sizeof(smat4));
+	memcpy(ptr, &_S_IDENT4X4, sizeof(smat4));
 #endif
 }
 
