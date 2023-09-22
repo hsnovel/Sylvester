@@ -1,5 +1,5 @@
 // Sylvester - optimized linear math library
-// https://github.com/xcatalyst/Sylvester
+// https://github.com/hsnovel/Sylvester
 // Licensed under the MIT License <http://opensource.org/licenses/MIT>.
 //
 // MIT License
@@ -1954,7 +1954,7 @@ SYL_INLINE svec3 s_vec3_normalize(svec3 a)
 /* Return the biggest element inside vec4 */
 SYL_INLINE float s_vec3_max(svec3 A)
 {
-	/* NOTE(xcatalyst): Current SSE4 version doesn't work. It is removed for now. Reimplement it later.*/
+	/* NOTE(hsnovel): Current SSE4 version doesn't work. It is removed for now. Reimplement it later.*/
 	if (A.e[0] >= A.e[1] && A.e[0] >= A.e[2])
 		return(A.e[0]);
 	if (A.e[1] >= A.e[0] && A.e[1] >= A.e[2])
@@ -1968,7 +1968,7 @@ SYL_INLINE float s_vec3_max(svec3 A)
 /* Return the smollest element inside vec4 */
 SYL_INLINE float s_vec3_min_value(svec3 A)
 {
-	/* NOTE(xcatalyst): Current SSE4 version doesn't work. It is removed for now. Reimplement it later.*/
+	/* NOTE(hsnovel): Current SSE4 version doesn't work. It is removed for now. Reimplement it later.*/
 	if (A.e[0] <= A.e[1] && A.e[0] <= A.e[2])
 		return(A.e[0]);
 	if (A.e[1] <= A.e[0] && A.e[1] <= A.e[2])
@@ -2045,7 +2045,7 @@ SYL_INLINE svec3 s_vec3_clamp(svec3 value, svec3 Min, svec3 Max)
 #endif
 }
 
-/* TODO(xcatalyst): Faster ! */
+/* TODO(hsnovel): Faster ! */
 SYL_INLINE svec3 s_vec3_lerp(svec3 vec1, svec3 vec2, float t)
 {
 	svec3 Result = { { vec1.e[0] + ((vec2.e[0] - vec1.e[0]) * t),
@@ -2090,7 +2090,7 @@ SYL_INLINE svec3 s_vec3_cross(svec3 vec1, svec3 vec2)
 #endif
 }
 
-/* TODO(xcatalyst): Typed this out of my mind, might be incorrect
+/* TODO(hsnovel): Typed this out of my mind, might be incorrect
    check the function later. Currently undocumented. */
 SYL_INLINE float Slope(svec3 PointA, svec3 PointB)
 {
@@ -2743,7 +2743,7 @@ SYL_INLINE float s_vec4_max(svec4 A)
 	__m128 r = _mm_max_ps(value, value);
 	return *(float*)&r;
 #else
-	/* TODO(xcatalyst): Implement ! */
+	/* TODO(hsnovel): Implement ! */
 	return(A.e[0]);
 #endif
 }
@@ -2756,7 +2756,7 @@ SYL_INLINE float s_vec4_min(svec4 A)
 	__m128 r = _mm_min_ps(value, value);
 	return *(float*)&r;
 #else
-	/* TODO(xcatalyst): Implement ! */
+	/* TODO(hsnovel): Implement ! */
 	return(A.e[0]);
 #endif
 }
@@ -3076,7 +3076,7 @@ SYL_INLINE smat4 s_mat4_inverse_noscale(smat4 Matrix)
 	Result.v[3] = _mm_sub_ps(_mm_setr_ps(0.f, 0.f, 0.f, 1.f), Result.v[3]);
 	return(Result);
 #else
-	/* TODO(xcatalyst): This is temporary to prevent gcc warning, implemenet this later ! */
+	/* TODO(hsnovel): This is temporary to prevent gcc warning, implemenet this later ! */
 	return(Matrix);
 #endif
 }
@@ -3111,7 +3111,7 @@ SYL_INLINE smat4 s_mat4_inverse_noscale(smat4 Matrix)
  *
  *     return(Result);
  * #else
- *     /\* TODO(xcatalyst): This is temporary to prevent gcc warning, implemenet this later ! *\/
+ *     /\* TODO(hsnovel): This is temporary to prevent gcc warning, implemenet this later ! *\/
  *     return(Matrix);
  * #endif
  * }
