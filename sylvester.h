@@ -327,6 +327,7 @@ SYL_INLINE svec4 s_mat4_transform(smat4 Matrix, svec4 Vector);
 SYL_INLINE svec4 s_mat4_mul_vec4(smat4 Matrix1, svec4 Vector);
 SYL_INLINE svec3 s_mat4_mul_vec3(smat4 Matrix1, svec3 Vector);
 SYL_INLINE smat4 s_mat4_translate(smat4 matrix, svec3 vec);
+smat4 s_mat4_rotate(smat4 *matrix, float angle, svec3 vec);
 SYL_INLINE smat4 s_mat4_xrotation(float Angle);
 SYL_INLINE smat4 s_mat4_yrotation(float Angle);
 SYL_INLINE smat4 s_mat4_zrotation(float Angle);
@@ -3117,7 +3118,7 @@ SYL_INLINE smat4 s_mat4_inverse_noscale(smat4 Matrix)
  * }
  */
 
-SYL_INLINE svec4 s_mat4_transform(smat4 Matrix, svec4 vector) {
+svec4 s_mat4_transform(smat4 Matrix, svec4 vector) {
 #if defined (SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
 	svec4 Result;
 	Result.v = _SYL_PERMUTE_PS(vector.v, _MM_SHUFFLE(3, 3, 3, 3));
@@ -3156,6 +3157,7 @@ SYL_INLINE svec3 s_mat4_mul_vec3(smat4 Matrix1, svec3 vector)
 SYL_INLINE smat4 s_mat4_translate(smat4 matrix, svec3 vec)
 {
 	/* TODO: add simd version if I can figure out how to */
+	// Result[3] = m[0] * v[0] + m[1] * v[1] + m[2] * v[2] + m[3];
 	svec4 r1 = s_vec4_mul_scalar(matrix.v4d[0], vec.x);
 	svec4 r2 = s_vec4_mul_scalar(matrix.v4d[1], vec.y);
 	svec4 r3 = s_vec4_mul_scalar(matrix.v4d[2], vec.z);
@@ -3168,19 +3170,19 @@ SYL_INLINE smat4 s_mat4_translate(smat4 matrix, svec3 vec)
 	return matrix;
 }
 
-SYL_INLINE smat4 s_mat4_rotate(smat4 matrix, float angle, svec3 vec)
+smat4 s_mat4_rotate(smat4 *matrix, float angle, svec3 vec)
 {
 	/* NOTE: too many unnecesarry temporary variables, clean it up */
 	float c = cos(angle);
 	float s = sin(angle);
 
 	svec3 axis = s_vec3_normalize(vec);
-	svec3 temp = s_vec3_mul_scalar(axis, (1 - c));
+	svec3 temp = s_vec3_mul_scalar(axis, (1.0f - c));
 
 	smat4 rotate;
 	rotate.m00 = c + temp.x * axis.x;
 	rotate.m01 = temp.x * axis.y + s * axis.z;
-	rotate.m02 = temp.x * axis.x - s * axis.y;
+	rotate.m02 = temp.x * axis.z - s * axis.y;
 
 	rotate.m10 = temp.y * axis.x - s * axis.z;
 	rotate.m11 = c + temp.y * axis.y;
@@ -3192,25 +3194,32 @@ SYL_INLINE smat4 s_mat4_rotate(smat4 matrix, float angle, svec3 vec)
 
 	smat4 result;
 
-	result.v4d[0] = s_vec4_mul(matrix.v4d[0], SVEC4(rotate.m00, rotate.m00, rotate.m00, rotate.m00));
-	result.v4d[0] = s_vec4_add(result.v4d[0], s_vec4_mul(matrix.v4d[1], SVEC4(rotate.m01, rotate.m01, rotate.m01, rotate.m01)));
-	result.v4d[0] = s_vec4_add(result.v4d[0], s_vec4_mul(matrix.v4d[2], SVEC4(rotate.m02, rotate.m02, rotate.m02, rotate.m02)));
+	/* result.v4d[0] = s_vec4_add(s_vec4_mul_scalar(matrix->v4d[0], rotate.m00)); */
 
-	svec4 rta = s_vec4_mul(matrix.v4d[0], SVEC4(rotate.m10, rotate.m10, rotate.m10, rotate.m10));
-	svec4 rtb = s_vec4_mul(matrix.v4d[1], SVEC4(rotate.m11, rotate.m11, rotate.m11, rotate.m11));
-	svec4 rtc = s_vec4_mul(matrix.v4d[2], SVEC4(rotate.m12, rotate.m12, rotate.m12, rotate.m12));
-	svec4 tmpr = s_vec4_add(rta, rtb);
-	tmpr = s_vec4_add(tmpr, rtc);
-	result.v4d[1] = tmpr;
+	result.v4d[0] = s_vec4_add(s_vec4_add(s_vec4_mul_scalar(matrix->v4d[0], rotate.m00), s_vec4_mul_scalar(matrix->v4d[1], rotate.m01)), s_vec4_mul_scalar(matrix->v4d[2], rotate.m02));
+	result.v4d[1] = s_vec4_add(s_vec4_add(s_vec4_mul_scalar(matrix->v4d[0], rotate.m10), s_vec4_mul_scalar(matrix->v4d[1], rotate.m11)), s_vec4_mul_scalar(matrix->v4d[2], rotate.m12));
+	result.v4d[2] = s_vec4_add(s_vec4_add(s_vec4_mul_scalar(matrix->v4d[0], rotate.m20), s_vec4_mul_scalar(matrix->v4d[1], rotate.m21)), s_vec4_mul_scalar(matrix->v4d[2], rotate.m22));
+	result.v4d[3] = matrix->v4d[3];
 
-	svec4 rt1 = s_vec4_mul(matrix.v4d[0], SVEC4(rotate.m20, rotate.m20, rotate.m20, rotate.m20));
-	svec4 rt2 = s_vec4_mul(matrix.v4d[1], SVEC4(rotate.m21, rotate.m21, rotate.m21, rotate.m21));
-	svec4 rt3 = s_vec4_mul(matrix.v4d[2], SVEC4(rotate.m22, rotate.m22, rotate.m22, rotate.m22));
-	svec4 tmpa = s_vec4_add(rt1, rt2);
-	tmpa = s_vec4_add(tmpa, rt3);
-	result.v4d[2] = tmpa;
+	/* result.v4d[0] = s_vec4_mul_scalar(matrix->v4d[0], rotate.m00); */
+	/* result.v4d[0] = s_vec4_add(result.v4d[0], s_vec4_mul(matrix->v4d[1], SVEC4(rotate.m01, rotate.m01, rotate.m01, rotate.m01))); */
+	/* result.v4d[0] = s_vec4_add(result.v4d[0], s_vec4_mul(matrix->v4d[2], SVEC4(rotate.m02, rotate.m02, rotate.m02, rotate.m02))); */
 
-	result.v4d[3] = matrix.v4d[3];
+	/* svec4 rta = s_vec4_mul(matrix->v4d[0], SVEC4(rotate.m10, rotate.m10, rotate.m10, rotate.m10)); */
+	/* svec4 rtb = s_vec4_mul(matrix->v4d[1], SVEC4(rotate.m11, rotate.m11, rotate.m11, rotate.m11)); */
+	/* svec4 rtc = s_vec4_mul(matrix->v4d[2], SVEC4(rotate.m12, rotate.m12, rotate.m12, rotate.m12)); */
+	/* svec4 tmpr = s_vec4_add(rta, rtb); */
+	/* tmpr = s_vec4_add(tmpr, rtc); */
+	/* result.v4d[1] = tmpr; */
+
+	/* svec4 rt1 = s_vec4_mul(matrix->v4d[0], SVEC4(rotate.m20, rotate.m20, rotate.m20, rotate.m20)); */
+	/* svec4 rt2 = s_vec4_mul(matrix->v4d[1], SVEC4(rotate.m21, rotate.m21, rotate.m21, rotate.m21)); */
+	/* svec4 rt3 = s_vec4_mul(matrix->v4d[2], SVEC4(rotate.m22, rotate.m22, rotate.m22, rotate.m22)); */
+	/* svec4 tmpa = s_vec4_add(rt1, rt2); */
+	/* tmpa = s_vec4_add(tmpa, rt3); */
+	/* result.v4d[2] = tmpa; */
+
+	/* result.v4d[3] = matrix->v4d[3]; */
 	return result;
 }
 
@@ -3280,8 +3289,21 @@ SYL_INLINE smat4 s_mat4_translation(svec3 vector)
 #endif
 }
 
+smat4 s_perspective(float fov, float aspect, float znear, float zfar)
+{
+	smat4 result;
+	float tan_half_fov = tan(fov / 2);
+
+	result.m00 = 1.0f / (aspect * tan_half_fov);
+	result.m11 = 1.0f / tan_half_fov;
+	result.m22 = - (zfar +  znear) / (zfar - znear);
+	result.m23 = -1;
+	result.m32 = (2.0f * zfar * znear) / (zfar - znear);
+	return result;
+}
+
 /* No LH version for now...  */
-SYL_INLINE smat4 s_mat4_perspective_projection_rh(float fov, float aspect_ratio, float NearClipPlane, float FarClipPlane)
+smat4 s_mat4_perspective_projection_rh(float fov, float aspect_ratio, float NearClipPlane, float FarClipPlane)
 {
 #if defined(SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
 	float Sin = sin(0.5f * fov);
@@ -3319,7 +3341,6 @@ SYL_INLINE smat4 s_mat4_perspective_projection_rh(float fov, float aspect_ratio,
 	float tanHalffovy = tan(fov / 2);
 
 	smat4 result;
-	s_mat4_zero(&result);
 	result.e2[0][0] = 1 / (aspect_ratio * tanHalffovy);
 	result.e2[1][1] = 1 / (tanHalffovy);
 	result.e2[2][2] = -(FarClipPlane + NearClipPlane) / (FarClipPlane - NearClipPlane);
@@ -3329,7 +3350,7 @@ SYL_INLINE smat4 s_mat4_perspective_projection_rh(float fov, float aspect_ratio,
 #endif
 }
 
-SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float aspect_ratio, float near_clip_plane, float far_clip_plane)
+smat4 s_mat4_orthographic_projection_rh(float aspect_ratio, float near_clip_plane, float far_clip_plane)
 {
 	float Ral = 1.0f;
 	float Rsl = aspect_ratio;
