@@ -974,7 +974,7 @@ SYL_INLINE svec2 SVEC2(float a, float b) // From individiaul valeus
 	return(r);
 }
 
-SYL_INLINE svec2 S_VEC2A(float* a) // From array
+SYL_INLINE svec2 SVEC2A(float* a) // From array
 {
 	svec2 r = { { a[0], a[1] } };
 	return(r);
@@ -3172,7 +3172,6 @@ SYL_INLINE smat4 s_mat4_translate(smat4 matrix, svec3 vec)
 
 smat4 s_mat4_rotate(smat4 *matrix, float angle, svec3 vec)
 {
-	/* NOTE: too many unnecesarry temporary variables, clean it up */
 	float c = cos(angle);
 	float s = sin(angle);
 
@@ -3194,32 +3193,11 @@ smat4 s_mat4_rotate(smat4 *matrix, float angle, svec3 vec)
 
 	smat4 result;
 
-	/* result.v4d[0] = s_vec4_add(s_vec4_mul_scalar(matrix->v4d[0], rotate.m00)); */
-
 	result.v4d[0] = s_vec4_add(s_vec4_add(s_vec4_mul_scalar(matrix->v4d[0], rotate.m00), s_vec4_mul_scalar(matrix->v4d[1], rotate.m01)), s_vec4_mul_scalar(matrix->v4d[2], rotate.m02));
 	result.v4d[1] = s_vec4_add(s_vec4_add(s_vec4_mul_scalar(matrix->v4d[0], rotate.m10), s_vec4_mul_scalar(matrix->v4d[1], rotate.m11)), s_vec4_mul_scalar(matrix->v4d[2], rotate.m12));
 	result.v4d[2] = s_vec4_add(s_vec4_add(s_vec4_mul_scalar(matrix->v4d[0], rotate.m20), s_vec4_mul_scalar(matrix->v4d[1], rotate.m21)), s_vec4_mul_scalar(matrix->v4d[2], rotate.m22));
 	result.v4d[3] = matrix->v4d[3];
 
-	/* result.v4d[0] = s_vec4_mul_scalar(matrix->v4d[0], rotate.m00); */
-	/* result.v4d[0] = s_vec4_add(result.v4d[0], s_vec4_mul(matrix->v4d[1], SVEC4(rotate.m01, rotate.m01, rotate.m01, rotate.m01))); */
-	/* result.v4d[0] = s_vec4_add(result.v4d[0], s_vec4_mul(matrix->v4d[2], SVEC4(rotate.m02, rotate.m02, rotate.m02, rotate.m02))); */
-
-	/* svec4 rta = s_vec4_mul(matrix->v4d[0], SVEC4(rotate.m10, rotate.m10, rotate.m10, rotate.m10)); */
-	/* svec4 rtb = s_vec4_mul(matrix->v4d[1], SVEC4(rotate.m11, rotate.m11, rotate.m11, rotate.m11)); */
-	/* svec4 rtc = s_vec4_mul(matrix->v4d[2], SVEC4(rotate.m12, rotate.m12, rotate.m12, rotate.m12)); */
-	/* svec4 tmpr = s_vec4_add(rta, rtb); */
-	/* tmpr = s_vec4_add(tmpr, rtc); */
-	/* result.v4d[1] = tmpr; */
-
-	/* svec4 rt1 = s_vec4_mul(matrix->v4d[0], SVEC4(rotate.m20, rotate.m20, rotate.m20, rotate.m20)); */
-	/* svec4 rt2 = s_vec4_mul(matrix->v4d[1], SVEC4(rotate.m21, rotate.m21, rotate.m21, rotate.m21)); */
-	/* svec4 rt3 = s_vec4_mul(matrix->v4d[2], SVEC4(rotate.m22, rotate.m22, rotate.m22, rotate.m22)); */
-	/* svec4 tmpa = s_vec4_add(rt1, rt2); */
-	/* tmpa = s_vec4_add(tmpa, rt3); */
-	/* result.v4d[2] = tmpa; */
-
-	/* result.v4d[3] = matrix->v4d[3]; */
 	return result;
 }
 
@@ -3305,49 +3283,18 @@ smat4 s_perspective(float fov, float aspect, float znear, float zfar)
 /* No LH version for now...  */
 smat4 s_mat4_perspective_projection_rh(float fov, float aspect_ratio, float NearClipPlane, float FarClipPlane)
 {
-#if defined(SYL_ENABLE_SSE4) || defined(SYL_ENABLE_AVX)
-	float Sin = sin(0.5f * fov);
-	float Cos = cos(0.5f * fov);
-	float Range = FarClipPlane / (NearClipPlane - FarClipPlane);
-	float Height = Cos / Sin;
-	__m128 Mem = { Height / aspect_ratio, Height, Range, Range * NearClipPlane };
-	__m128 Mem2 = Mem;
-	__m128 Temp = _mm_setzero_ps();
-	Temp = _mm_move_ss(Temp, Mem2);
 	smat4 result;
-	result.v[0] = Temp;
-	Temp = Mem2;
-	Temp = _mm_and_ps(Temp, _S_XMM_MASK_Y);
-	result.v[1] = Temp;
-	Temp = _mm_setzero_ps();
-	Mem2 = _mm_shuffle_ps(Mem2, _S_IDENT4x4R3, _MM_SHUFFLE(3, 2, 3, 2));
-	Temp = _mm_shuffle_ps(Temp, Mem2, _MM_SHUFFLE(3, 0, 0, 0));
-	result.v[2] = Temp;
-	Temp = _mm_shuffle_ps(Temp, Mem2, _MM_SHUFFLE(2, 1, 0, 0));
-	result.v[3] = Temp;
-	return(result);
-#else
-	//float Cotan = 1.0f / tanf(fov / 2.0f);
+	float han_half_fov;
 
-	//mat4 result = {
-	//	Cotan / aspect_ratio, 0.0f, 0.0f, 0.0f,
-	//	0.0f, Cotan, 0.0f, 0.0f,
-	//	0.0f, 0.0f, (FarClipPlane + NearClipPlane) / (NearClipPlane - FarClipPlane), -1.0f,
-	//	0.0f, 0.0f, (2.0f * FarClipPlane * NearClipPlane) / (NearClipPlane - FarClipPlane), 0.0f
-	//};
+	han_half_fov = tan(fov / 2.0f);
 
-	//return(result);
+	result.m00 = 1.0f / (aspect_ratio * han_half_fov);
+	result.m11 = 1.0f / (han_half_fov);
+	result.m22 = - (FarClipPlane + NearClipPlane) / (FarClipPlane - NearClipPlane);
+	result.m23 = -1.0f;
+	result.m32 = -(2.0f * FarClipPlane * NearClipPlane) / (FarClipPlane - NearClipPlane);
 
-	float tanHalffovy = tan(fov / 2);
-
-	smat4 result;
-	result.e2[0][0] = 1 / (aspect_ratio * tanHalffovy);
-	result.e2[1][1] = 1 / (tanHalffovy);
-	result.e2[2][2] = -(FarClipPlane + NearClipPlane) / (FarClipPlane - NearClipPlane);
-	result.e2[2][3] = -1;
-	result.e2[3][2] = -(2 * FarClipPlane * NearClipPlane) / (FarClipPlane - NearClipPlane);
 	return result;
-#endif
 }
 
 smat4 s_mat4_orthographic_projection_rh(float aspect_ratio, float near_clip_plane, float far_clip_plane)
