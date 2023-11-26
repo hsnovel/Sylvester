@@ -2,7 +2,7 @@
 
 Sylvester is a high-performance single header advanced mathematics library designed
 mainly for 3D Graphics applications such as OpenGL, Direct3D, and Vulkan. It focuses
-on simplicity, usability, and performance. Sylvester works only on C++.
+on simplicity, usability, and performance.
 
 You can include the implementation with SYL_IMPLEMENTATION or just the decleartions
 with including the file.
