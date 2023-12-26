@@ -327,13 +327,14 @@ SYL_INLINE svec4 s_mat4_transform(smat4 Matrix, svec4 Vector);
 SYL_INLINE svec4 s_mat4_mul_vec4(smat4 Matrix1, svec4 Vector);
 SYL_INLINE svec3 s_mat4_mul_vec3(smat4 Matrix1, svec3 Vector);
 SYL_INLINE smat4 s_mat4_translate(smat4 matrix, svec3 vec);
+SYL_INLINE smat4 s_mat4_scale(smat4 matrix, svec3 vec);
 smat4 s_mat4_rotate(smat4 *matrix, float angle, svec3 vec);
 SYL_INLINE smat4 s_mat4_xrotation(float Angle);
 SYL_INLINE smat4 s_mat4_yrotation(float Angle);
 SYL_INLINE smat4 s_mat4_zrotation(float Angle);
 SYL_INLINE smat4 s_mat4_translation(svec3 Vector);
 SYL_INLINE smat4 s_mat4_perspective_projection_rh(float Fov, float AspectRatio, float NearClipPlane, float FarClipPlane);
-SYL_INLINE smat4 s_mat4_orthographic_projection_rh(float AspectRatio, float NearClipPlane, float FarClipPlane);
+SYL_INLINE smat4 s_mat4_ortho_rh(float left, float right, float bottom, float top, float znear, float zfar);
 
 #endif // SYLVESTER_H
 
@@ -3170,6 +3171,17 @@ SYL_INLINE smat4 s_mat4_translate(smat4 matrix, svec3 vec)
 	return matrix;
 }
 
+SYL_INLINE smat4 s_mat4_scale(smat4 matrix, svec3 vec)
+{
+	smat4 result;
+	result.v4d[0] = s_vec4_mul_scalar(matrix.v4d[0], vec.x);
+	result.v4d[1] = s_vec4_mul_scalar(matrix.v4d[1], vec.y);
+	result.v4d[2] = s_vec4_mul_scalar(matrix.v4d[2], vec.z);
+	result.v4d[3] = matrix.v4d[3];
+
+	return result;
+}
+
 smat4 s_mat4_rotate(smat4 *matrix, float angle, svec3 vec)
 {
 	float c = cos(angle);
@@ -3297,20 +3309,19 @@ smat4 s_mat4_perspective_projection_rh(float fov, float aspect_ratio, float Near
 	return result;
 }
 
-smat4 s_mat4_orthographic_projection_rh(float aspect_ratio, float near_clip_plane, float far_clip_plane)
+smat4 s_mat4_ortho_rh(float left, float right, float bottom, float top, float znear, float zfar)
 {
-	float Ral = 1.0f;
-	float Rsl = aspect_ratio;
-	float Fan = near_clip_plane;
-	float Fsn = far_clip_plane;
-	float Tab = 2.0f / (Fan - Fsn);
-	float Tsb = (Fan + Fsn) / (Fan - Fsn);
+	smat4 result;
+	s_mat4_identityp( &result );
 
-	smat4 result = { { 1 / Ral,   0,   0,    0,
-				   0, 1 / Rsl,   0,    0,
-				   0,   0, 1 / Tab, -Tsb / Tab,
-				   0,   0,   0,    1 } };
-	return(result);
+	result.m00 = 2.0f / ( right - left );
+	result.m11 = 2.0f / ( top - bottom );
+	result.m22 = - 2.0f / ( zfar - znear );
+	result.m30 = - ( right + left ) / ( right - left );
+	result.m31 = - ( top + bottom ) / ( top - bottom );
+	result.m32 = - ( zfar + znear ) / ( zfar -  znear );
+
+	return result;
 }
 
 #ifdef __cplusplus
