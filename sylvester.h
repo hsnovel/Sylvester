@@ -664,7 +664,7 @@ SYL_INLINE smat4 s_mat4_ortho_rh(float left, float right, float bottom, float to
 
 #endif
 
-smat4 _S_IDENT4X4 = { {
+const smat4 _S_IDENT4X4 = { {
 		1.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f, 0.0f,
 		0.0f, 0.0f, 1.0f, 0.0f,
@@ -674,17 +674,17 @@ smat4 _S_IDENT4X4 = { {
 svec2 _SVEC2_ZERO = { { 0.0f, 0.0f } };
 
 #if defined(SYL_ENABLE_SSE4)
-__m128 _S_XMM_ZERO = { 0.0f, 0.0f, 0.0f, 0.0f };
-__m128 _S_IDENT4x4R0 = { 1.0f, 0.0f, 0.0f, 0.0f };
-__m128 _S_IDENT4x4R1 = { 0.0f, 1.0f, 0.0f, 0.0f };
-__m128 _S_IDENT4x4R2 = { 0.0f, 0.0f, 1.0f, 0.0f };
-__m128 _S_IDENT4x4R3 = { 0.0f, 0.0f, 0.0f, 1.0f };
-__m128 _S_XMM_MASK_3 = { (float)0xFFFFFFFF, (float)0xFFFFFFFF, (float)0xFFFFFFFF, (float)0x00000000 };
-__m128 _S_XMM_MASK_Y = { 0x00000000, (float)0xFFFFFFFF, 0x00000000, 0x00000000 };
+const __m128 _S_XMM_ZERO = { 0.0f, 0.0f, 0.0f, 0.0f };
+const __m128 _S_IDENT4x4R0 = { 1.0f, 0.0f, 0.0f, 0.0f };
+const __m128 _S_IDENT4x4R1 = { 0.0f, 1.0f, 0.0f, 0.0f };
+const __m128 _S_IDENT4x4R2 = { 0.0f, 0.0f, 1.0f, 0.0f };
+const __m128 _S_IDENT4x4R3 = { 0.0f, 0.0f, 0.0f, 1.0f };
+const __m128 _S_XMM_MASK_3 = { (float)0xFFFFFFFF, (float)0xFFFFFFFF, (float)0xFFFFFFFF, (float)0x00000000 };
+const __m128 _S_XMM_MASK_Y = { 0x00000000, (float)0xFFFFFFFF, 0x00000000, 0x00000000 };
 #endif
 
 #if defined(SYL_ENABLE_AVX)
-__m256 _S_YMM_ZERO = { { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f } };
+const __m256 _S_YMM_ZERO = { { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f } };
 #endif
 
 /*********************************************
